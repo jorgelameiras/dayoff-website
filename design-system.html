@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CasaFresh — Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CASAFRESH DESIGN SYSTEM
+           Vacation House Cleaning & AC Maintenance
+           ============================================ */
+
+        :root {
+            /* —— COLOR PALETTE —— */
+
+            /* Primary - Deep Forest (trust, nature, cleanliness) */
+            --color-primary-900: #0A1F1A;
+            --color-primary-800: #132E26;
+            --color-primary-700: #1B3D32;
+            --color-primary-600: #234C3E;
+            --color-primary-500: #2C5B4A;
+            --color-primary-400: #4A7D6A;
+            --color-primary-300: #6B9F8C;
+            --color-primary-200: #9BC4B5;
+            --color-primary-100: #CBE3DA;
+            --color-primary-50:  #EAF4F0;
+
+            /* Accent - Fresh Lime (energy, freshness, clean) */
+            --color-accent-900: #1A3A0A;
+            --color-accent-800: #2D5A14;
+            --color-accent-700: #3F7A1E;
+            --color-accent-600: #4E9A25;
+            --color-accent-500: #63D866;
+            --color-accent-400: #7EE580;
+            --color-accent-300: #9AED9C;
+            --color-accent-200: #B8F4B9;
+            --color-accent-100: #D6FAD7;
+            --color-accent-50:  #EDFDED;
+
+            /* Warm Sand (vacation, warmth, comfort) */
+            --color-warm-900: #3D2E1A;
+            --color-warm-800: #5A4528;
+            --color-warm-700: #786038;
+            --color-warm-600: #967C4A;
+            --color-warm-500: #B49A60;
+            --color-warm-400: #C7B27E;
+            --color-warm-300: #D9CA9E;
+            --color-warm-200: #E8DDBF;
+            --color-warm-100: #F3EEDF;
+            --color-warm-50:  #FAF8F2;
+
+            /* Cool Blue (AC, freshness, air) */
+            --color-cool-900: #0A1A2E;
+            --color-cool-800: #142D4A;
+            --color-cool-700: #1E4066;
+            --color-cool-600: #285382;
+            --color-cool-500: #3A7BC8;
+            --color-cool-400: #5E96D6;
+            --color-cool-300: #82B1E4;
+            --color-cool-200: #A8CCF0;
+            --color-cool-100: #D0E5F8;
+            --color-cool-50:  #EBF3FC;
+
+            /* Neutrals */
+            --color-neutral-950: #0D0D0D;
+            --color-neutral-900: #1A1A1A;
+            --color-neutral-800: #2E2E2E;
+            --color-neutral-700: #424242;
+            --color-neutral-600: #5C5C5C;
+            --color-neutral-500: #787878;
+            --color-neutral-400: #9E9E9E;
+            --color-neutral-300: #C2C2C2;
+            --color-neutral-200: #E0E0E0;
+            --color-neutral-100: #F0F0F0;
+            --color-neutral-50:  #F8F8F8;
+            --color-white: #FFFFFF;
+
+            /* Semantic Colors */
+            --color-bg-primary: var(--color-primary-900);
+            --color-bg-secondary: var(--color-warm-50);
+            --color-bg-card: var(--color-white);
+            --color-text-primary: var(--color-white);
+            --color-text-dark: var(--color-neutral-900);
+            --color-text-muted: var(--color-neutral-500);
+            --color-text-accent: var(--color-accent-500);
+            --color-border: var(--color-neutral-200);
+
+            /* —— TYPOGRAPHY —— */
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* Type Scale */
+            --text-display-1: clamp(3.5rem, 8vw, 7rem);
+            --text-display-2: clamp(2.5rem, 5vw, 4.5rem);
+            --text-h1: clamp(2rem, 4vw, 3.5rem);
+            --text-h2: clamp(1.75rem, 3vw, 2.5rem);
+            --text-h3: clamp(1.25rem, 2vw, 1.75rem);
+            --text-h4: 1.25rem;
+            --text-body-lg: 1.125rem;
+            --text-body: 1rem;
+            --text-body-sm: 0.875rem;
+            --text-caption: 0.75rem;
+            --text-overline: 0.6875rem;
+
+            /* Line Heights */
+            --leading-tight: 1.1;
+            --leading-snug: 1.25;
+            --leading-normal: 1.5;
+            --leading-relaxed: 1.75;
+
+            /* Letter Spacing */
+            --tracking-tight: -0.02em;
+            --tracking-normal: 0;
+            --tracking-wide: 0.05em;
+            --tracking-wider: 0.1em;
+
+            /* —— SPACING —— */
+            --space-1: 0.25rem;   /* 4px */
+            --space-2: 0.5rem;    /* 8px */
+            --space-3: 0.75rem;   /* 12px */
+            --space-4: 1rem;      /* 16px */
+            --space-5: 1.25rem;   /* 20px */
+            --space-6: 1.5rem;    /* 24px */
+            --space-8: 2rem;      /* 32px */
+            --space-10: 2.5rem;   /* 40px */
+            --space-12: 3rem;     /* 48px */
+            --space-16: 4rem;     /* 64px */
+            --space-20: 5rem;     /* 80px */
+            --space-24: 6rem;     /* 96px */
+            --space-32: 8rem;     /* 128px */
+            --space-40: 10rem;    /* 160px */
+
+            /* —— BORDERS & RADIUS —— */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
+            --radius-full: 9999px;
+
+            /* —— SHADOWS —— */
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-glow: 0 0 40px rgba(99, 216, 102, 0.2);
+
+            /* —— TRANSITIONS —— */
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+            --duration-fast: 150ms;
+            --duration-normal: 300ms;
+            --duration-slow: 500ms;
+            --duration-slower: 800ms;
+
+            /* —— LAYOUT —— */
+            --max-width: 1280px;
+            --max-width-narrow: 800px;
+            --nav-height: 80px;
+        }
+
+        /* ============================================
+           BASE RESET & STYLES
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            line-height: var(--leading-normal);
+            color: var(--color-neutral-900);
+            background: var(--color-white);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--color-neutral-300); border-radius: var(--radius-full); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-neutral-500); }
+
+        /* ============================================
+           DESIGN SYSTEM SHOWCASE STYLES
+           ============================================ */
+
+        .ds-page {
+            background: var(--color-neutral-50);
+            min-height: 100vh;
+        }
+
+        .ds-header {
+            background: var(--color-primary-900);
+            color: var(--color-white);
+            padding: var(--space-24) var(--space-8);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ds-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,216,102,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .ds-header h1 {
+            font-family: var(--font-display);
+            font-size: var(--text-display-2);
+            line-height: var(--leading-tight);
+            margin-bottom: var(--space-4);
+        }
+
+        .ds-header p {
+            font-size: var(--text-body-lg);
+            color: var(--color-primary-300);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .ds-header .brand-pill {
+            display: inline-block;
+            background: rgba(99,216,102,0.15);
+            color: var(--color-accent-500);
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            letter-spacing: var(--tracking-wider);
+            text-transform: uppercase;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--space-6);
+            border: 1px solid rgba(99,216,102,0.2);
+        }
+
+        .ds-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--space-16) var(--space-8);
+        }
+
+        .ds-section {
+            margin-bottom: var(--space-20);
+        }
+
+        .ds-section-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            color: var(--color-primary-800);
+            margin-bottom: var(--space-2);
+        }
+
+        .ds-section-subtitle {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            color: var(--color-neutral-500);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            margin-bottom: var(--space-8);
+        }
+
+        .ds-divider {
+            border: none;
+            border-top: 1px solid var(--color-neutral-200);
+            margin: var(--space-12) 0;
+        }
+
+        /* —— Color Swatches —— */
+        .color-group {
+            margin-bottom: var(--space-10);
+        }
+
+        .color-group-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-body-sm);
+            font-weight: 500;
+            color: var(--color-neutral-700);
+            margin-bottom: var(--space-4);
+        }
+
+        .color-row {
+            display: flex;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            width: 80px;
+            text-align: center;
+            transition: transform var(--duration-normal) var(--ease-out);
+        }
+
+        .color-swatch:hover {
+            transform: translateY(-4px);
+        }
+
+        .color-swatch-block {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-2);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .color-swatch-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--color-neutral-600);
+        }
+
+        .color-swatch-hex {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--color-neutral-400);
+        }
+
+        /* —— Typography Specimens —— */
+        .type-specimen {
+            padding: var(--space-8) 0;
+            border-bottom: 1px solid var(--color-neutral-100);
+        }
+
+        .type-specimen-meta {
+            display: flex;
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+            flex-wrap: wrap;
+        }
+
+        .type-meta-tag {
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-neutral-500);
+            background: var(--color-neutral-100);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+        }
+
+        .type-display-1 {
+            font-family: var(--font-display);
+            font-size: var(--text-display-1);
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+            color: var(--color-primary-900);
+        }
+
+        .type-display-2 {
+            font-family: var(--font-display);
+            font-size: var(--text-display-2);
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+            color: var(--color-primary-900);
+        }
+
+        .type-h1 {
+            font-family: var(--font-display);
+            font-size: var(--text-h1);
+            line-height: var(--leading-tight);
+            color: var(--color-primary-900);
+        }
+
+        .type-h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            line-height: var(--leading-snug);
+            color: var(--color-primary-900);
+        }
+
+        .type-h3 {
+            font-family: var(--font-body);
+            font-size: var(--text-h3);
+            font-weight: 600;
+            line-height: var(--leading-snug);
+            color: var(--color-neutral-800);
+        }
+
+        .type-body-lg {
+            font-family: var(--font-body);
+            font-size: var(--text-body-lg);
+            line-height: var(--leading-relaxed);
+            color: var(--color-neutral-700);
+        }
+
+        .type-body {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            line-height: var(--leading-normal);
+            color: var(--color-neutral-600);
+        }
+
+        .type-overline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-accent-600);
+            font-weight: 500;
+        }
+
+        /* —— Buttons —— */
+        .btn-row {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: var(--text-body-sm);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-full);
+            border: none;
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-out);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--color-accent-500);
+            color: var(--color-primary-900);
+            box-shadow: 0 2px 8px rgba(99,216,102,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .btn-primary:hover {
+            background: var(--color-accent-400);
+            box-shadow: 0 4px 16px rgba(99,216,102,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary-800);
+            border: 1.5px solid var(--color-primary-300);
+        }
+        .btn-secondary:hover {
+            background: var(--color-primary-50);
+            border-color: var(--color-primary-500);
+        }
+
+        .btn-dark {
+            background: var(--color-primary-900);
+            color: var(--color-white);
+        }
+        .btn-dark:hover {
+            background: var(--color-primary-800);
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--color-neutral-700);
+            padding: var(--space-2) var(--space-4);
+        }
+        .btn-ghost:hover {
+            color: var(--color-primary-700);
+            background: var(--color-primary-50);
+        }
+
+        .btn-lg {
+            font-size: var(--text-body);
+            padding: var(--space-4) var(--space-8);
+        }
+
+        .btn-sm {
+            font-size: var(--text-caption);
+            padding: var(--space-2) var(--space-4);
+        }
+
+        .btn-icon {
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            border-radius: 50%;
+            font-size: 1.25rem;
+        }
+
+        /* —— Cards —— */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-neutral-100);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-image-placeholder {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .card-body {
+            padding: var(--space-6);
+        }
+
+        .card-overline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-accent-600);
+            font-weight: 500;
+            margin-bottom: var(--space-2);
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-3);
+        }
+
+        .card-text {
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+        }
+
+        .card-dark {
+            background: var(--color-primary-900);
+            border-color: var(--color-primary-700);
+        }
+
+        .card-dark .card-title { color: var(--color-white); }
+        .card-dark .card-text { color: var(--color-primary-300); }
+        .card-dark .card-overline { color: var(--color-accent-400); }
+
+        /* —— Service Card (Special) —— */
+        .service-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            border: 1px solid var(--color-neutral-100);
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent-500), var(--color-cool-400));
+            opacity: 0;
+            transition: opacity var(--duration-normal) var(--ease-out);
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-5);
+        }
+
+        .service-icon-clean {
+            background: var(--color-accent-50);
+            color: var(--color-accent-600);
+        }
+
+        .service-icon-ac {
+            background: var(--color-cool-50);
+            color: var(--color-cool-600);
+        }
+
+        .service-icon-premium {
+            background: var(--color-warm-100);
+            color: var(--color-warm-600);
+        }
+
+        /* —— Pricing Card —— */
+        .pricing-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            border: 1px solid var(--color-neutral-100);
+            text-align: center;
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .pricing-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured {
+            background: var(--color-primary-900);
+            color: var(--color-white);
+            border-color: var(--color-primary-700);
+            transform: scale(1.02);
+        }
+
+        .pricing-amount {
+            font-family: var(--font-display);
+            font-size: var(--text-display-2);
+            line-height: 1;
+            margin: var(--space-4) 0;
+        }
+
+        .pricing-period {
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-neutral-500);
+        }
+
+        .pricing-card.featured .pricing-period {
+            color: var(--color-primary-300);
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: var(--space-6) 0;
+        }
+
+        .pricing-features li {
+            padding: var(--space-2) 0;
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-600);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .pricing-card.featured .pricing-features li {
+            color: var(--color-primary-200);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--color-accent-500);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* —— Nav Component —— */
+        .nav-demo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-4) var(--space-6);
+            background: var(--color-primary-900);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--space-6);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-white);
+        }
+
+        .nav-logo span {
+            color: var(--color-accent-500);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-6);
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            font-weight: 500;
+            color: var(--color-primary-300);
+            text-decoration: none;
+            transition: color var(--duration-fast);
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--color-white);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--color-accent-500);
+            border-radius: var(--radius-full);
+        }
+
+        /* —— Badge / Pill —— */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+        }
+
+        .badge-green {
+            background: var(--color-accent-50);
+            color: var(--color-accent-700);
+        }
+
+        .badge-blue {
+            background: var(--color-cool-50);
+            color: var(--color-cool-700);
+        }
+
+        .badge-warm {
+            background: var(--color-warm-100);
+            color: var(--color-warm-700);
+        }
+
+        .badge-dark {
+            background: var(--color-primary-800);
+            color: var(--color-accent-400);
+        }
+
+        /* —— Testimonial —— */
+        .testimonial {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            border: 1px solid var(--color-neutral-100);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            font-style: italic;
+            color: var(--color-primary-800);
+            line-height: var(--leading-snug);
+            margin-bottom: var(--space-6);
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: var(--color-accent-300);
+            position: absolute;
+            top: var(--space-4);
+            left: var(--space-6);
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--color-primary-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--color-primary-700);
+            font-size: var(--text-body-sm);
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-900);
+        }
+
+        .testimonial-role {
+            font-size: var(--text-caption);
+            color: var(--color-neutral-500);
+        }
+
+        /* —— Stats —— */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: var(--text-h1);
+            color: var(--color-accent-500);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-neutral-500);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+            margin-top: var(--space-2);
+        }
+
+        /* —— Spacing Demo —— */
+        .spacing-demo {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .spacing-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .spacing-bar {
+            height: 24px;
+            background: linear-gradient(90deg, var(--color-accent-200), var(--color-accent-400));
+            border-radius: var(--radius-sm);
+            transition: width var(--duration-slow) var(--ease-out);
+        }
+
+        .spacing-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-neutral-600);
+            min-width: 120px;
+        }
+
+        /* —— Radius Demo —— */
+        .radius-demo {
+            display: flex;
+            gap: var(--space-6);
+            flex-wrap: wrap;
+        }
+
+        .radius-item {
+            text-align: center;
+        }
+
+        .radius-box {
+            width: 80px;
+            height: 80px;
+            background: var(--color-primary-100);
+            border: 2px solid var(--color-primary-300);
+            margin-bottom: var(--space-2);
+        }
+
+        .radius-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--color-neutral-500);
+        }
+
+        /* —— Shadow Demo —— */
+        .shadow-demo {
+            display: flex;
+            gap: var(--space-6);
+            flex-wrap: wrap;
+        }
+
+        .shadow-item {
+            text-align: center;
+        }
+
+        .shadow-box {
+            width: 120px;
+            height: 80px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-2);
+            transition: box-shadow var(--duration-normal) var(--ease-out);
+        }
+
+        .shadow-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--color-neutral-500);
+        }
+
+        /* —— Marquee —— */
+        .marquee-wrapper {
+            overflow: hidden;
+            background: var(--color-primary-900);
+            padding: var(--space-5) 0;
+            border-radius: var(--radius-xl);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-item {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            color: var(--color-primary-700);
+            white-space: nowrap;
+            padding: 0 var(--space-8);
+        }
+
+        .marquee-item .highlight {
+            color: var(--color-accent-500);
+        }
+
+        .marquee-divider {
+            color: var(--color-accent-500);
+            padding: 0 var(--space-4);
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* —— Form Elements —— */
+        .form-group {
+            margin-bottom: var(--space-5);
+        }
+
+        .form-label {
+            display: block;
+            font-size: var(--text-body-sm);
+            font-weight: 500;
+            color: var(--color-neutral-800);
+            margin-bottom: var(--space-2);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            border: 1.5px solid var(--color-neutral-200);
+            border-radius: var(--radius-md);
+            background: var(--color-white);
+            color: var(--color-neutral-900);
+            transition: all var(--duration-fast);
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--color-accent-500);
+            box-shadow: 0 0 0 3px rgba(99,216,102,0.15);
+        }
+
+        .form-input::placeholder {
+            color: var(--color-neutral-400);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+        }
+
+        /* —— Footer Marquee (like reference) —— */
+        .footer-section {
+            background: var(--color-primary-900);
+            border-radius: var(--radius-xl);
+            padding: var(--space-12) var(--space-8);
+            text-align: center;
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-section::before {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,216,102,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* —— Interactive Toggle (dark mode preview) —— */
+        .theme-toggle-group {
+            display: flex;
+            gap: var(--space-4);
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+
+        .theme-btn {
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            border: 1.5px solid var(--color-neutral-200);
+            background: transparent;
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            cursor: pointer;
+            transition: all var(--duration-fast);
+        }
+
+        .theme-btn.active {
+            background: var(--color-primary-900);
+            color: var(--color-white);
+            border-color: var(--color-primary-900);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ds-container { padding: var(--space-8) var(--space-4); }
+            .color-swatch-block { width: 60px; height: 60px; }
+            .color-swatch { width: 60px; }
+            .card-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ds-page">
+
+        <!-- Header -->
+        <header class="ds-header">
+            <div class="brand-pill">Design System v1.0</div>
+            <h1>Casa<span style="color: var(--color-accent-500)">Fresh</span></h1>
+            <p>Design system for vacation house cleaning & AC maintenance. Built for trust, freshness, and warmth.</p>
+        </header>
+
+        <div class="ds-container">
+
+            <!-- ==================== COLORS ==================== -->
+            <section class="ds-section">
+                <p class="ds-section-subtitle">01 — Foundation</p>
+                <h2 class="ds-section-title">Color Palette</h2>
+                <hr class="ds-divider">
+
+                <!-- Primary -->
+                <div class="color-group">
+                    <p class="color-group-label">Primary — Deep Forest</p>
+                    <div class="color-row">
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-primary-900)"></div>
+                            <div class="color-swatch-label">900</div>
+                            <div class="color-swatch-hex">#0A1F1A</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-primary-700)"></div>
+                            <div class="color-swatch-label">700</div>
+                            <div class="color-swatch-hex">#1B3D32</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-primary-500)"></div>
+                            <div class="color-swatch-label">500</div>
+                            <div class="color-swatch-hex">#2C5B4A</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-primary-300)"></div>
+                            <div class="color-swatch-label">300</div>
+                            <div class="color-swatch-hex">#6B9F8C</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-primary-100)"></div>
+                            <div class="color-swatch-label">100</div>
+                            <div class="color-swatch-hex">#CBE3DA</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-primary-50)"></div>
+                            <div class="color-swatch-label">50</div>
+                            <div class="color-swatch-hex">#EAF4F0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accent -->
+                <div class="color-group">
+                    <p class="color-group-label">Accent — Fresh Lime</p>
+                    <div class="color-row">
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-accent-900)"></div>
+                            <div class="color-swatch-label">900</div>
+                            <div class="color-swatch-hex">#1A3A0A</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-accent-700)"></div>
+                            <div class="color-swatch-label">700</div>
+                            <div class="color-swatch-hex">#3F7A1E</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-accent-500)"></div>
+                            <div class="color-swatch-label">500</div>
+                            <div class="color-swatch-hex">#63D866</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-accent-300)"></div>
+                            <div class="color-swatch-label">300</div>
+                            <div class="color-swatch-hex">#9AED9C</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-accent-100)"></div>
+                            <div class="color-swatch-label">100</div>
+                            <div class="color-swatch-hex">#D6FAD7</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-accent-50)"></div>
+                            <div class="color-swatch-label">50</div>
+                            <div class="color-swatch-hex">#EDFDED</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Warm Sand -->
+                <div class="color-group">
+                    <p class="color-group-label">Warm Sand — Vacation Warmth</p>
+                    <div class="color-row">
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-warm-800)"></div>
+                            <div class="color-swatch-label">800</div>
+                            <div class="color-swatch-hex">#5A4528</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-warm-500)"></div>
+                            <div class="color-swatch-label">500</div>
+                            <div class="color-swatch-hex">#B49A60</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-warm-300)"></div>
+                            <div class="color-swatch-label">300</div>
+                            <div class="color-swatch-hex">#D9CA9E</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-warm-100)"></div>
+                            <div class="color-swatch-label">100</div>
+                            <div class="color-swatch-hex">#F3EEDF</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-warm-50)"></div>
+                            <div class="color-swatch-label">50</div>
+                            <div class="color-swatch-hex">#FAF8F2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cool Blue -->
+                <div class="color-group">
+                    <p class="color-group-label">Cool Blue — AC & Freshness</p>
+                    <div class="color-row">
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-cool-800)"></div>
+                            <div class="color-swatch-label">800</div>
+                            <div class="color-swatch-hex">#142D4A</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-cool-500)"></div>
+                            <div class="color-swatch-label">500</div>
+                            <div class="color-swatch-hex">#3A7BC8</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-cool-300)"></div>
+                            <div class="color-swatch-label">300</div>
+                            <div class="color-swatch-hex">#82B1E4</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-cool-100)"></div>
+                            <div class="color-swatch-label">100</div>
+                            <div class="color-swatch-hex">#D0E5F8</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-cool-50)"></div>
+                            <div class="color-swatch-label">50</div>
+                            <div class="color-swatch-hex">#EBF3FC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neutrals -->
+                <div class="color-group">
+                    <p class="color-group-label">Neutrals</p>
+                    <div class="color-row">
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-neutral-950)"></div>
+                            <div class="color-swatch-label">950</div>
+                            <div class="color-swatch-hex">#0D0D0D</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-neutral-800)"></div>
+                            <div class="color-swatch-label">800</div>
+                            <div class="color-swatch-hex">#2E2E2E</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-neutral-600)"></div>
+                            <div class="color-swatch-label">600</div>
+                            <div class="color-swatch-hex">#5C5C5C</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-neutral-400)"></div>
+                            <div class="color-swatch-label">400</div>
+                            <div class="color-swatch-hex">#9E9E9E</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-neutral-200)"></div>
+                            <div class="color-swatch-label">200</div>
+                            <div class="color-swatch-hex">#E0E0E0</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-block" style="background: var(--color-neutral-50)"></div>
+                            <div class="color-swatch-label">50</div>
+                            <div class="color-swatch-hex">#F8F8F8</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== TYPOGRAPHY ==================== -->
+            <section class="ds-section">
+                <p class="ds-section-subtitle">02 — Typography</p>
+                <h2 class="ds-section-title">Type Scale</h2>
+                <hr class="ds-divider">
+
+                <div class="type-specimen">
+                    <div class="type-specimen-meta">
+                        <span class="type-meta-tag">DM Serif Display</span>
+                        <span class="type-meta-tag">clamp(3.5rem, 8vw, 7rem)</span>
+                        <span class="type-meta-tag">Display 1</span>
+                    </div>
+                    <div class="type-display-1">CasaFresh</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="type-specimen-meta">
+                        <span class="type-meta-tag">DM Serif Display</span>
+                        <span class="type-meta-tag">clamp(2.5rem, 5vw, 4.5rem)</span>
+                        <span class="type-meta-tag">Display 2</span>
+                    </div>
+                    <div class="type-display-2">Your vacation home, always fresh</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="type-specimen-meta">
+                        <span class="type-meta-tag">DM Serif Display</span>
+                        <span class="type-meta-tag">H1</span>
+                    </div>
+                    <div class="type-h1">Premium cleaning services</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="type-specimen-meta">
+                        <span class="type-meta-tag">DM Serif Display</span>
+                        <span class="type-meta-tag">H2</span>
+                    </div>
+                    <div class="type-h2">AC maintenance you can trust</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="type-specimen-meta">
+                        <span class="type-meta-tag">Inter · 600</span>
+                        <span class="type-meta-tag">H3</span>
+                    </div>
+                    <div class="type-h3">Why vacation homeowners choose us</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="type-specimen-meta">
+                        <span class="type-meta-tag">Inter · 400</span>
+                        <span class="type-meta-tag">Body Large</span>
+                    </div>
+                    <div class="type-body-lg">We handle the deep cleaning and AC maintenance so your guests always arrive to a spotless, perfectly cooled home.</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="type-specimen-meta">
+                        <span class="type-meta-tag">Inter · 400</span>
+                        <span class="type-meta-tag">Body</span>
+                    </div>
+                    <div class="type-body">Our team specializes in vacation rental turnover cleaning, scheduled AC servicing, and emergency maintenance. Available year-round for property managers and homeowners.</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="type-specimen-meta">
+                        <span class="type-meta-tag">JetBrains Mono · 500</span>
+                        <span class="type-meta-tag">Overline</span>
+                    </div>
+                    <div class="type-overline">Our Services</div>
+                </div>
+            </section>
+
+            <!-- ==================== BUTTONS ==================== -->
+            <section class="ds-section">
+                <p class="ds-section-subtitle">03 — Components</p>
+                <h2 class="ds-section-title">Buttons</h2>
+                <hr class="ds-divider">
+
+                <div class="btn-row">
+                    <button class="btn btn-primary btn-lg">Book a Cleaning</button>
+                    <button class="btn btn-primary">Get Started</button>
+                    <button class="btn btn-primary btn-sm">Learn More</button>
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn btn-secondary btn-lg">View Services</button>
+                    <button class="btn btn-secondary">Our Process</button>
+                    <button class="btn btn-secondary btn-sm">Details</button>
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn btn-dark btn-lg">Contact Us</button>
+                    <button class="btn btn-dark">Schedule Now</button>
+                    <button class="btn btn-ghost">See Pricing →</button>
+                </div>
+            </section>
+
+            <!-- ==================== BADGES ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Badges & Pills</h2>
+                <hr class="ds-divider">
+                <div class="btn-row">
+                    <span class="badge badge-green">✓ Eco-Friendly</span>
+                    <span class="badge badge-blue">❄ AC Service</span>
+                    <span class="badge badge-warm">★ Premium</span>
+                    <span class="badge badge-dark">New</span>
+                </div>
+            </section>
+
+            <!-- ==================== NAVIGATION ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Navigation</h2>
+                <hr class="ds-divider">
+
+                <nav class="nav-demo">
+                    <div class="nav-logo">Casa<span>Fresh</span></div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                    <button class="btn btn-primary btn-sm">Book Now</button>
+                </nav>
+            </section>
+
+            <!-- ==================== SERVICE CARDS ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Service Cards</h2>
+                <hr class="ds-divider">
+
+                <div class="card-grid">
+                    <div class="service-card">
+                        <div class="service-icon service-icon-clean">🧹</div>
+                        <div class="card-overline">Cleaning</div>
+                        <div class="card-title">Deep Clean</div>
+                        <p class="card-text">Full property deep cleaning between guest stays. Every surface scrubbed, every corner spotless.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon service-icon-ac">❄️</div>
+                        <div class="card-overline">Maintenance</div>
+                        <div class="card-title">AC Service</div>
+                        <p class="card-text">Scheduled AC maintenance, filter replacement, and emergency repairs. Keep guests cool year-round.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon service-icon-premium">✨</div>
+                        <div class="card-overline">Premium</div>
+                        <div class="card-title">Full Package</div>
+                        <p class="card-text">Complete property care including cleaning, AC, restocking supplies, and quality inspection.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== CONTENT CARDS ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Content Cards</h2>
+                <hr class="ds-divider">
+
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-image-placeholder" style="background: linear-gradient(135deg, var(--color-primary-100), var(--color-accent-100))">🏠</div>
+                        <div class="card-body">
+                            <div class="card-overline">Case Study</div>
+                            <div class="card-title">Beachfront Villa</div>
+                            <p class="card-text">How we maintain 15 vacation properties for a single owner — with zero guest complaints.</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-dark">
+                        <div class="card-image-placeholder" style="background: linear-gradient(135deg, var(--color-primary-800), var(--color-primary-700))">🌴</div>
+                        <div class="card-body">
+                            <div class="card-overline">Featured</div>
+                            <div class="card-title">Tropical Retreat</div>
+                            <p class="card-text">Year-round AC maintenance in humid climates — keeping properties fresh and mold-free.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image-placeholder" style="background: linear-gradient(135deg, var(--color-warm-100), var(--color-warm-200))">🏔</div>
+                        <div class="card-body">
+                            <div class="card-overline">Seasonal</div>
+                            <div class="card-title">Mountain Cabin</div>
+                            <p class="card-text">Pre-season deep cleaning and HVAC prep for ski season rental properties.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== TESTIMONIAL ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Testimonial</h2>
+                <hr class="ds-divider">
+
+                <div class="testimonial">
+                    <p class="testimonial-quote" style="padding-top: var(--space-6);">CasaFresh transformed our rental operation. Guests consistently rate cleanliness 5 stars, and the AC has never been an issue.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MR</div>
+                        <div>
+                            <div class="testimonial-name">Maria Rodriguez</div>
+                            <div class="testimonial-role">Property Manager, 12 vacation homes</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== STATS ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Stats Row</h2>
+                <hr class="ds-divider">
+
+                <div class="stats-row" style="background: var(--color-primary-900); padding: var(--space-10); border-radius: var(--radius-xl);">
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label" style="color: var(--color-primary-400);">Properties Served</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9</div>
+                        <div class="stat-label" style="color: var(--color-primary-400);">Star Rating</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label" style="color: var(--color-primary-400);">Response Time</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label" style="color: var(--color-primary-400);">Client Retention</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== PRICING CARDS ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Pricing Cards</h2>
+                <hr class="ds-divider">
+
+                <div class="card-grid">
+                    <div class="pricing-card">
+                        <div class="type-overline">Essential</div>
+                        <div class="pricing-amount" style="color: var(--color-primary-900)">$89</div>
+                        <div class="pricing-period">/per clean</div>
+                        <ul class="pricing-features">
+                            <li>Standard turnover clean</li>
+                            <li>Kitchen & bathroom deep clean</li>
+                            <li>Linen change & bed making</li>
+                            <li>Trash removal</li>
+                        </ul>
+                        <button class="btn btn-secondary" style="width: 100%;">Get Started</button>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <span class="badge badge-dark" style="margin-bottom: var(--space-4);">Most Popular</span>
+                        <div class="type-overline" style="color: var(--color-accent-400);">Complete</div>
+                        <div class="pricing-amount" style="color: var(--color-accent-400)">$149</div>
+                        <div class="pricing-period">/per visit</div>
+                        <ul class="pricing-features">
+                            <li>Everything in Essential</li>
+                            <li>AC filter check & clean</li>
+                            <li>Supply restocking</li>
+                            <li>Property inspection report</li>
+                            <li>Priority scheduling</li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%;">Book Now</button>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="type-overline">Premium</div>
+                        <div class="pricing-amount" style="color: var(--color-primary-900)">$249</div>
+                        <div class="pricing-period">/per month</div>
+                        <ul class="pricing-features">
+                            <li>Unlimited turnovers</li>
+                            <li>Quarterly AC maintenance</li>
+                            <li>Emergency call-outs</li>
+                            <li>Dedicated account manager</li>
+                            <li>Guest review follow-up</li>
+                        </ul>
+                        <button class="btn btn-secondary" style="width: 100%;">Contact Us</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== FORMS ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Form Elements</h2>
+                <hr class="ds-divider">
+
+                <div style="max-width: 500px;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input class="form-input" type="text" placeholder="Maria">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input class="form-input" type="text" placeholder="Rodriguez">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input class="form-input" type="email" placeholder="maria@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Property Address</label>
+                        <input class="form-input" type="text" placeholder="123 Beach Blvd, Miami FL">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-input form-textarea" placeholder="Tell us about your property and what services you need..."></textarea>
+                    </div>
+                    <button class="btn btn-primary">Send Message</button>
+                </div>
+            </section>
+
+            <!-- ==================== SPACING ==================== -->
+            <section class="ds-section">
+                <p class="ds-section-subtitle">04 — Layout</p>
+                <h2 class="ds-section-title">Spacing Scale</h2>
+                <hr class="ds-divider">
+
+                <div class="spacing-demo">
+                    <div class="spacing-item">
+                        <span class="spacing-label">--space-1 (4px)</span>
+                        <div class="spacing-bar" style="width: 4px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <span class="spacing-label">--space-2 (8px)</span>
+                        <div class="spacing-bar" style="width: 8px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <span class="spacing-label">--space-4 (16px)</span>
+                        <div class="spacing-bar" style="width: 16px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <span class="spacing-label">--space-8 (32px)</span>
+                        <div class="spacing-bar" style="width: 32px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <span class="spacing-label">--space-12 (48px)</span>
+                        <div class="spacing-bar" style="width: 48px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <span class="spacing-label">--space-16 (64px)</span>
+                        <div class="spacing-bar" style="width: 64px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <span class="spacing-label">--space-24 (96px)</span>
+                        <div class="spacing-bar" style="width: 96px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <span class="spacing-label">--space-32 (128px)</span>
+                        <div class="spacing-bar" style="width: 128px;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== BORDER RADIUS ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Border Radius</h2>
+                <hr class="ds-divider">
+
+                <div class="radius-demo">
+                    <div class="radius-item">
+                        <div class="radius-box" style="border-radius: var(--radius-sm);"></div>
+                        <div class="radius-label">sm (6px)</div>
+                    </div>
+                    <div class="radius-item">
+                        <div class="radius-box" style="border-radius: var(--radius-md);"></div>
+                        <div class="radius-label">md (12px)</div>
+                    </div>
+                    <div class="radius-item">
+                        <div class="radius-box" style="border-radius: var(--radius-lg);"></div>
+                        <div class="radius-label">lg (16px)</div>
+                    </div>
+                    <div class="radius-item">
+                        <div class="radius-box" style="border-radius: var(--radius-xl);"></div>
+                        <div class="radius-label">xl (24px)</div>
+                    </div>
+                    <div class="radius-item">
+                        <div class="radius-box" style="border-radius: var(--radius-2xl);"></div>
+                        <div class="radius-label">2xl (32px)</div>
+                    </div>
+                    <div class="radius-item">
+                        <div class="radius-box" style="border-radius: var(--radius-full);"></div>
+                        <div class="radius-label">full</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SHADOWS ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Shadows</h2>
+                <hr class="ds-divider">
+
+                <div class="shadow-demo">
+                    <div class="shadow-item">
+                        <div class="shadow-box" style="box-shadow: var(--shadow-sm);"></div>
+                        <div class="shadow-label">sm</div>
+                    </div>
+                    <div class="shadow-item">
+                        <div class="shadow-box" style="box-shadow: var(--shadow-md);"></div>
+                        <div class="shadow-label">md</div>
+                    </div>
+                    <div class="shadow-item">
+                        <div class="shadow-box" style="box-shadow: var(--shadow-lg);"></div>
+                        <div class="shadow-label">lg</div>
+                    </div>
+                    <div class="shadow-item">
+                        <div class="shadow-box" style="box-shadow: var(--shadow-xl);"></div>
+                        <div class="shadow-label">xl</div>
+                    </div>
+                    <div class="shadow-item">
+                        <div class="shadow-box" style="box-shadow: var(--shadow-glow);"></div>
+                        <div class="shadow-label">glow</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== MARQUEE ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">Footer Marquee</h2>
+                <hr class="ds-divider">
+
+                <div class="marquee-wrapper">
+                    <div class="marquee-track">
+                        <span class="marquee-item">Fresh homes <span class="highlight">•</span> Happy guests</span>
+                        <span class="marquee-item">Clean spaces <span class="highlight">•</span> Cool air</span>
+                        <span class="marquee-item">Book today <span class="highlight">•</span> Relax tomorrow</span>
+                        <span class="marquee-item">Fresh homes <span class="highlight">•</span> Happy guests</span>
+                        <span class="marquee-item">Clean spaces <span class="highlight">•</span> Cool air</span>
+                        <span class="marquee-item">Book today <span class="highlight">•</span> Relax tomorrow</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== CTA / Footer ==================== -->
+            <section class="ds-section">
+                <h2 class="ds-section-title">CTA Section</h2>
+                <hr class="ds-divider">
+
+                <div class="footer-section">
+                    <div class="type-overline" style="color: var(--color-accent-400); margin-bottom: var(--space-4);">Ready to get started?</div>
+                    <h2 style="font-family: var(--font-display); font-size: var(--text-display-2); margin-bottom: var(--space-4); position: relative;">Let's make your property <span style="color: var(--color-accent-500);">shine</span></h2>
+                    <p style="color: var(--color-primary-300); max-width: 500px; margin: 0 auto var(--space-8); position: relative;">Book your first cleaning or AC service today. No contracts, no hassle — just fresh, cool vacation homes.</p>
+                    <div style="display: flex; gap: var(--space-4); justify-content: center; position: relative;">
+                        <button class="btn btn-primary btn-lg">Book a Cleaning</button>
+                        <button class="btn btn-ghost" style="color: var(--color-primary-300);">Contact Us →</button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>

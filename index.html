@@ -1,0 +1,2800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CasaFresh — Vacation Home Cleaning & AC Maintenance | Central Florida</title>
+    <meta name="description" content="Professional vacation home cleaning and AC maintenance in Central Florida. Serving Orlando, Kissimmee, Daytona Beach & Tampa. Fresh homes, happy guests.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CasaFresh — Vacation Home Cleaning &amp; AC Maintenance | Central Florida">
+    <meta property="og:description" content="Professional vacation home cleaning and AC maintenance in Central Florida. Fresh homes, happy guests.">
+    <meta property="og:url" content="https://casafresh.com">
+    <meta name="theme-color" content="#0A1F1A">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CASAFRESH — Production Website
+           Vacation Home Cleaning & AC Maintenance
+           ============================================ */
+
+        :root {
+            --color-primary-900: #0A1F1A;
+            --color-primary-800: #132E26;
+            --color-primary-700: #1B3D32;
+            --color-primary-600: #234C3E;
+            --color-primary-500: #2C5B4A;
+            --color-primary-400: #4A7D6A;
+            --color-primary-300: #6B9F8C;
+            --color-primary-200: #9BC4B5;
+            --color-primary-100: #CBE3DA;
+            --color-primary-50:  #EAF4F0;
+            --color-accent-500: #63D866;
+            --color-accent-400: #7EE580;
+            --color-accent-300: #9AED9C;
+            --color-accent-200: #B8F4B9;
+            --color-accent-100: #D6FAD7;
+            --color-accent-50:  #EDFDED;
+            --color-accent-600: #4E9A25;
+            --color-accent-700: #3F7A1E;
+            --color-warm-50:  #FAF8F2;
+            --color-warm-100: #F3EEDF;
+            --color-warm-200: #E8DDBF;
+            --color-warm-300: #D9CA9E;
+            --color-warm-500: #B49A60;
+            --color-warm-600: #967C4A;
+            --color-warm-700: #786038;
+            --color-cool-50:  #EBF3FC;
+            --color-cool-100: #D0E5F8;
+            --color-cool-300: #82B1E4;
+            --color-cool-400: #5E96D6;
+            --color-cool-500: #3A7BC8;
+            --color-cool-600: #285382;
+            --color-cool-700: #1E4066;
+            --color-neutral-950: #0D0D0D;
+            --color-neutral-900: #1A1A1A;
+            --color-neutral-800: #2E2E2E;
+            --color-neutral-700: #424242;
+            --color-neutral-600: #5C5C5C;
+            --color-neutral-500: #787878;
+            --color-neutral-400: #9E9E9E;
+            --color-neutral-300: #C2C2C2;
+            --color-neutral-200: #E0E0E0;
+            --color-neutral-100: #F0F0F0;
+            --color-neutral-50:  #F8F8F8;
+            --color-white: #FFFFFF;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --text-display-1: clamp(3.5rem, 8vw, 7rem);
+            --text-display-2: clamp(2.5rem, 5vw, 4.5rem);
+            --text-h1: clamp(2rem, 4vw, 3.5rem);
+            --text-h2: clamp(1.75rem, 3vw, 2.5rem);
+            --text-h3: clamp(1.25rem, 2vw, 1.75rem);
+            --text-h4: 1.25rem;
+            --text-body-lg: 1.125rem;
+            --text-body: 1rem;
+            --text-body-sm: 0.875rem;
+            --text-caption: 0.75rem;
+            --text-overline: 0.6875rem;
+            --leading-tight: 1.1;
+            --leading-snug: 1.25;
+            --leading-normal: 1.5;
+            --leading-relaxed: 1.75;
+            --tracking-tight: -0.02em;
+            --tracking-normal: 0;
+            --tracking-wide: 0.05em;
+            --tracking-wider: 0.1em;
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+            --space-32: 8rem;
+            --space-40: 10rem;
+            --radius-sm: 0.375rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
+            --radius-full: 9999px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-glow: 0 0 40px rgba(99, 216, 102, 0.2);
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+            --duration-fast: 150ms;
+            --duration-normal: 300ms;
+            --duration-slow: 500ms;
+            --duration-slower: 800ms;
+            --max-width: 1280px;
+            --nav-height: 80px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            line-height: var(--leading-normal);
+            color: var(--color-neutral-900);
+            background: var(--color-white);
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        button { font-family: var(--font-body); }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--color-primary-300); border-radius: var(--radius-full); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-primary-400); }
+
+        /* ============================================
+           LOADING SCREEN
+           ============================================ */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--color-primary-900);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: var(--space-6);
+            transition: opacity 0.7s var(--ease-out), visibility 0.7s ease;
+        }
+        .loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+        .loader-logo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        .loader-icon {
+            font-size: 3rem;
+            animation: loaderBounce 1.5s ease-in-out infinite;
+        }
+        @keyframes loaderBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.05); }
+        }
+        .loader-logo {
+            font-family: var(--font-display);
+            font-size: var(--text-h1);
+            color: var(--color-white);
+            letter-spacing: -0.01em;
+        }
+        .loader-logo span { color: var(--color-accent-500); }
+        .loader-tagline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            color: var(--color-primary-400);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+        }
+        .loader-bar {
+            width: 220px;
+            height: 3px;
+            background: var(--color-primary-700);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        .loader-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-accent-600), var(--color-accent-500), var(--color-accent-400));
+            border-radius: var(--radius-full);
+            animation: loadBar 1.6s var(--ease-out) forwards;
+        }
+        @keyframes loadBar { from { width: 0; } to { width: 100%; } }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 clamp(var(--space-4), 4vw, var(--space-8));
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+        .nav.scrolled {
+            background: rgba(10, 31, 26, 0.96);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.3);
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--color-white);
+            z-index: 10;
+            flex-shrink: 0;
+        }
+        .nav-logo span { color: var(--color-accent-500); }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+        .nav-links {
+            display: flex;
+            gap: var(--space-8);
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: var(--text-body-sm);
+            font-weight: 500;
+            color: var(--color-primary-300);
+            transition: color var(--duration-fast);
+            position: relative;
+        }
+        .nav-links a:hover { color: var(--color-white); }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent-500);
+            border-radius: var(--radius-full);
+            transition: width var(--duration-normal) var(--ease-out);
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--color-white); }
+        .nav-links a.active::after { width: 100%; background: var(--color-accent-500); }
+
+        .nav-cta { flex-shrink: 0; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: var(--text-body-sm);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-full);
+            border: none;
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-out);
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: var(--color-accent-500);
+            color: var(--color-primary-900);
+            box-shadow: 0 2px 8px rgba(99,216,102,0.3), inset 0 1px 0 rgba(255,255,255,0.25);
+        }
+        .btn-primary:hover {
+            background: var(--color-accent-400);
+            box-shadow: 0 6px 20px rgba(99,216,102,0.45);
+            transform: translateY(-2px);
+        }
+        .btn-primary:active { transform: translateY(0); }
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary-800);
+            border: 1.5px solid var(--color-primary-200);
+        }
+        .btn-secondary:hover {
+            background: var(--color-primary-50);
+            border-color: var(--color-primary-500);
+            transform: translateY(-1px);
+        }
+        .btn-dark {
+            background: var(--color-primary-900);
+            color: var(--color-white);
+        }
+        .btn-dark:hover {
+            background: var(--color-primary-800);
+            transform: translateY(-1px);
+        }
+        .btn-white-outline {
+            background: transparent;
+            color: var(--color-white);
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+        .btn-white-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-1px);
+        }
+        .btn-lg {
+            font-size: var(--text-body);
+            padding: var(--space-4) var(--space-8);
+        }
+        .btn-sm {
+            font-size: var(--text-caption);
+            padding: var(--space-2) var(--space-4);
+        }
+        .btn-featured {
+            background: var(--color-accent-500);
+            color: var(--color-primary-900);
+            box-shadow: 0 4px 16px rgba(99,216,102,0.4);
+        }
+        .btn-featured:hover {
+            background: var(--color-accent-400);
+            box-shadow: 0 8px 24px rgba(99,216,102,0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1010;
+            padding: var(--space-2);
+            min-width: 44px;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-white);
+            border-radius: 2px;
+            transition: all var(--duration-normal) var(--ease-out);
+            transform-origin: center;
+        }
+        .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            background: var(--color-primary-900);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .hero-bg-gradient {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 40%, rgba(99,216,102,0.07) 0%, transparent 55%),
+                radial-gradient(ellipse at 75% 75%, rgba(58,123,200,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 10%, rgba(99,216,102,0.04) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .hero-grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 64px 64px;
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: calc(var(--nav-height) + var(--space-16)) clamp(var(--space-4), 4vw, var(--space-8)) var(--space-16);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            align-items: center;
+        }
+        .hero-text { max-width: 580px; }
+        .hero-overline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-accent-500);
+            font-weight: 500;
+            margin-bottom: var(--space-5);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        .hero-overline::before {
+            content: '';
+            width: 28px;
+            height: 1.5px;
+            background: var(--color-accent-500);
+            flex-shrink: 0;
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: var(--text-display-1);
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+            color: var(--color-white);
+            margin-bottom: var(--space-6);
+        }
+        .hero-title .accent { color: var(--color-accent-500); }
+        .hero-title .accent-italic { color: var(--color-accent-400); font-style: italic; }
+        .hero-subtitle {
+            font-size: var(--text-body-lg);
+            color: var(--color-primary-300);
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-8);
+            max-width: 460px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+        }
+        .hero-stats {
+            display: flex;
+            gap: var(--space-10);
+            margin-top: var(--space-12);
+            padding-top: var(--space-8);
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .hero-stat { cursor: default; }
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            color: var(--color-accent-400);
+            line-height: 1;
+            transition: color var(--duration-fast);
+        }
+        .hero-stat:hover .hero-stat-number { color: var(--color-accent-300); }
+        .hero-stat-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-primary-400);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+            margin-top: var(--space-1);
+        }
+
+        /* 3D House Scene */
+        .hero-scene {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+        }
+        .hero-3d-container {
+            width: 480px;
+            height: 480px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: floatHouse 6s ease-in-out infinite;
+            will-change: transform;
+        }
+        @keyframes floatHouse {
+            0%, 100% { transform: rotateY(-12deg) rotateX(4deg) translateY(0); }
+            50% { transform: rotateY(-12deg) rotateX(4deg) translateY(-18px); }
+        }
+        .house-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.4));
+        }
+
+        /* Floating Items */
+        .float-item {
+            position: absolute;
+            animation: floatItem 4s ease-in-out infinite;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
+            user-select: none;
+            pointer-events: none;
+        }
+        .float-item:nth-child(2) { animation-delay: -1.2s; }
+        .float-item:nth-child(3) { animation-delay: -2.1s; }
+        .float-item:nth-child(4) { animation-delay: -0.6s; }
+        .float-item:nth-child(5) { animation-delay: -1.8s; }
+        .float-item:nth-child(6) { animation-delay: -2.7s; }
+        .float-item:nth-child(7) { animation-delay: -3.3s; }
+        @keyframes floatItem {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-14px) rotate(6deg); }
+        }
+        .glow-ring {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 340px;
+            height: 36px;
+            background: radial-gradient(ellipse, rgba(99,216,102,0.18) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulseGlow 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.12); }
+        }
+
+        /* Particle effect */
+        .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .particle {
+            position: absolute;
+            background: var(--color-accent-500);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat linear infinite;
+        }
+        @keyframes particleFloat {
+            0% { opacity: 0; transform: translateY(100vh) scale(0); }
+            8% { opacity: 0.5; }
+            88% { opacity: 0.4; }
+            100% { opacity: 0; transform: translateY(-120px) scale(1.2); }
+        }
+
+        /* ============================================
+           MARQUEE
+           ============================================ */
+        .marquee-section {
+            padding: var(--space-5) 0;
+            background: var(--color-primary-800);
+            overflow: hidden;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-item {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.5vw, 2rem);
+            color: var(--color-primary-600);
+            white-space: nowrap;
+            padding: 0 var(--space-8);
+        }
+        .marquee-item .hl { color: var(--color-accent-500); }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ============================================
+           SECTION COMMON
+           ============================================ */
+        .section {
+            padding: var(--space-32) clamp(var(--space-4), 4vw, var(--space-8));
+            position: relative;
+        }
+        .section-inner { max-width: var(--max-width); margin: 0 auto; }
+        .section-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto var(--space-16);
+        }
+        .section-overline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-accent-600);
+            font-weight: 500;
+            margin-bottom: var(--space-4);
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: var(--text-display-2);
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+            margin-bottom: var(--space-4);
+        }
+        .section-subtitle {
+            font-size: var(--text-body-lg);
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+        }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-36px);
+            transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(36px);
+            transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services { background: var(--color-warm-50); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+        }
+        .service-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            border: 1px solid var(--color-neutral-100);
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            opacity: 0;
+            transition: opacity var(--duration-normal) var(--ease-out);
+        }
+        .service-card-clean::before { background: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-400)); }
+        .service-card-ac::before { background: linear-gradient(90deg, var(--color-cool-500), var(--color-cool-400)); }
+        .service-card-premium::before { background: linear-gradient(90deg, var(--color-warm-500), var(--color-accent-500)); }
+        .service-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px);
+            border-color: var(--color-neutral-200);
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: var(--space-6);
+            transition: transform var(--duration-normal) var(--ease-out);
+        }
+        .service-card:hover .service-icon { transform: scale(1.08) rotate(-3deg); }
+        .service-icon-clean { background: var(--color-accent-50); }
+        .service-icon-ac { background: var(--color-cool-50); }
+        .service-icon-premium { background: var(--color-warm-100); }
+        .service-card-overline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-accent-600);
+            font-weight: 500;
+            margin-bottom: var(--space-2);
+        }
+        .service-card-ac .service-card-overline { color: var(--color-cool-600); }
+        .service-card-premium .service-card-overline { color: var(--color-warm-600); }
+        .service-card-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-3);
+            line-height: var(--leading-snug);
+        }
+        .service-card-text {
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-6);
+        }
+        .service-features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            border-top: 1px solid var(--color-neutral-100);
+            padding-top: var(--space-5);
+        }
+        .service-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-2);
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-700);
+        }
+        .service-feature-check {
+            width: 16px;
+            height: 16px;
+            background: var(--color-accent-50);
+            color: var(--color-accent-600);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .service-card-ac .service-feature-check { background: var(--color-cool-50); color: var(--color-cool-600); }
+        .service-card-premium .service-feature-check { background: var(--color-warm-100); color: var(--color-warm-700); }
+
+        /* ============================================
+           HOW IT WORKS
+           ============================================ */
+        .how-it-works { background: var(--color-white); }
+        .steps-connector {
+            position: relative;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-8);
+            position: relative;
+        }
+        .steps-line {
+            position: absolute;
+            top: 40px;
+            left: calc(12.5% + 40px);
+            right: calc(12.5% + 40px);
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-accent-200), var(--color-cool-200), var(--color-accent-200));
+            z-index: 0;
+        }
+        .steps-line::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--color-accent-400), var(--color-cool-400), var(--color-accent-400));
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .steps-line.animated::after { opacity: 1; }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--color-primary-900);
+            color: var(--color-accent-500);
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-6);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 24px rgba(10, 31, 26, 0.25);
+            transition: all var(--duration-normal) var(--ease-out);
+            border: 2px solid var(--color-primary-700);
+        }
+        .step:hover .step-number {
+            transform: scale(1.08);
+            box-shadow: 0 12px 32px rgba(99,216,102,0.2);
+            border-color: var(--color-accent-500);
+        }
+        .step-icon {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-2);
+            display: block;
+        }
+        .step-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h4);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-2);
+        }
+        .step-text {
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+            max-width: 180px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           WHY CASAFRESH
+           ============================================ */
+        .about {
+            background: var(--color-primary-900);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,216,102,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .about::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(58,123,200,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .about .section-overline { color: var(--color-accent-400); }
+        .about .section-subtitle { color: var(--color-primary-300); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-5);
+            margin-top: var(--space-10);
+        }
+        .about-feature {
+            padding: var(--space-6);
+            background: rgba(255,255,255,0.03);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all var(--duration-normal) var(--ease-out);
+            cursor: default;
+        }
+        .about-feature:hover {
+            background: rgba(255,255,255,0.07);
+            transform: translateY(-4px);
+            border-color: rgba(99,216,102,0.15);
+        }
+        .about-feature-icon {
+            font-size: 1.75rem;
+            margin-bottom: var(--space-3);
+            display: block;
+        }
+        .about-feature-title {
+            font-weight: 600;
+            font-size: var(--text-body);
+            margin-bottom: var(--space-2);
+            color: var(--color-white);
+        }
+        .about-feature-text {
+            font-size: var(--text-body-sm);
+            color: var(--color-primary-300);
+            line-height: var(--leading-relaxed);
+        }
+        .about-visual {
+            position: relative;
+        }
+        .about-card-stack {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 5/4;
+        }
+        .about-main-card {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-primary-800) 0%, var(--color-primary-700) 100%);
+            border-radius: var(--radius-2xl);
+            border: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-main-card::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,216,102,0.08) 0%, transparent 70%);
+        }
+        .about-house-scene {
+            font-size: 5rem;
+            text-align: center;
+            line-height: 1;
+        }
+        .about-house-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            color: var(--color-primary-400);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            text-align: center;
+            margin-top: var(--space-3);
+        }
+        .about-badge {
+            position: absolute;
+            bottom: -16px;
+            right: -16px;
+            background: var(--color-accent-500);
+            color: var(--color-primary-900);
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-xl);
+            font-weight: 700;
+            box-shadow: 0 8px 24px rgba(99,216,102,0.3);
+            text-align: center;
+        }
+        .about-badge-number {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            line-height: 1;
+        }
+        .about-badge-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+            margin-top: 2px;
+        }
+        .about-stat-strip {
+            display: flex;
+            gap: var(--space-4);
+            margin-top: var(--space-8);
+        }
+        .about-stat-item {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            text-align: center;
+        }
+        .about-stat-num {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-accent-400);
+            line-height: 1;
+        }
+        .about-stat-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--color-primary-400);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+            margin-top: var(--space-1);
+        }
+
+        /* ============================================
+           TESTIMONIALS
+           ============================================ */
+        .testimonials { background: var(--color-warm-50); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+        }
+        .testimonial-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            border: 1px solid var(--color-neutral-100);
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-card::before {
+            content: '"';
+            font-family: var(--font-display);
+            font-size: 6rem;
+            color: var(--color-accent-100);
+            position: absolute;
+            top: -8px;
+            left: 20px;
+            line-height: 1;
+            pointer-events: none;
+        }
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+            border-color: var(--color-primary-100);
+        }
+        .testimonial-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: var(--space-4);
+        }
+        .star {
+            color: var(--color-warm-500);
+            font-size: 0.875rem;
+        }
+        .testimonial-quote {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--color-primary-800);
+            line-height: var(--leading-snug);
+            margin-bottom: var(--space-6);
+            position: relative;
+            z-index: 1;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        .testimonial-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary-200), var(--color-primary-100));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--color-primary-700);
+            font-size: var(--text-body-sm);
+            flex-shrink: 0;
+            font-family: var(--font-mono);
+        }
+        .testimonial-name {
+            font-weight: 600;
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-900);
+        }
+        .testimonial-role {
+            font-size: var(--text-caption);
+            color: var(--color-neutral-500);
+            margin-top: 2px;
+        }
+        .testimonial-location {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            color: var(--color-accent-600);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+            margin-top: 2px;
+        }
+
+        /* ============================================
+           PRICING
+           ============================================ */
+        .pricing { background: var(--color-white); }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+            align-items: start;
+        }
+        .pricing-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            border: 1.5px solid var(--color-neutral-200);
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+        }
+        .pricing-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+        .pricing-card.featured {
+            background: var(--color-primary-900);
+            color: var(--color-white);
+            border-color: var(--color-primary-700);
+            transform: scale(1.04);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+        .pricing-card.featured:hover { transform: scale(1.04) translateY(-4px); box-shadow: 0 24px 64px rgba(0,0,0,0.2); }
+        .pricing-badge {
+            display: inline-block;
+            background: rgba(99,216,102,0.15);
+            color: var(--color-accent-400);
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            letter-spacing: var(--tracking-wider);
+            text-transform: uppercase;
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--space-4);
+            border: 1px solid rgba(99,216,102,0.2);
+        }
+        .pricing-plan {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-neutral-500);
+            font-weight: 500;
+            margin-bottom: var(--space-1);
+        }
+        .pricing-card.featured .pricing-plan { color: var(--color-primary-400); }
+        .pricing-name {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-4);
+        }
+        .pricing-card.featured .pricing-name { color: var(--color-white); }
+        .pricing-amount {
+            font-family: var(--font-display);
+            font-size: var(--text-display-2);
+            line-height: 1;
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-1);
+        }
+        .pricing-card.featured .pricing-amount { color: var(--color-accent-400); }
+        .pricing-period {
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-neutral-500);
+            margin-bottom: var(--space-6);
+        }
+        .pricing-card.featured .pricing-period { color: var(--color-primary-400); }
+        .pricing-divider {
+            height: 1px;
+            background: var(--color-neutral-100);
+            margin-bottom: var(--space-6);
+        }
+        .pricing-card.featured .pricing-divider { background: rgba(255,255,255,0.08); }
+        .pricing-features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            margin-bottom: var(--space-8);
+        }
+        .pricing-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-2);
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-600);
+            line-height: var(--leading-snug);
+        }
+        .pricing-card.featured .pricing-feature { color: var(--color-primary-200); }
+        .pricing-check {
+            width: 18px;
+            height: 18px;
+            background: var(--color-accent-50);
+            color: var(--color-accent-600);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .pricing-card.featured .pricing-check { background: rgba(99,216,102,0.2); color: var(--color-accent-400); }
+        .btn-pricing-default {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-full);
+            border: 1.5px solid var(--color-neutral-200);
+            color: var(--color-neutral-700);
+            font-weight: 600;
+            font-size: var(--text-body-sm);
+            transition: all var(--duration-normal) var(--ease-out);
+            cursor: pointer;
+            background: transparent;
+            font-family: var(--font-body);
+        }
+        .btn-pricing-default:hover {
+            border-color: var(--color-primary-400);
+            color: var(--color-primary-700);
+            background: var(--color-primary-50);
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta {
+            background: var(--color-primary-900);
+            padding: var(--space-32) clamp(var(--space-4), 4vw, var(--space-8));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-glow {
+            position: absolute;
+            bottom: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,216,102,0.09) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-content { position: relative; z-index: 1; }
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: var(--text-display-2);
+            color: var(--color-white);
+            margin-bottom: var(--space-4);
+            line-height: var(--leading-tight);
+        }
+        .cta-title .accent { color: var(--color-accent-500); }
+        .cta-subtitle {
+            font-size: var(--text-body-lg);
+            color: var(--color-primary-300);
+            max-width: 520px;
+            margin: 0 auto var(--space-10);
+            line-height: var(--leading-relaxed);
+        }
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-note {
+            margin-top: var(--space-6);
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-primary-500);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact { background: var(--color-warm-50); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--space-16);
+            align-items: start;
+        }
+        .contact-info-overline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-accent-600);
+            font-weight: 500;
+            margin-bottom: var(--space-4);
+        }
+        .contact-info-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h1);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-4);
+            line-height: var(--leading-snug);
+        }
+        .contact-info-text {
+            font-size: var(--text-body-lg);
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-10);
+        }
+        .contact-details { margin-bottom: var(--space-8); }
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-4);
+            padding: var(--space-4) 0;
+            border-bottom: 1px solid var(--color-neutral-200);
+            transition: all var(--duration-fast);
+        }
+        .contact-detail:last-child { border-bottom: none; }
+        .contact-detail:hover { padding-left: var(--space-2); }
+        .contact-detail-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+            background: var(--color-primary-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+        .contact-detail:hover .contact-detail-icon {
+            background: var(--color-primary-100);
+            transform: scale(1.05);
+        }
+        .contact-detail-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-neutral-500);
+            margin-bottom: var(--space-1);
+        }
+        .contact-detail-value {
+            font-weight: 500;
+            color: var(--color-primary-900);
+            font-size: var(--text-body-sm);
+        }
+        .contact-detail-value a {
+            color: var(--color-primary-900);
+            transition: color var(--duration-fast);
+        }
+        .contact-detail-value a:hover { color: var(--color-accent-600); }
+
+        .service-area-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            margin-top: var(--space-6);
+        }
+        .area-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-1) var(--space-3);
+            background: var(--color-accent-50);
+            color: var(--color-accent-700);
+            border: 1px solid var(--color-accent-100);
+            border-radius: var(--radius-full);
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            font-weight: 500;
+            transition: all var(--duration-fast);
+        }
+        .area-pill:hover { background: var(--color-accent-100); transform: translateY(-1px); }
+
+        /* Contact Form */
+        .contact-form-wrap {
+            background: var(--color-white);
+            padding: var(--space-10);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-neutral-100);
+        }
+        .form-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-2);
+        }
+        .form-subtitle {
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-500);
+            margin-bottom: var(--space-8);
+        }
+        .form-group { margin-bottom: var(--space-5); }
+        .form-group:last-of-type { margin-bottom: 0; }
+        .form-label {
+            display: block;
+            font-size: var(--text-body-sm);
+            font-weight: 600;
+            color: var(--color-neutral-800);
+            margin-bottom: var(--space-2);
+        }
+        .form-label .req {
+            color: var(--color-accent-600);
+            margin-left: 2px;
+        }
+        .form-input {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            border: 1.5px solid var(--color-neutral-200);
+            border-radius: var(--radius-md);
+            background: var(--color-neutral-50);
+            color: var(--color-neutral-900);
+            transition: all var(--duration-fast);
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .form-input:hover:not(:focus) { border-color: var(--color-neutral-300); }
+        .form-input:focus {
+            border-color: var(--color-accent-500);
+            box-shadow: 0 0 0 3px rgba(99,216,102,0.12);
+            background: var(--color-white);
+        }
+        .form-input.error { border-color: #e55; box-shadow: 0 0 0 3px rgba(220,50,50,0.1); }
+        .form-input::placeholder { color: var(--color-neutral-400); }
+        /* Custom select arrow (restores chevron removed by appearance:none) */
+        select.form-input {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23787878' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right var(--space-4) center;
+            padding-right: var(--space-10);
+            cursor: pointer;
+        }
+        select.form-input:focus {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234e9a25' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        }
+        .form-textarea { resize: vertical; min-height: 120px; line-height: var(--leading-relaxed); }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+        }
+        .form-error-msg {
+            font-size: var(--text-caption);
+            color: #c44;
+            margin-top: var(--space-1);
+            display: none;
+        }
+        .form-error-msg.visible { display: block; }
+
+        .form-submit-wrap { margin-top: var(--space-6); }
+        .btn-submit {
+            width: 100%;
+            padding: var(--space-4) var(--space-8);
+            font-size: var(--text-body);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-submit .btn-text { transition: opacity var(--duration-fast); }
+        .btn-submit .btn-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; }
+        .btn-submit.loading .btn-text { opacity: 0; }
+        .btn-submit.loading .btn-loading { opacity: 1; }
+
+        /* Form Success */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: var(--space-12) var(--space-8);
+        }
+        .form-success.visible { display: block; }
+        .form-success-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--color-accent-50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto var(--space-6);
+            animation: successPop 0.5s var(--ease-out);
+        }
+        @keyframes successPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .form-success-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-3);
+        }
+        .form-success-text {
+            color: var(--color-neutral-600);
+            font-size: var(--text-body-sm);
+            line-height: var(--leading-relaxed);
+        }
+
+        /* Spinner */
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(10, 31, 26, 0.2);
+            border-top-color: var(--color-primary-900);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--color-primary-900);
+            color: var(--color-primary-300);
+            padding: var(--space-16) clamp(var(--space-4), 4vw, var(--space-8)) var(--space-8);
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        .footer-inner { max-width: var(--max-width); margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-12);
+            padding-bottom: var(--space-12);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: var(--space-8);
+        }
+        .footer-brand-name {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            color: var(--color-white);
+            margin-bottom: var(--space-4);
+        }
+        .footer-brand-name span { color: var(--color-accent-500); }
+        .footer-brand-desc {
+            font-size: var(--text-body-sm);
+            color: var(--color-primary-400);
+            line-height: var(--leading-relaxed);
+            max-width: 300px;
+            margin-bottom: var(--space-6);
+        }
+        .footer-contact-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-body-sm);
+            color: var(--color-primary-400);
+            transition: color var(--duration-fast);
+            margin-bottom: var(--space-2);
+        }
+        .footer-contact-link:hover { color: var(--color-accent-400); }
+        .footer-col-title {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-primary-400);
+            margin-bottom: var(--space-5);
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        .footer-links a {
+            font-size: var(--text-body-sm);
+            color: var(--color-primary-300);
+            transition: all var(--duration-fast);
+        }
+        .footer-links a:hover {
+            color: var(--color-accent-400);
+            padding-left: var(--space-2);
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: var(--text-caption);
+            color: var(--color-primary-500);
+        }
+        .footer-socials {
+            display: flex;
+            gap: var(--space-3);
+        }
+        .footer-socials a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary-400);
+            font-size: 12px;
+            font-family: var(--font-mono);
+            transition: all var(--duration-fast);
+        }
+        .footer-socials a:hover {
+            background: rgba(99,216,102,0.12);
+            color: var(--color-accent-400);
+            border-color: rgba(99,216,102,0.2);
+            transform: translateY(-2px);
+        }
+        .footer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(99,216,102,0.08);
+            border: 1px solid rgba(99,216,102,0.12);
+            border-radius: var(--radius-full);
+            padding: var(--space-2) var(--space-4);
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-accent-500);
+            margin-bottom: var(--space-6);
+        }
+        .footer-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--color-accent-500);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: calc(var(--nav-height) + var(--space-12));
+            }
+            .hero-text { max-width: 100%; margin: 0 auto; }
+            .hero-overline { justify-content: center; }
+            .hero-subtitle { margin: 0 auto var(--space-8); }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-scene { display: none; }
+
+            .services-grid { grid-template-columns: 1fr 1fr; }
+            .steps-grid { grid-template-columns: 1fr 1fr; }
+            .steps-line { display: none; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-features { margin-top: var(--space-8); }
+            .about-card-stack { max-width: 500px; margin: 0 auto; }
+            .about-stat-strip { max-width: 500px; margin: var(--space-8) auto 0; }
+            .testimonials-grid { grid-template-columns: 1fr 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+            .pricing-card.featured { transform: scale(1); }
+            .pricing-card.featured:hover { transform: translateY(-4px); }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+        }
+
+        @media (max-width: 768px) {
+            :root { --nav-height: 68px; }
+            .nav-links, .nav-cta { display: none; }
+            .nav-toggle { display: flex; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                inset: 0;
+                background: var(--color-primary-900);
+                align-items: center;
+                justify-content: center;
+                gap: var(--space-8);
+                z-index: 999;
+            }
+            .nav-links.open a {
+                font-size: var(--text-h3);
+                color: var(--color-white);
+            }
+            .nav-links.open a::after { display: none; }
+
+            .section { padding: var(--space-20) clamp(var(--space-4), 4vw, var(--space-6)); }
+            .section-header { margin-bottom: var(--space-10); }
+
+            .services-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+            .steps-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+            .about-features { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+            .footer-brand-desc { max-width: 100%; }
+            .footer-bottom { flex-direction: column; gap: var(--space-4); text-align: center; }
+            .contact-form-wrap { padding: var(--space-6); }
+            .pricing-grid { max-width: 380px; }
+            .hero-stats { gap: var(--space-6); }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons { flex-direction: column; align-items: stretch; }
+            .hero-buttons .btn { text-align: center; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .hero-stats { flex-wrap: wrap; justify-content: space-around; gap: var(--space-4); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-logo-wrap">
+            <div class="loader-icon">🏡</div>
+            <div class="loader-logo">Casa<span>Fresh</span></div>
+            <div class="loader-tagline">Fresh homes, happy guests.</div>
+        </div>
+        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#hero" class="nav-logo">Casa<span>Fresh</span></a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#about">Why Us</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#contact" class="btn btn-primary btn-sm nav-cta">Book Now</a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-grid-overlay"></div>
+        <div class="particles" id="particles"></div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-overline">Vacation Property Care · Central Florida</div>
+                <h1 class="hero-title">
+                    Fresh homes,<br>
+                    <span class="accent-italic">happy guests.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Professional cleaning and AC maintenance for vacation rentals across Central Florida. Keep your property spotless and perfectly cooled — every single turnover.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary btn-lg">Book a Cleaning</a>
+                    <a href="#services" class="btn btn-white-outline btn-lg">Our Services ↓</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">500+</div>
+                        <div class="hero-stat-label">Properties Served</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">4.9★</div>
+                        <div class="hero-stat-label">Avg. Guest Rating</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">24h</div>
+                        <div class="hero-stat-label">Response Time</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-scene">
+                <div class="glow-ring"></div>
+                <div class="hero-3d-container" id="hero3d">
+                    <!-- Illustrated House SVG -->
+                    <svg class="house-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Ground Shadow -->
+                        <ellipse cx="250" cy="458" rx="190" ry="20" fill="rgba(0,0,0,0.18)"/>
+
+                        <!-- House Base -->
+                        <rect x="110" y="218" width="280" height="200" rx="8" fill="#132E26"/>
+                        <!-- House Front -->
+                        <rect x="114" y="222" width="272" height="196" rx="6" fill="#1B3D32"/>
+                        <!-- Side wall (3D effect) -->
+                        <polygon points="390,218 420,195 420,390 390,418" fill="#0A1F1A" opacity="0.8"/>
+
+                        <!-- Roof Main -->
+                        <polygon points="95,222 250,108 405,222" fill="#0A1F1A"/>
+                        <polygon points="100,222 250,113 400,222" fill="#132E26"/>
+                        <!-- Roof side (3D) -->
+                        <polygon points="400,222 420,195 280,95 250,113" fill="#0A1F1A" opacity="0.6"/>
+                        <!-- Roof ridge -->
+                        <line x1="250" y1="113" x2="280" y2="95" stroke="#234C3E" stroke-width="2"/>
+
+                        <!-- Chimney -->
+                        <rect x="318" y="130" width="28" height="66" rx="3" fill="#0A1F1A"/>
+                        <rect x="314" y="127" width="36" height="8" rx="2" fill="#132E26"/>
+                        <!-- Smoke -->
+                        <path d="M328,124 C326,118 332,112 330,106" stroke="#4A7D6A" fill="none" stroke-width="2" stroke-linecap="round" opacity="0.4">
+                            <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
+                        </path>
+
+                        <!-- Door Frame -->
+                        <rect x="212" y="308" width="76" height="110" rx="7" fill="#0A1F1A"/>
+                        <rect x="216" y="312" width="68" height="102" rx="5" fill="#132E26"/>
+                        <!-- Door arch top -->
+                        <path d="M216,338 Q250,310 284,338" fill="#0A1F1A" opacity="0.4"/>
+                        <!-- Door knob -->
+                        <circle cx="272" cy="368" r="4.5" fill="#63D866" opacity="0.9"/>
+                        <!-- Door panel details -->
+                        <rect x="220" y="340" width="28" height="40" rx="2" fill="#0A1F1A" opacity="0.3"/>
+                        <rect x="252" y="340" width="28" height="40" rx="2" fill="#0A1F1A" opacity="0.3"/>
+
+                        <!-- Left Window -->
+                        <rect x="138" y="256" width="54" height="58" rx="5" fill="#0A1F1A"/>
+                        <rect x="141" y="259" width="48" height="52" rx="4" fill="#1E4066" opacity="0.6"/>
+                        <!-- Window reflection -->
+                        <polygon points="143,261 153,261 143,271" fill="rgba(255,255,255,0.08)"/>
+                        <!-- Window panes -->
+                        <line x1="165" y1="259" x2="165" y2="311" stroke="#132E26" stroke-width="1.5"/>
+                        <line x1="141" y1="288" x2="189" y2="288" stroke="#132E26" stroke-width="1.5"/>
+                        <!-- Window frame border -->
+                        <rect x="138" y="256" width="54" height="58" rx="5" fill="none" stroke="#234C3E" stroke-width="1.5"/>
+
+                        <!-- Right Window -->
+                        <rect x="308" y="256" width="54" height="58" rx="5" fill="#0A1F1A"/>
+                        <rect x="311" y="259" width="48" height="52" rx="4" fill="#1E4066" opacity="0.6"/>
+                        <polygon points="313,261 323,261 313,271" fill="rgba(255,255,255,0.08)"/>
+                        <line x1="335" y1="259" x2="335" y2="311" stroke="#132E26" stroke-width="1.5"/>
+                        <line x1="311" y1="288" x2="359" y2="288" stroke="#132E26" stroke-width="1.5"/>
+                        <rect x="308" y="256" width="54" height="58" rx="5" fill="none" stroke="#234C3E" stroke-width="1.5"/>
+
+                        <!-- AC Unit -->
+                        <rect x="303" y="235" width="68" height="18" rx="5" fill="#285382"/>
+                        <rect x="305" y="237" width="64" height="14" rx="4" fill="#3A7BC8"/>
+                        <!-- AC Vents -->
+                        <line x1="312" y1="240" x2="312" y2="248" stroke="#1E4066" stroke-width="1" opacity="0.7"/>
+                        <line x1="318" y1="240" x2="318" y2="248" stroke="#1E4066" stroke-width="1" opacity="0.7"/>
+                        <line x1="324" y1="240" x2="324" y2="248" stroke="#1E4066" stroke-width="1" opacity="0.7"/>
+                        <line x1="330" y1="240" x2="330" y2="248" stroke="#1E4066" stroke-width="1" opacity="0.7"/>
+                        <line x1="336" y1="240" x2="336" y2="248" stroke="#1E4066" stroke-width="1" opacity="0.7"/>
+                        <line x1="342" y1="240" x2="342" y2="248" stroke="#1E4066" stroke-width="1" opacity="0.7"/>
+                        <line x1="348" y1="240" x2="348" y2="248" stroke="#1E4066" stroke-width="1" opacity="0.7"/>
+                        <line x1="354" y1="240" x2="354" y2="248" stroke="#1E4066" stroke-width="1" opacity="0.7"/>
+                        <line x1="360" y1="240" x2="360" y2="248" stroke="#1E4066" stroke-width="1" opacity="0.7"/>
+                        <!-- AC cool air waves -->
+                        <path d="M316,233 Q320,229 324,233" stroke="#82B1E4" fill="none" stroke-width="1.5" stroke-linecap="round">
+                            <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M330,231 Q334,227 338,231" stroke="#82B1E4" fill="none" stroke-width="1.5" stroke-linecap="round">
+                            <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M344,233 Q348,229 352,233" stroke="#82B1E4" fill="none" stroke-width="1.5" stroke-linecap="round">
+                            <animate attributeName="opacity" values="0.6;0.15;0.6" dur="2s" begin="1.4s" repeatCount="indefinite"/>
+                        </path>
+
+                        <!-- Porch step -->
+                        <rect x="200" y="416" width="100" height="10" rx="2" fill="#0A1F1A"/>
+                        <rect x="195" y="422" width="110" height="8" rx="2" fill="#132E26"/>
+
+                        <!-- Ground / Path -->
+                        <rect x="90" y="418" width="320" height="8" rx="4" fill="#2C5B4A" opacity="0.4"/>
+
+                        <!-- Palm Tree Left -->
+                        <line x1="128" y1="418" x2="132" y2="340" stroke="#234C3E" stroke-width="5" stroke-linecap="round"/>
+                        <line x1="132" y1="345" x2="132" y2="330" stroke="#1B3D32" stroke-width="4"/>
+                        <!-- Palm fronds -->
+                        <path d="M132,340 Q115,320 100,328" stroke="#4A7D6A" fill="none" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M132,340 Q118,328 115,312" stroke="#4A7D6A" fill="none" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M132,340 Q130,325 140,315" stroke="#63D866" fill="none" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+                        <path d="M132,340 Q145,330 150,320" stroke="#4A7D6A" fill="none" stroke-width="3" stroke-linecap="round"/>
+
+                        <!-- Palm Tree Right (smaller) -->
+                        <line x1="370" y1="418" x2="368" y2="358" stroke="#234C3E" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M368,362 Q352,345 345,352" stroke="#4A7D6A" fill="none" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M368,362 Q355,352 352,340" stroke="#4A7D6A" fill="none" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M368,362 Q378,348 385,355" stroke="#63D866" fill="none" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+
+                        <!-- Bushes -->
+                        <circle cx="165" cy="418" r="16" fill="#2C5B4A" opacity="0.8"/>
+                        <circle cx="178" cy="414" r="12" fill="#4A7D6A" opacity="0.7"/>
+                        <circle cx="156" cy="414" r="10" fill="#63D866" opacity="0.25"/>
+
+                        <circle cx="340" cy="418" r="14" fill="#2C5B4A" opacity="0.8"/>
+                        <circle cx="328" cy="414" r="11" fill="#4A7D6A" opacity="0.7"/>
+                        <circle cx="350" cy="415" r="9" fill="#63D866" opacity="0.25"/>
+
+                        <!-- Accent light on door -->
+                        <circle cx="250" cy="310" r="3" fill="#63D866" opacity="0.6">
+                            <animate attributeName="opacity" values="0.6;0.3;0.6" dur="4s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
+
+                    <!-- Floating Items -->
+                    <div class="float-item" style="top: 4%; right: -12%; font-size: 2.4rem;">🧹</div>
+                    <div class="float-item" style="top: 28%; left: -14%; font-size: 2rem;">🧽</div>
+                    <div class="float-item" style="bottom: 22%; right: -18%; font-size: 1.9rem;">🧴</div>
+                    <div class="float-item" style="top: 12%; left: 6%; font-size: 1.7rem;">✨</div>
+                    <div class="float-item" style="bottom: 32%; left: -10%; font-size: 2.1rem;">❄️</div>
+                    <div class="float-item" style="top: 52%; right: -6%; font-size: 1.5rem;">💨</div>
+                    <div class="float-item" style="bottom: 14%; left: 12%; font-size: 1.7rem;">🫧</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee-section" aria-hidden="true">
+        <div class="marquee-track">
+            <span class="marquee-item">Fresh homes <span class="hl">✦</span> Happy guests</span>
+            <span class="marquee-item">Clean spaces <span class="hl">✦</span> Cool air</span>
+            <span class="marquee-item">Book today <span class="hl">✦</span> Relax tomorrow</span>
+            <span class="marquee-item">Trusted by 500+ owners <span class="hl">✦</span></span>
+            <span class="marquee-item">Central Florida <span class="hl">✦</span> Licensed & Insured</span>
+            <span class="marquee-item">Fresh homes <span class="hl">✦</span> Happy guests</span>
+            <span class="marquee-item">Clean spaces <span class="hl">✦</span> Cool air</span>
+            <span class="marquee-item">Book today <span class="hl">✦</span> Relax tomorrow</span>
+            <span class="marquee-item">Trusted by 500+ owners <span class="hl">✦</span></span>
+            <span class="marquee-item">Central Florida <span class="hl">✦</span> Licensed & Insured</span>
+        </div>
+    </div>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section class="section services" id="services">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <div class="section-overline">What We Do</div>
+                <h2 class="section-title">Services built for vacation properties</h2>
+                <p class="section-subtitle">From lightning-fast turnovers to full AC maintenance, we handle everything so your guests always arrive to a perfect home.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Cleaning Card -->
+                <div class="service-card service-card-clean reveal">
+                    <div class="service-icon service-icon-clean">🧹</div>
+                    <div class="service-card-overline">Cleaning</div>
+                    <h3 class="service-card-title">Vacation Home Cleaning</h3>
+                    <p class="service-card-text">Fast, thorough turnover cleaning between guest stays. Your property is guest-ready within hours, not days — every time.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Full kitchen deep clean & sanitize
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Bathroom scrub & disinfect
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Fresh linen change & bed making
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Floors vacuumed & mopped
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Photo completion report
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AC Card -->
+                <div class="service-card service-card-ac reveal">
+                    <div class="service-icon service-icon-ac">❄️</div>
+                    <div class="service-card-overline">Maintenance</div>
+                    <h3 class="service-card-title">AC Maintenance</h3>
+                    <p class="service-card-text">Keep your AC running perfectly through Florida's brutal summers. No mid-stay breakdowns, no angry guests, no emergency bills.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Filter cleaning & replacement
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            System performance diagnostic
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Refrigerant level inspection
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Coil cleaning & drainage check
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Emergency repair coordination
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Package Card -->
+                <div class="service-card service-card-premium reveal">
+                    <div class="service-icon service-icon-premium">✨</div>
+                    <div class="service-card-overline">Premium</div>
+                    <h3 class="service-card-title">Premium Package</h3>
+                    <p class="service-card-text">The complete property care solution. Cleaning, AC, restocking, and inspection — one call handles it all. Set it and forget it.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Everything in Cleaning + AC
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Amenity restocking service
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Full property inspection report
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Dedicated account manager
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Priority same-day scheduling
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <div class="section-overline">Simple Process</div>
+                <h2 class="section-title">Up and running in 4 steps</h2>
+                <p class="section-subtitle">Getting started is effortless. Four simple steps to a perfectly maintained vacation property.</p>
+            </div>
+            <div class="steps-connector reveal">
+                <div class="steps-line" id="stepsLine"></div>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <span class="step-icon">📋</span>
+                        <h3 class="step-title">Request Quote</h3>
+                        <p class="step-text">Fill out our quick form with your property details. We'll send a custom quote within 24 hours.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <span class="step-icon">📅</span>
+                        <h3 class="step-title">We Schedule</h3>
+                        <p class="step-text">Pick your service dates. We coordinate directly with your calendar or Airbnb booking schedule.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <span class="step-icon">🧹</span>
+                        <h3 class="step-title">We Clean & Service</h3>
+                        <p class="step-text">Our trained team arrives on time with all eco-friendly supplies and equipment. We follow your checklist.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <span class="step-icon">⭐</span>
+                        <h3 class="step-title">You Review</h3>
+                        <p class="step-text">Receive a photo report confirming everything is guest-ready. Rate us and we keep improving.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== WHY CASAFRESH ===================== -->
+    <section class="section about" id="about">
+        <div class="section-inner">
+            <div class="about-grid">
+                <div class="reveal-left">
+                    <div class="section-overline" style="color: var(--color-accent-400);">Why CasaFresh</div>
+                    <h2 class="section-title" style="color: var(--color-white);">Built for vacation property owners</h2>
+                    <p class="section-subtitle" style="margin-bottom: 0;">We're not a generic cleaning service. Every process, product, and checklist is designed specifically for the unique demands of vacation rental properties — where guest experience is everything.</p>
+
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <span class="about-feature-icon">🛡️</span>
+                            <h4 class="about-feature-title">Licensed & Insured</h4>
+                            <p class="about-feature-text">Fully licensed, bonded, and insured. Your property and your guests are always protected.</p>
+                        </div>
+                        <div class="about-feature">
+                            <span class="about-feature-icon">🌿</span>
+                            <h4 class="about-feature-title">Eco-Friendly Products</h4>
+                            <p class="about-feature-text">Non-toxic, biodegradable cleaning products safe for guests, children, and the planet.</p>
+                        </div>
+                        <div class="about-feature">
+                            <span class="about-feature-icon">⚡</span>
+                            <h4 class="about-feature-title">24h Response</h4>
+                            <p class="about-feature-text">Reach us any time. We respond within 24 hours and can often accommodate same-day requests.</p>
+                        </div>
+                        <div class="about-feature">
+                            <span class="about-feature-icon">🏅</span>
+                            <h4 class="about-feature-title">Guest-Ready Guarantee</h4>
+                            <p class="about-feature-text">If your guests aren't happy with cleanliness, we return and reclean for free. No arguments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-visual reveal-right">
+                    <div class="about-card-stack">
+                        <div class="about-main-card">
+                            <div style="text-align: center;">
+                                <div class="about-house-scene">🏡</div>
+                                <div style="font-size: 2rem; margin-top: 12px;">✨ ❄️</div>
+                                <div class="about-house-label" style="margin-top: var(--space-4);">CasaFresh Property Care</div>
+                            </div>
+                        </div>
+                        <div class="about-badge">
+                            <div class="about-badge-number">5★</div>
+                            <div class="about-badge-label">Guest Rating</div>
+                        </div>
+                    </div>
+                    <div class="about-stat-strip">
+                        <div class="about-stat-item">
+                            <div class="about-stat-num">500+</div>
+                            <div class="about-stat-label">Properties</div>
+                        </div>
+                        <div class="about-stat-item">
+                            <div class="about-stat-num">5yr</div>
+                            <div class="about-stat-label">Experience</div>
+                        </div>
+                        <div class="about-stat-item">
+                            <div class="about-stat-num">4</div>
+                            <div class="about-stat-label">Cities</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <div class="section-overline">Testimonials</div>
+                <h2 class="section-title">What property owners say</h2>
+                <p class="section-subtitle">Don't just take our word for it — hear from vacation homeowners who trust CasaFresh to protect their investment and their guests.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="testimonial-quote">"CasaFresh completely transformed our rental operation. Our guests consistently leave 5-star reviews specifically mentioning how clean the property is. It's been a game-changer."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MR</div>
+                        <div>
+                            <div class="testimonial-name">Maria Rodriguez</div>
+                            <div class="testimonial-role">Manages 12 vacation homes</div>
+                            <div class="testimonial-location">📍 Kissimmee, FL</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="testimonial-quote">"The AC maintenance service alone has saved us thousands. Before CasaFresh, we had two emergency breakdowns mid-summer. This year? Not a single complaint. Worth every penny."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JT</div>
+                        <div>
+                            <div class="testimonial-name">James Thompson</div>
+                            <div class="testimonial-role">Beachfront property owner</div>
+                            <div class="testimonial-location">📍 Daytona Beach, FL</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="testimonial-quote">"I manage my Airbnb properties remotely from Chicago. The photo reports after every clean give me total peace of mind. I know exactly what's going on without being there."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SL</div>
+                        <div>
+                            <div class="testimonial-name">Sarah Liu</div>
+                            <div class="testimonial-role">Remote property investor</div>
+                            <div class="testimonial-location">📍 Orlando, FL</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PRICING ===================== -->
+    <section class="section pricing" id="pricing">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <div class="section-overline">Pricing</div>
+                <h2 class="section-title">Simple, transparent pricing</h2>
+                <p class="section-subtitle">No hidden fees. No long-term contracts. Pick the plan that fits your property — cancel or upgrade any time.</p>
+            </div>
+            <div class="pricing-grid">
+
+                <!-- Essential Clean -->
+                <div class="pricing-card reveal">
+                    <div class="pricing-plan">Tier 01</div>
+                    <div class="pricing-name">Essential Clean</div>
+                    <div class="pricing-amount">$149</div>
+                    <div class="pricing-period">/ per clean visit</div>
+                    <div class="pricing-divider"></div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Full turnover cleaning
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Kitchen & bathroom deep clean
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Linen change & bed making
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Trash removal & recycling
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Completion photo report
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn-pricing-default">Get Started →</a>
+                </div>
+
+                <!-- AC + Clean Bundle (Featured) -->
+                <div class="pricing-card featured reveal">
+                    <div class="pricing-badge">✦ Most Popular</div>
+                    <div class="pricing-plan">Tier 02</div>
+                    <div class="pricing-name">AC + Clean Bundle</div>
+                    <div class="pricing-amount">$249</div>
+                    <div class="pricing-period">/ per visit (cleaning + AC check)</div>
+                    <div class="pricing-divider"></div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Everything in Essential Clean
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            AC filter check & clean
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            System performance check
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Supply restocking
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Priority scheduling
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Detailed inspection report
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-featured" style="display: block; text-align: center; padding: var(--space-4) var(--space-6); border-radius: var(--radius-full);">Book Now →</a>
+                </div>
+
+                <!-- Premium Monthly -->
+                <div class="pricing-card reveal">
+                    <div class="pricing-plan">Tier 03</div>
+                    <div class="pricing-name">Premium Monthly</div>
+                    <div class="pricing-amount">$399</div>
+                    <div class="pricing-period">/ per month (unlimited turnovers)</div>
+                    <div class="pricing-divider"></div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Unlimited turnover cleanings
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Quarterly AC maintenance
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Emergency call-outs included
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Dedicated account manager
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Guest review monitoring
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Monthly property report
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn-pricing-default">Contact Us →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CTA BAND ===================== -->
+    <section class="cta">
+        <div class="cta-glow"></div>
+        <div class="cta-content reveal">
+            <div class="section-overline" style="color: var(--color-accent-400); margin-bottom: var(--space-4);">Ready to get started?</div>
+            <h2 class="cta-title">Let's make your property <span class="accent">shine</span></h2>
+            <p class="cta-subtitle">Book your first cleaning or AC service today. No contracts, no hassle — just fresh, cool vacation homes that guests love.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary btn-lg">Book a Cleaning</a>
+                <a href="tel:4075550192" class="btn btn-white-outline btn-lg">Call (407) 555-0192</a>
+            </div>
+            <div class="cta-note">No contract required &nbsp;·&nbsp; Free quote in 24h &nbsp;·&nbsp; Central Florida</div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section contact" id="contact">
+        <div class="section-inner">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="reveal-left">
+                    <div class="contact-info-overline">Get in Touch</div>
+                    <h2 class="contact-info-title">Let's talk about your property</h2>
+                    <p class="contact-info-text">Whether you have one vacation home or fifty, we'll create a custom maintenance plan that fits your needs and your schedule.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">📧</div>
+                            <div>
+                                <div class="contact-detail-label">Email</div>
+                                <div class="contact-detail-value">
+                                    <a href="mailto:hello@casafresh.com">hello@casafresh.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">📱</div>
+                            <div>
+                                <div class="contact-detail-label">Phone</div>
+                                <div class="contact-detail-value">
+                                    <a href="tel:4075550192">(407) 555-0192</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">🕐</div>
+                            <div>
+                                <div class="contact-detail-label">Hours</div>
+                                <div class="contact-detail-value">Mon – Sat, 7am – 8pm EST</div>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">⚡</div>
+                            <div>
+                                <div class="contact-detail-label">Response Time</div>
+                                <div class="contact-detail-value">Within 24 hours guaranteed</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Area -->
+                    <div class="contact-detail-label" style="margin-bottom: var(--space-3);">Service Area — Central Florida</div>
+                    <div class="service-area-pills">
+                        <div class="area-pill">📍 Orlando</div>
+                        <div class="area-pill">📍 Kissimmee</div>
+                        <div class="area-pill">📍 Daytona Beach</div>
+                        <div class="area-pill">📍 Tampa</div>
+                        <div class="area-pill">📍 St. Cloud</div>
+                        <div class="area-pill">📍 Celebration</div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="reveal-right">
+                    <div class="contact-form-wrap">
+                        <!-- Form view -->
+                        <div id="formView">
+                            <h3 class="form-title">Request a Free Quote</h3>
+                            <p class="form-subtitle">We'll get back to you within 24 hours with a custom plan.</p>
+                            <form id="contactForm" novalidate>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="firstName">First Name <span class="req">*</span></label>
+                                        <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Maria" autocomplete="given-name" required>
+                                        <div class="form-error-msg" id="err-firstName">Please enter your first name.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="lastName">Last Name <span class="req">*</span></label>
+                                        <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Rodriguez" autocomplete="family-name" required>
+                                        <div class="form-error-msg" id="err-lastName">Please enter your last name.</div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email Address <span class="req">*</span></label>
+                                        <input class="form-input" type="email" id="email" name="email" placeholder="maria@example.com" autocomplete="email" required>
+                                        <div class="form-error-msg" id="err-email">Please enter a valid email address.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone">Phone Number <span class="req">*</span></label>
+                                        <input class="form-input" type="tel" id="phone" name="phone" placeholder="(407) 555-0000" autocomplete="tel" required>
+                                        <div class="form-error-msg" id="err-phone">Please enter a valid phone number.</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="address">Property Address <span class="req">*</span></label>
+                                    <input class="form-input" type="text" id="address" name="address" placeholder="123 Vacation Blvd, Kissimmee, FL 34741" autocomplete="street-address" required>
+                                    <div class="form-error-msg" id="err-address">Please enter your property address.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="serviceType">Service Type <span class="req">*</span></label>
+                                    <select class="form-input" id="serviceType" name="serviceType" required>
+                                        <option value="" disabled selected>Choose a service…</option>
+                                        <option value="essential">Essential Clean ($149/visit)</option>
+                                        <option value="bundle">AC + Clean Bundle ($249/visit)</option>
+                                        <option value="monthly">Premium Monthly ($399/mo)</option>
+                                        <option value="ac">AC Maintenance Only</option>
+                                        <option value="custom">Custom / Not Sure Yet</option>
+                                    </select>
+                                    <div class="form-error-msg" id="err-serviceType">Please select a service type.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="message">Tell Us About Your Property</label>
+                                    <textarea class="form-input form-textarea" id="message" name="message" placeholder="How many bedrooms? Back-to-back bookings? Any special requirements?…"></textarea>
+                                </div>
+                                <div class="form-submit-wrap">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-submit" id="submitBtn">
+                                        <span class="btn-text">Send Request →</span>
+                                        <span class="btn-loading"><div class="spinner"></div></span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Success State -->
+                        <div class="form-success" id="formSuccess">
+                            <div class="form-success-icon">✅</div>
+                            <h3 class="form-success-title">Request received!</h3>
+                            <p class="form-success-text">Thanks for reaching out. Our team will review your property details and send you a custom quote within <strong>24 hours</strong>. Check your inbox!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div>
+                    <div class="footer-brand-name">Casa<span>Fresh</span></div>
+                    <p class="footer-brand-desc">Professional vacation home cleaning and AC maintenance across Central Florida. Keeping homes fresh and guests happy since 2021.</p>
+                    <div class="footer-badge">
+                        <div class="footer-badge-dot"></div>
+                        Accepting new properties
+                    </div>
+                    <a href="mailto:hello@casafresh.com" class="footer-contact-link">📧 hello@casafresh.com</a>
+                    <a href="tel:4075550192" class="footer-contact-link">📱 (407) 555-0192</a>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <div class="footer-col-title">Services</div>
+                    <ul class="footer-links">
+                        <li><a href="#services">Vacation Home Cleaning</a></li>
+                        <li><a href="#services">AC Maintenance</a></li>
+                        <li><a href="#services">Premium Package</a></li>
+                        <li><a href="#pricing">Pricing Plans</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <div class="footer-col-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="#about">Why CasaFresh</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Service Area -->
+                <div>
+                    <div class="footer-col-title">Service Area</div>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Orlando, FL</a></li>
+                        <li><a href="#contact">Kissimmee, FL</a></li>
+                        <li><a href="#contact">Daytona Beach, FL</a></li>
+                        <li><a href="#contact">Tampa, FL</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 CasaFresh LLC · Central Florida · All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="CasaFresh on Instagram">IG</a>
+                    <a href="#" aria-label="CasaFresh on Facebook">FB</a>
+                    <a href="#" aria-label="CasaFresh on TikTok">TK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* =====================================================
+           CASAFRESH — Interactive JavaScript
+           ===================================================== */
+
+        // ---- LOADER ----
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => loader.classList.add('hidden'), 1800);
+        });
+
+        // ---- NAV: Scroll effect + active link ----
+        const nav = document.getElementById('nav');
+        const sections = document.querySelectorAll('section[id]');
+
+        function updateNav() {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+
+            // Highlight active nav link
+            let current = '';
+            sections.forEach(sec => {
+                const top = sec.offsetTop - 120;
+                if (window.scrollY >= top) current = sec.getAttribute('id');
+            });
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+            });
+        }
+        window.addEventListener('scroll', updateNav, { passive: true });
+        updateNav();
+
+        // ---- MOBILE NAV TOGGLE ----
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('active', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ---- SMOOTH SCROLL ----
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 80;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ---- SCROLL REVEAL ----
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || (i * 80);
+                    setTimeout(() => entry.target.classList.add('visible'), parseInt(delay));
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el, i) => {
+            el.dataset.delay = i * 60;
+            revealObserver.observe(el);
+        });
+
+        // ---- STEPS LINE ANIMATION ----
+        const stepsLine = document.getElementById('stepsLine');
+        if (stepsLine) {
+            const lineObserver = new IntersectionObserver(entries => {
+                if (entries[0].isIntersecting) {
+                    setTimeout(() => stepsLine.classList.add('animated'), 400);
+                    lineObserver.disconnect();
+                }
+            }, { threshold: 0.5 });
+            lineObserver.observe(stepsLine);
+        }
+
+        // ---- PARTICLES ----
+        (function initParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+            const count = 24;
+            const colors = ['#63D866', '#7EE580', '#9AED9C', '#82B1E4', '#63D866'];
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = 2 + Math.random() * 4;
+                p.style.cssText = `
+                    left: ${Math.random() * 100}%;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    animation-delay: ${Math.random() * 10}s;
+                    animation-duration: ${7 + Math.random() * 7}s;
+                    opacity: 0;
+                `;
+                container.appendChild(p);
+            }
+        })();
+
+        // ---- HERO 3D PARALLAX (mouse tracking) ----
+        (function initParallax() {
+            const hero3d = document.getElementById('hero3d');
+            const heroSection = document.getElementById('hero');
+            if (!hero3d || !heroSection) return;
+
+            let animFrame;
+            heroSection.addEventListener('mousemove', (e) => {
+                cancelAnimationFrame(animFrame);
+                animFrame = requestAnimationFrame(() => {
+                    const rect = heroSection.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    hero3d.style.animation = 'none';
+                    hero3d.style.transform = `rotateY(${x * -28}deg) rotateX(${y * 14}deg) translateY(${y * -12}px)`;
+                });
+            });
+
+            heroSection.addEventListener('mouseleave', () => {
+                cancelAnimationFrame(animFrame);
+                hero3d.style.animation = 'floatHouse 6s ease-in-out infinite';
+                hero3d.style.transform = '';
+            });
+        })();
+
+        // ---- COUNTER ANIMATION ----
+        (function initCounters() {
+            const stats = document.querySelectorAll('.hero-stat-number');
+            const targets = ['500', '4.9', '24'];
+            const suffixes = ['+', '★', 'h'];
+
+            function animateCount(el, target, suffix, duration) {
+                const isFloat = target.includes('.');
+                const end = parseFloat(target);
+                const start = 0;
+                const startTime = performance.now();
+
+                function update(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = start + (end - start) * eased;
+                    el.textContent = (isFloat ? current.toFixed(1) : Math.round(current)) + suffix;
+                    if (progress < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            }
+
+            const counterObserver = new IntersectionObserver(entries => {
+                if (entries[0].isIntersecting) {
+                    stats.forEach((el, i) => animateCount(el, targets[i], suffixes[i], 1800));
+                    counterObserver.disconnect();
+                }
+            }, { threshold: 0.8 });
+
+            if (stats[0]) counterObserver.observe(stats[0].closest('.hero-stats') || stats[0]);
+        })();
+
+        // ---- FORM VALIDATION & SUBMIT ----
+        (function initForm() {
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formView = document.getElementById('formView');
+            const formSuccess = document.getElementById('formSuccess');
+            if (!form) return;
+
+            const fields = {
+                firstName: { el: document.getElementById('firstName'), err: document.getElementById('err-firstName'), validate: v => v.trim().length >= 2, msg: 'Please enter your first name (2+ chars).' },
+                lastName:  { el: document.getElementById('lastName'),  err: document.getElementById('err-lastName'),  validate: v => v.trim().length >= 2, msg: 'Please enter your last name.' },
+                email:     { el: document.getElementById('email'),     err: document.getElementById('err-email'),     validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), msg: 'Please enter a valid email address.' },
+                phone:     { el: document.getElementById('phone'),     err: document.getElementById('err-phone'),     validate: v => /[\d\s\-\(\)\+]{7,}/.test(v.trim()), msg: 'Please enter a valid phone number.' },
+                address:   { el: document.getElementById('address'),   err: document.getElementById('err-address'),   validate: v => v.trim().length >= 10, msg: 'Please enter your property address.' },
+                serviceType: { el: document.getElementById('serviceType'), err: document.getElementById('err-serviceType'), validate: v => v !== '', msg: 'Please select a service type.' }
+            };
+
+            // Live validation on blur
+            Object.values(fields).forEach(({ el, err, validate, msg }) => {
+                el.addEventListener('blur', () => {
+                    const valid = validate(el.value);
+                    el.classList.toggle('error', !valid);
+                    if (!valid) {
+                        err.textContent = msg;
+                        err.classList.add('visible');
+                    } else {
+                        err.classList.remove('visible');
+                    }
+                });
+                el.addEventListener('input', () => {
+                    if (el.classList.contains('error')) {
+                        const valid = validate(el.value);
+                        el.classList.toggle('error', !valid);
+                        if (valid) err.classList.remove('visible');
+                    }
+                });
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let valid = true;
+
+                Object.values(fields).forEach(({ el, err, validate, msg }) => {
+                    if (!validate(el.value)) {
+                        valid = false;
+                        el.classList.add('error');
+                        err.textContent = msg;
+                        err.classList.add('visible');
+                    } else {
+                        el.classList.remove('error');
+                        err.classList.remove('visible');
+                    }
+                });
+
+                if (!valid) {
+                    // Scroll to first error
+                    const firstErr = form.querySelector('.form-input.error');
+                    if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                // Simulate network request
+                setTimeout(() => {
+                    formView.style.display = 'none';
+                    formSuccess.classList.add('visible');
+                }, 1400);
+            });
+        })();
+
+        // ---- SERVICE CARD TILT on hover ----
+        (function initTilt() {
+            document.querySelectorAll('.service-card, .testimonial-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    card.style.transform = `translateY(-6px) rotateX(${y * -4}deg) rotateY(${x * 4}deg)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                    // Re-enable CSS transition for smooth reset
+                    card.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+                });
+            });
+        })();
+
+    </script>
+</body>
+</html>
