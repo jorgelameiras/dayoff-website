@@ -1,9 +1,9 @@
 [
   {
     "uid": "brief-001",
-    "updateDate": "2026-03-05T11:30:09.0Z",
+    "updateDate": "2026-03-05T12:30:15.0Z",
     "titleText": "Morning Market Brief",
-    "mainText": "Good morning sir. Here is your full brief for Thursday, March 5. Starting with crypto. Bitcoin is at 73 thousand 94 dollars, up 2.61 percent in the last 24 hours. Ethereum is at 2 thousand 148 dollars and 64 cents, up 3.9 percent in the last 24 hours. Solana is at 92 dollars and 18 cents, up 1.96 percent in the last 24 hours. Now for stocks. Oil Services ETF is at 383 dollars and 23 dollars, down 3.09 percent today. Energy ETF is at 56 dollars and 19 cents, down 1.49 percent today. Robinhood is at 82 dollars and 21 cents, up 4.35 percent today. Nutrien is at 73 dollars and 59 cents, down 2.84 percent today. FinAI had 32 commits overnight, including: fix: move hardcoded Gemini API key to env variable. That is your morning brief. Have a productive day sir.",
+    "mainText": "Good morning sir. Here is your full brief for Thursday, March 5. Starting with crypto. Bitcoin is at 72 thousand 781 dollars, up 2.93 percent in the last 24 hours. Ethereum is at 2 thousand 129 dollars and 95 cents, up 4.34 percent in the last 24 hours. Solana is at 91 dollars and 53 cents, up 2.56 percent in the last 24 hours. Now for stocks. Oil Services ETF is at 383 dollars and 23 dollars, down 3.09 percent today. Energy ETF is at 56 dollars and 19 cents, down 1.49 percent today. Robinhood is at 82 dollars and 21 cents, up 4.35 percent today. Nutrien is at 73 dollars and 59 cents, down 2.84 percent today. FinAI had 32 commits overnight, including: fix: move hardcoded Gemini API key to env variable. That is your morning brief. Have a productive day sir.",
     "redirectionUrl": "https://github.com/jorgelameiras"
   }
 ]
