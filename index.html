@@ -815,6 +815,99 @@
                 justify-content: center;
             }
         }
+
+        /* Success Modal */
+        .success-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .success-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .success-card {
+            background: var(--color-primary-800);
+            border: 1px solid var(--color-primary-600);
+            border-radius: 16px;
+            padding: 48px 40px 36px;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.85) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+        }
+        .success-overlay.active .success-card {
+            transform: scale(1) translateY(0);
+        }
+        .success-checkmark {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 24px;
+        }
+        .success-checkmark circle {
+            fill: none;
+            stroke: var(--color-accent-500);
+            stroke-width: 3;
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+        }
+        .success-overlay.active .success-checkmark circle {
+            animation: checkCircle 0.5s 0.2s ease forwards;
+        }
+        .success-checkmark path {
+            fill: none;
+            stroke: var(--color-accent-500);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 40;
+            stroke-dashoffset: 40;
+        }
+        .success-overlay.active .success-checkmark path {
+            animation: checkMark 0.35s 0.55s ease forwards;
+        }
+        @keyframes checkCircle {
+            to { stroke-dashoffset: 0; }
+        }
+        @keyframes checkMark {
+            to { stroke-dashoffset: 0; }
+        }
+        .success-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-primary-50);
+            margin-bottom: 8px;
+        }
+        .success-card p {
+            color: var(--color-primary-300);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+        .success-close-btn {
+            background: var(--color-accent-500);
+            color: var(--color-primary-900);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .success-close-btn:hover {
+            background: var(--color-accent-400);
+        }
     </style>
 </head>
 <body>
@@ -1005,7 +1098,7 @@
             <h2 class="section-title">Ready to stop worrying about AC?</h2>
             <p class="section-subtitle">Tell us about your properties and we'll put together a free maintenance plan. No obligations, no pressure.</p>
             <div class="contact-grid">
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch within 24 hours.');">
+                <form class="contact-form" onsubmit="event.preventDefault(); document.querySelector('.success-overlay').classList.add('active'); this.reset();">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -1075,5 +1168,17 @@
             <div class="footer-copy">&copy; 2026 CasaFresh. All rights reserved.</div>
         </div>
     </footer>
+    <!-- Success Modal -->
+    <div class="success-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="success-card">
+            <svg class="success-checkmark" viewBox="0 0 72 72">
+                <circle cx="36" cy="36" r="32"/>
+                <path d="M22 36l10 10 18-20"/>
+            </svg>
+            <h3>Request Submitted!</h3>
+            <p>Thanks for reaching out. Jorge will be in touch within 24 hours.</p>
+            <button class="success-close-btn" onclick="this.closest('.success-overlay').classList.remove('active')">Close</button>
+        </div>
+    </div>
 </body>
 </html>
