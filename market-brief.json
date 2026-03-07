@@ -1,9 +1,9 @@
 [
   {
     "uid": "brief-001",
-    "updateDate": "2026-03-06T12:30:07.0Z",
+    "updateDate": "2026-03-07T11:30:12.0Z",
     "titleText": "Morning Market Brief",
-    "mainText": "Good morning sir. Here is your full brief for Friday, March 6. Starting with crypto. Bitcoin is at 70 thousand 77 dollars, down 3.75 percent in the last 24 hours. Ethereum is at 2 thousand 53 dollars and 70 cents, down 3.63 percent in the last 24 hours. Solana is at 86 dollars and 97 cents, down 4.98 percent in the last 24 hours. Now for stocks. Oil Services ETF is at 378 dollars and 63 dollars, down 1.54 percent today. Energy ETF is at 56 dollars and 48 cents, down 0.07 percent today. Robinhood is at 80 dollars and 56 cents, up 5.9 percent today. Nutrien is at 74 dollars and 39 cents, down 0.04 percent today. FinAI had 6 commits overnight, including: fix: monthly spending cards respect custom category names via renameCategory. That is your morning brief. Have a productive day sir.",
+    "mainText": "Good morning sir. Here is your full brief for Saturday, March 7. Starting with crypto. Bitcoin is at 68 thousand 110 dollars, down 3.46 percent in the last 24 hours. Ethereum is at 1 thousand 989 dollars and 18 cents, down 3.69 percent in the last 24 hours. Solana is at 84 dollars and 76 cents, down 3.47 percent in the last 24 hours. Now for stocks. Oil Services ETF is at 373 dollars and 33 dollars, down 2.58 percent today. Energy ETF is at 56 dollars and 57 cents, up 0.68 percent today. Robinhood is at 77 dollars and 9 cents, down 6.23 percent today. Nutrien is at 76 dollars and 21 cents, up 3.56 percent today. FinAI had 6 commits overnight, including: fix: balance trend query uses start of month to match \"THIS MONTH\" label. That is your morning brief. Have a productive day sir.",
     "redirectionUrl": "https://github.com/jorgelameiras"
   }
 ]
