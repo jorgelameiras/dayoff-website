@@ -1098,7 +1098,10 @@
             <h2 class="section-title">Ready to stop worrying about AC?</h2>
             <p class="section-subtitle">Tell us about your properties and we'll put together a free maintenance plan. No obligations, no pressure.</p>
             <div class="contact-grid">
-                <form class="contact-form" onsubmit="event.preventDefault(); document.querySelector('.success-overlay').classList.add('active'); this.reset();">
+                <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
+                    <input type="hidden" name="_subject" value="New CasaFresh Assessment Request">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -1119,7 +1122,8 @@
                         <label for="message">Message</label>
                         <textarea id="message" name="message" placeholder="Tell us about your properties..."></textarea>
                     </div>
-                    <button type="submit" class="btn-primary">Request Free Assessment &rarr;</button>
+                    <button type="submit" class="btn-primary" id="submitBtn">Request Free Assessment &rarr;</button>
+                    <div id="formMsg" style="font-size:14px;margin-top:8px;display:none;"></div>
                 </form>
                 <div class="contact-info">
                     <h3>Let's talk AC maintenance.</h3>
@@ -1180,5 +1184,41 @@
             <button class="success-close-btn" onclick="this.closest('.success-overlay').classList.remove('active')">Close</button>
         </div>
     </div>
+
+<script>
+async function submitContactForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('formMsg');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const form = document.getElementById('contactForm');
+    const data = new FormData(form);
+
+    try {
+        const res = await fetch('https://formsubmit.co/ajax/jorgelameiras208@gmail.com', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: data
+        });
+        const result = await res.json();
+        if (result.success === 'true' || result.success === true) {
+            form.reset();
+            document.querySelector('.success-overlay').classList.add('active');
+        } else {
+            msg.textContent = 'Something went wrong. Email us at jorgelameiras208@gmail.com';
+            msg.style.color = '#F87171';
+            msg.style.display = 'block';
+        }
+    } catch(err) {
+        msg.textContent = 'Network error. Please email jorgelameiras208@gmail.com directly.';
+        msg.style.color = '#F87171';
+        msg.style.display = 'block';
+    }
+    btn.textContent = 'Request Free Assessment →';
+    btn.disabled = false;
+}
+</script>
 </body>
 </html>
