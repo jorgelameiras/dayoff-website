@@ -469,42 +469,84 @@
             justify-content: center;
             perspective: 1200px;
         }
+        /* ── HVAC Orbit ──────────────────────────────────── */
         .hero-3d-container {
             width: 480px;
             height: 480px;
             position: relative;
-            transform-style: preserve-3d;
-            animation: floatHouse 6s ease-in-out infinite;
-            will-change: transform;
         }
-        @keyframes floatHouse {
-            0%, 100% { transform: rotateY(-12deg) rotateX(4deg) translateY(0); }
-            50% { transform: rotateY(-12deg) rotateX(4deg) translateY(-18px); }
-        }
-        .house-svg {
-            width: 100%;
-            height: 100%;
-            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.4));
-        }
-
-        /* Floating Items */
-        .float-item {
+        .orbit-center {
             position: absolute;
-            animation: floatItem 4s ease-in-out infinite;
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
-            user-select: none;
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+            width: 130px; height: 130px;
+            background: radial-gradient(circle, rgba(58,176,232,0.18) 0%, rgba(26,58,107,0.35) 100%);
+            border: 1.5px solid rgba(58,176,232,0.3);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 40px rgba(58,176,232,0.15), 0 0 80px rgba(26,111,191,0.1);
+            z-index: 5;
+        }
+        .orbit-center svg { width: 64px; height: 64px; }
+        /* Orbit rings */
+        .orbit-ring {
+            position: absolute;
+            top: 50%; left: 50%;
+            border-radius: 50%;
+            border: 1px solid rgba(58,176,232,0.12);
+            transform-origin: center center;
             pointer-events: none;
         }
-        .float-item:nth-child(2) { animation-delay: -1.2s; }
-        .float-item:nth-child(3) { animation-delay: -2.1s; }
-        .float-item:nth-child(4) { animation-delay: -0.6s; }
-        .float-item:nth-child(5) { animation-delay: -1.8s; }
-        .float-item:nth-child(6) { animation-delay: -2.7s; }
-        .float-item:nth-child(7) { animation-delay: -3.3s; }
-        @keyframes floatItem {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-14px) rotate(6deg); }
+        .orbit-ring-1 {
+            width: 260px; height: 260px;
+            margin: -130px 0 0 -130px;
+            animation: spinRing 18s linear infinite;
         }
+        .orbit-ring-2 {
+            width: 380px; height: 380px;
+            margin: -190px 0 0 -190px;
+            animation: spinRing 28s linear infinite reverse;
+        }
+        .orbit-ring-3 {
+            width: 460px; height: 460px;
+            margin: -230px 0 0 -230px;
+            animation: spinRing 38s linear infinite;
+            border-style: dashed;
+            border-color: rgba(58,176,232,0.06);
+        }
+        @keyframes spinRing {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+        /* Orbit nodes */
+        .orbit-node {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 72px; height: 72px;
+            margin: -36px 0 0 -36px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .orbit-node .node-card {
+            width: 64px; height: 64px;
+            background: rgba(26,58,107,0.85);
+            border: 1px solid rgba(58,176,232,0.25);
+            border-radius: 14px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 4px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+            transition: transform 0.3s ease;
+        }
+        .orbit-node .node-card svg { width: 28px; height: 28px; }
+        .orbit-node .node-label {
+            font-size: 8px; font-weight: 600; letter-spacing: 0.04em;
+            color: rgba(255,255,255,0.55); text-align: center;
+            line-height: 1.1; padding: 0 4px;
+        }
+        /* Counter-rotate so cards stay upright */
+        .orbit-ring-1 .orbit-node { animation: spinRing 18s linear infinite reverse; }
+        .orbit-ring-2 .orbit-node { animation: spinRing 28s linear infinite; }
         .glow-ring {
             position: absolute;
             bottom: 8%;
@@ -1949,93 +1991,150 @@
             <div class="hero-scene">
                 <div class="glow-ring"></div>
                 <div class="hero-3d-container" id="hero3d">
-                    <!-- House SVG with navy/blue color scheme -->
-                    <svg class="house-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                        <ellipse cx="250" cy="458" rx="190" ry="20" fill="rgba(0,0,0,0.18)"/>
-                        <rect x="110" y="218" width="280" height="200" rx="8" fill="#163260"/>
-                        <rect x="114" y="222" width="272" height="196" rx="6" fill="#1E4A80"/>
-                        <polygon points="390,218 420,195 420,390 390,418" fill="#1A3A6B" opacity="0.8"/>
-                        <polygon points="95,222 250,108 405,222" fill="#1A3A6B"/>
-                        <polygon points="100,222 250,113 400,222" fill="#163260"/>
-                        <polygon points="400,222 420,195 280,95 250,113" fill="#1A3A6B" opacity="0.6"/>
-                        <line x1="250" y1="113" x2="280" y2="95" stroke="#2358A0" stroke-width="2"/>
-                        <rect x="318" y="130" width="28" height="66" rx="3" fill="#1A3A6B"/>
-                        <rect x="314" y="127" width="36" height="8" rx="2" fill="#163260"/>
-                        <path d="M328,124 C326,118 332,112 330,106" stroke="#3AB0E8" fill="none" stroke-width="2" stroke-linecap="round" opacity="0.4">
-                            <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
-                        </path>
-                        <rect x="212" y="308" width="76" height="110" rx="7" fill="#1A3A6B"/>
-                        <rect x="216" y="312" width="68" height="102" rx="5" fill="#163260"/>
-                        <path d="M216,338 Q250,310 284,338" fill="#1A3A6B" opacity="0.4"/>
-                        <circle cx="272" cy="368" r="4.5" fill="#3AB0E8" opacity="0.9"/>
-                        <rect x="220" y="340" width="28" height="40" rx="2" fill="#1A3A6B" opacity="0.3"/>
-                        <rect x="252" y="340" width="28" height="40" rx="2" fill="#1A3A6B" opacity="0.3"/>
-                        <rect x="138" y="256" width="54" height="58" rx="5" fill="#1A3A6B"/>
-                        <rect x="141" y="259" width="48" height="52" rx="4" fill="#2358A0" opacity="0.7"/>
-                        <polygon points="143,261 153,261 143,271" fill="rgba(255,255,255,0.1)"/>
-                        <line x1="165" y1="259" x2="165" y2="311" stroke="#163260" stroke-width="1.5"/>
-                        <line x1="141" y1="288" x2="189" y2="288" stroke="#163260" stroke-width="1.5"/>
-                        <rect x="138" y="256" width="54" height="58" rx="5" fill="none" stroke="#2358A0" stroke-width="1.5"/>
-                        <rect x="308" y="256" width="54" height="58" rx="5" fill="#1A3A6B"/>
-                        <rect x="311" y="259" width="48" height="52" rx="4" fill="#2358A0" opacity="0.7"/>
-                        <polygon points="313,261 323,261 313,271" fill="rgba(255,255,255,0.1)"/>
-                        <line x1="335" y1="259" x2="335" y2="311" stroke="#163260" stroke-width="1.5"/>
-                        <line x1="311" y1="288" x2="359" y2="288" stroke="#163260" stroke-width="1.5"/>
-                        <rect x="308" y="256" width="54" height="58" rx="5" fill="none" stroke="#2358A0" stroke-width="1.5"/>
-                        <!-- AC Unit — highlighted blue -->
-                        <rect x="303" y="235" width="68" height="18" rx="5" fill="#1A6FBF"/>
-                        <rect x="305" y="237" width="64" height="14" rx="4" fill="#3AB0E8"/>
-                        <line x1="312" y1="240" x2="312" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
-                        <line x1="318" y1="240" x2="318" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
-                        <line x1="324" y1="240" x2="324" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
-                        <line x1="330" y1="240" x2="330" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
-                        <line x1="336" y1="240" x2="336" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
-                        <line x1="342" y1="240" x2="342" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
-                        <line x1="348" y1="240" x2="348" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
-                        <line x1="354" y1="240" x2="354" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
-                        <line x1="360" y1="240" x2="360" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
-                        <path d="M316,233 Q320,229 324,233" stroke="#7FD4F5" fill="none" stroke-width="1.5" stroke-linecap="round">
-                            <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2s" repeatCount="indefinite"/>
-                        </path>
-                        <path d="M330,231 Q334,227 338,231" stroke="#7FD4F5" fill="none" stroke-width="1.5" stroke-linecap="round">
-                            <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" begin="0.7s" repeatCount="indefinite"/>
-                        </path>
-                        <path d="M344,233 Q348,229 352,233" stroke="#7FD4F5" fill="none" stroke-width="1.5" stroke-linecap="round">
-                            <animate attributeName="opacity" values="0.6;0.15;0.6" dur="2s" begin="1.4s" repeatCount="indefinite"/>
-                        </path>
-                        <rect x="200" y="416" width="100" height="10" rx="2" fill="#1A3A6B"/>
-                        <rect x="195" y="422" width="110" height="8" rx="2" fill="#163260"/>
-                        <rect x="90" y="418" width="320" height="8" rx="4" fill="#2358A0" opacity="0.4"/>
-                        <!-- Palm Trees -->
-                        <line x1="128" y1="418" x2="132" y2="340" stroke="#1E4A80" stroke-width="5" stroke-linecap="round"/>
-                        <path d="M132,340 Q115,320 100,328" stroke="#2A6BB5" fill="none" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M132,340 Q118,328 115,312" stroke="#2A6BB5" fill="none" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M132,340 Q130,325 140,315" stroke="#3AB0E8" fill="none" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-                        <path d="M132,340 Q145,330 150,320" stroke="#2A6BB5" fill="none" stroke-width="3" stroke-linecap="round"/>
-                        <line x1="370" y1="418" x2="368" y2="358" stroke="#1E4A80" stroke-width="4" stroke-linecap="round"/>
-                        <path d="M368,362 Q352,345 345,352" stroke="#2A6BB5" fill="none" stroke-width="2.5" stroke-linecap="round"/>
-                        <path d="M368,362 Q355,352 352,340" stroke="#2A6BB5" fill="none" stroke-width="2.5" stroke-linecap="round"/>
-                        <path d="M368,362 Q378,348 385,355" stroke="#3AB0E8" fill="none" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-                        <!-- Bushes -->
-                        <circle cx="165" cy="418" r="16" fill="#1E4A80" opacity="0.8"/>
-                        <circle cx="178" cy="414" r="12" fill="#2A6BB5" opacity="0.7"/>
-                        <circle cx="156" cy="414" r="10" fill="#3AB0E8" opacity="0.2"/>
-                        <circle cx="340" cy="418" r="14" fill="#1E4A80" opacity="0.8"/>
-                        <circle cx="328" cy="414" r="11" fill="#2A6BB5" opacity="0.7"/>
-                        <circle cx="350" cy="415" r="9" fill="#3AB0E8" opacity="0.2"/>
-                        <circle cx="250" cy="310" r="3" fill="#3AB0E8" opacity="0.6">
-                            <animate attributeName="opacity" values="0.6;0.3;0.6" dur="4s" repeatCount="indefinite"/>
-                        </circle>
-                    </svg>
 
-                    <!-- Floating Items -->
-                    <div class="float-item" style="top: 4%; right: -12%; font-size: 2.4rem;">❄️</div>
-                    <div class="float-item" style="top: 28%; left: -14%; font-size: 2rem;">🌡️</div>
-                    <div class="float-item" style="bottom: 22%; right: -18%; font-size: 1.9rem;">💨</div>
-                    <div class="float-item" style="top: 12%; left: 6%; font-size: 1.7rem;">✨</div>
-                    <div class="float-item" style="bottom: 32%; left: -10%; font-size: 2.1rem;">🔧</div>
-                    <div class="float-item" style="top: 52%; right: -6%; font-size: 1.5rem;">🏠</div>
-                    <div class="float-item" style="bottom: 14%; left: 12%; font-size: 1.7rem;">📋</div>
+                    <!-- Orbit Ring 1 — inner (4 nodes) -->
+                    <div class="orbit-ring orbit-ring-1">
+                        <!-- Air Handler @ 0deg -->
+                        <div class="orbit-node" style="transform:rotate(0deg) translateX(130px)">
+                            <div class="node-card">
+                                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="7" width="22" height="14" rx="3" fill="#1A6FBF" stroke="#3AB0E8" stroke-width="1.2"/>
+                                    <line x1="7" y1="10" x2="7" y2="18" stroke="#7FD4F5" stroke-width="1" opacity="0.7"/>
+                                    <line x1="10" y1="10" x2="10" y2="18" stroke="#7FD4F5" stroke-width="1" opacity="0.7"/>
+                                    <line x1="13" y1="10" x2="13" y2="18" stroke="#7FD4F5" stroke-width="1" opacity="0.7"/>
+                                    <line x1="16" y1="10" x2="16" y2="18" stroke="#7FD4F5" stroke-width="1" opacity="0.7"/>
+                                    <line x1="19" y1="10" x2="19" y2="18" stroke="#7FD4F5" stroke-width="1" opacity="0.7"/>
+                                    <line x1="22" y1="10" x2="22" y2="18" stroke="#7FD4F5" stroke-width="1" opacity="0.7"/>
+                                    <circle cx="5" cy="14" r="2" fill="#3AB0E8"/>
+                                </svg>
+                                <span class="node-label">Air Handler</span>
+                            </div>
+                        </div>
+                        <!-- Fan Coil @ 90deg -->
+                        <div class="orbit-node" style="transform:rotate(90deg) translateX(130px)">
+                            <div class="node-card">
+                                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="4" y="8" width="20" height="12" rx="2" fill="#1A3A6B" stroke="#3AB0E8" stroke-width="1.2"/>
+                                    <circle cx="14" cy="14" r="5" fill="#1A6FBF" stroke="#3AB0E8" stroke-width="1"/>
+                                    <path d="M14 9 L15.5 12 L14 11 L12.5 12 Z" fill="#7FD4F5"/>
+                                    <path d="M19 14 L16 15.5 L17 14 L16 12.5 Z" fill="#7FD4F5"/>
+                                    <path d="M14 19 L12.5 16 L14 17 L15.5 16 Z" fill="#7FD4F5"/>
+                                    <path d="M9 14 L12 12.5 L11 14 L12 15.5 Z" fill="#7FD4F5"/>
+                                </svg>
+                                <span class="node-label">Fan Coil</span>
+                            </div>
+                        </div>
+                        <!-- Boiler @ 180deg -->
+                        <div class="orbit-node" style="transform:rotate(180deg) translateX(130px)">
+                            <div class="node-card">
+                                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="6" y="6" width="16" height="18" rx="3" fill="#1A6FBF" stroke="#3AB0E8" stroke-width="1.2"/>
+                                    <rect x="9" y="9" width="10" height="8" rx="1.5" fill="#163260"/>
+                                    <circle cx="11" cy="21" r="1.5" fill="#7FD4F5"/>
+                                    <circle cx="17" cy="21" r="1.5" fill="#7FD4F5"/>
+                                    <path d="M12 6 Q13 3 14 6" stroke="#7FD4F5" fill="none" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+                                </svg>
+                                <span class="node-label">Boiler</span>
+                            </div>
+                        </div>
+                        <!-- Condenser @ 270deg -->
+                        <div class="orbit-node" style="transform:rotate(270deg) translateX(130px)">
+                            <div class="node-card">
+                                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="4" y="6" width="20" height="16" rx="3" fill="#1A3A6B" stroke="#3AB0E8" stroke-width="1.2"/>
+                                    <circle cx="14" cy="14" r="6" fill="#1A6FBF" stroke="#3AB0E8" stroke-width="1"/>
+                                    <circle cx="14" cy="14" r="3" fill="#163260"/>
+                                    <line x1="14" y1="8" x2="14" y2="10" stroke="#7FD4F5" stroke-width="1.2"/>
+                                    <line x1="14" y1="18" x2="14" y2="20" stroke="#7FD4F5" stroke-width="1.2"/>
+                                    <line x1="8" y1="14" x2="10" y2="14" stroke="#7FD4F5" stroke-width="1.2"/>
+                                    <line x1="18" y1="14" x2="20" y2="14" stroke="#7FD4F5" stroke-width="1.2"/>
+                                </svg>
+                                <span class="node-label">Condenser</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orbit Ring 2 — outer (4 nodes) -->
+                    <div class="orbit-ring orbit-ring-2">
+                        <!-- Chiller @ 45deg -->
+                        <div class="orbit-node" style="transform:rotate(45deg) translateX(190px)">
+                            <div class="node-card">
+                                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="9" width="22" height="10" rx="2" fill="#1A6FBF" stroke="#3AB0E8" stroke-width="1.2"/>
+                                    <rect x="7" y="6" width="14" height="4" rx="1" fill="#1A3A6B" stroke="#3AB0E8" stroke-width="1"/>
+                                    <rect x="7" y="19" width="14" height="4" rx="1" fill="#1A3A6B" stroke="#3AB0E8" stroke-width="1"/>
+                                    <circle cx="10" cy="14" r="2" fill="#7FD4F5"/>
+                                    <circle cx="14" cy="14" r="2" fill="#7FD4F5"/>
+                                    <circle cx="18" cy="14" r="2" fill="#7FD4F5"/>
+                                </svg>
+                                <span class="node-label">Chiller</span>
+                            </div>
+                        </div>
+                        <!-- Cooling Tower @ 135deg -->
+                        <div class="orbit-node" style="transform:rotate(135deg) translateX(190px)">
+                            <div class="node-card">
+                                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 22 L6 6 L22 6 L20 22 Z" fill="#1A3A6B" stroke="#3AB0E8" stroke-width="1.2"/>
+                                    <line x1="9" y1="22" x2="7.5" y2="14" stroke="#3AB0E8" stroke-width="0.8" opacity="0.5"/>
+                                    <line x1="14" y1="22" x2="14" y2="6" stroke="#3AB0E8" stroke-width="0.8" opacity="0.5"/>
+                                    <line x1="19" y1="22" x2="20.5" y2="14" stroke="#3AB0E8" stroke-width="0.8" opacity="0.5"/>
+                                    <path d="M10 10 Q14 7 18 10" stroke="#7FD4F5" fill="none" stroke-width="1.2" stroke-linecap="round"/>
+                                    <path d="M9 14 Q14 10 19 14" stroke="#7FD4F5" fill="none" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+                                </svg>
+                                <span class="node-label">Cooling Tower</span>
+                            </div>
+                        </div>
+                        <!-- VAV Box @ 225deg -->
+                        <div class="orbit-node" style="transform:rotate(225deg) translateX(190px)">
+                            <div class="node-card">
+                                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="4" y="10" width="20" height="8" rx="2" fill="#1A3A6B" stroke="#3AB0E8" stroke-width="1.2"/>
+                                    <rect x="2" y="12" width="5" height="4" rx="1" fill="#1A6FBF"/>
+                                    <rect x="21" y="12" width="5" height="4" rx="1" fill="#1A6FBF"/>
+                                    <line x1="10" y1="12" x2="18" y2="16" stroke="#7FD4F5" stroke-width="1.5" stroke-linecap="round"/>
+                                    <line x1="10" y1="16" x2="18" y2="12" stroke="#7FD4F5" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+                                </svg>
+                                <span class="node-label">VAV Box</span>
+                            </div>
+                        </div>
+                        <!-- Pump @ 315deg -->
+                        <div class="orbit-node" style="transform:rotate(315deg) translateX(190px)">
+                            <div class="node-card">
+                                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="14" cy="14" r="8" fill="#1A3A6B" stroke="#3AB0E8" stroke-width="1.2"/>
+                                    <circle cx="14" cy="14" r="4.5" fill="#1A6FBF"/>
+                                    <path d="M14 9.5 L15.5 13 L14 12 L12.5 13 Z" fill="#7FD4F5"/>
+                                    <path d="M18.5 14 L15 15.5 L16 14 L15 12.5 Z" fill="#7FD4F5"/>
+                                    <path d="M14 18.5 L12.5 15 L14 16 L15.5 15 Z" fill="#7FD4F5"/>
+                                    <path d="M9.5 14 L13 12.5 L12 14 L13 15.5 Z" fill="#7FD4F5"/>
+                                    <rect x="22" y="12" width="4" height="4" rx="1" fill="#1A6FBF" stroke="#3AB0E8" stroke-width="0.8"/>
+                                </svg>
+                                <span class="node-label">Pump</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orbit ring 3 (decoration) -->
+                    <div class="orbit-ring orbit-ring-3"></div>
+
+                    <!-- Center AC unit -->
+                    <div class="orbit-center">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="16" width="48" height="32" rx="6" fill="#1A3A6B" stroke="#3AB0E8" stroke-width="1.5"/>
+                            <rect x="10" y="18" width="44" height="28" rx="5" fill="#1A6FBF" opacity="0.3"/>
+                            <line x1="18" y1="22" x2="18" y2="42" stroke="#7FD4F5" stroke-width="1.5" opacity="0.8"/>
+                            <line x1="23" y1="22" x2="23" y2="42" stroke="#7FD4F5" stroke-width="1.5" opacity="0.8"/>
+                            <line x1="28" y1="22" x2="28" y2="42" stroke="#7FD4F5" stroke-width="1.5" opacity="0.8"/>
+                            <line x1="33" y1="22" x2="33" y2="42" stroke="#7FD4F5" stroke-width="1.5" opacity="0.8"/>
+                            <line x1="38" y1="22" x2="38" y2="42" stroke="#7FD4F5" stroke-width="1.5" opacity="0.8"/>
+                            <line x1="43" y1="22" x2="43" y2="42" stroke="#7FD4F5" stroke-width="1.5" opacity="0.8"/>
+                            <line x1="48" y1="22" x2="48" y2="42" stroke="#7FD4F5" stroke-width="1.5" opacity="0.8"/>
+                            <circle cx="13" cy="32" r="4" fill="#3AB0E8" opacity="0.9"/>
+                            <path d="M22 12 Q28 6 34 12" stroke="#3AB0E8" fill="none" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                            <path d="M26 10 Q32 4 38 10" stroke="#7FD4F5" fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+                        </svg>
+                    </div>
+
                 </div>
             </div>
         </div>
