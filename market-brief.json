@@ -1,9 +1,9 @@
 [
   {
     "uid": "brief-001",
-    "updateDate": "2026-03-14T11:30:08.0Z",
+    "updateDate": "2026-03-15T11:30:07.0Z",
     "titleText": "Morning Market Brief",
-    "mainText": "Good morning sir. Here is your full brief for Saturday, March 14. Starting with crypto. Bitcoin is at 70 thousand 701 dollars, down 2.3 percent in the last 24 hours. Ethereum is at 2 thousand 73 dollars and 68 cents, down 2.5 percent in the last 24 hours. Solana is at 86 dollars and 86 cents, down 3.64 percent in the last 24 hours. Now for stocks. Oil Services ETF is at 371 dollars and 13 dollars, down 3.61 percent today. Energy ETF is at 57 dollars and 70 cents, up 1.26 percent today. Robinhood is at 73 dollars and 39 cents, down 6.74 percent today. Nutrien is at 82 dollars and 85 cents, up 4.46 percent today. Weather in Orlando: Overcast +70\u00b0F. FinAI had 8 commits overnight, including: fix: await assistant message persist before releasing send lock to prevent message reordering. That is your morning brief. Have a productive day sir.",
+    "mainText": "Good morning sir. Here is your full brief for Sunday, March 15. Starting with crypto. Bitcoin is at 71 thousand 718 dollars, up 1.43 percent in the last 24 hours. Ethereum is at 2 thousand 117 dollars and 11 cents, up 2.08 percent in the last 24 hours. Solana is at 88 dollars and 32 cents, up 1.78 percent in the last 24 hours. Now for stocks. Oil Services ETF is at 371 dollars and 13 dollars, down 3.61 percent today. Energy ETF is at 57 dollars and 70 cents, up 1.26 percent today. Robinhood is at 73 dollars and 39 cents, down 6.74 percent today. Nutrien is at 82 dollars and 85 cents, up 4.46 percent today. Weather in Orlando: Mist +68\u00b0F. FinAI had 10 commits overnight, including: fix: dismiss loading indicator immediately when AI response arrives instead of waiting for persistence. That is your morning brief. Have a productive day sir.",
     "redirectionUrl": "https://github.com/jorgelameiras"
   }
 ]
