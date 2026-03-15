@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayOff — AC &amp; Heating Solutions | Central Florida</title>
+    <meta name="description" content="Professional air conditioning and heating solutions for homes and vacation rentals in Orlando, Kissimmee, and Davenport.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DayOff — AC &amp; Heating Solutions | Central Florida">
+    <meta property="og:description" content="Professional air conditioning and heating solutions for vacation rental properties in Central Florida. Set it once — we handle the rest.">
+    <meta property="og:url" content="https://dayoffac.com">
+    <meta name="theme-color" content="#1A3A6B">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary-900: #1A3A6B;
+            --color-primary-800: #163260;
+            --color-primary-700: #1E4A80;
+            --color-primary-600: #2358A0;
+            --color-primary-500: #2A6BB5;
+            --color-primary-400: #3AB0E8;
+            --color-primary-300: #7FD4F5;
+            --color-primary-200: #B8E8FA;
+            --color-primary-100: #D8F1FD;
+            --color-primary-50:  #EBF6FD;
+            --color-accent-500: #1A6FBF;
+            --color-accent-400: #3AB0E8;
+            --color-accent-300: #7FD4F5;
+            --color-accent-200: #B8E8FA;
+            --color-accent-100: #D8F1FD;
+            --color-accent-50:  #EBF6FD;
+            --color-accent-600: #2A7CC7;
+            --color-accent-700: #1A3A6B;
+            --color-warm-50:  #FAF8F2;
+            --color-warm-100: #F3EEDF;
+            --color-warm-200: #E8DDBF;
+            --color-warm-300: #D9CA9E;
+            --color-warm-500: #B49A60;
+            --color-warm-600: #967C4A;
+            --color-warm-700: #786038;
+            --color-cool-50:  #EBF6FD;
+            --color-cool-100: #D8F1FD;
+            --color-cool-300: #7FD4F5;
+            --color-cool-400: #3AB0E8;
+            --color-cool-500: #1A6FBF;
+            --color-cool-600: #1A3A6B;
+            --color-cool-700: #163260;
+            --color-neutral-950: #0D0D0D;
+            --color-neutral-900: #111111;
+            --color-neutral-800: #2E2E2E;
+            --color-neutral-700: #424242;
+            --color-neutral-600: #5C5C5C;
+            --color-neutral-500: #787878;
+            --color-neutral-400: #9E9E9E;
+            --color-neutral-300: #C2C2C2;
+            --color-neutral-200: #E0E0E0;
+            --color-neutral-100: #F0F0F0;
+            --color-neutral-50:  #F8F8F8;
+            --color-white: #FFFFFF;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --text-display-1: clamp(3rem, 7vw, 5.5rem);
+            --text-display-2: clamp(2.5rem, 5vw, 4rem);
+            --text-h1: clamp(2rem, 4vw, 3.5rem);
+            --text-h2: clamp(1.75rem, 3vw, 2.5rem);
+            --text-h3: clamp(1.25rem, 2vw, 1.75rem);
+            --text-h4: 1.25rem;
+            --text-body-lg: 1.125rem;
+            --text-body: 1rem;
+            --text-body-sm: 0.875rem;
+            --text-caption: 0.75rem;
+            --text-overline: 0.6875rem;
+            --leading-tight: 1.1;
+            --leading-snug: 1.25;
+            --leading-normal: 1.5;
+            --leading-relaxed: 1.75;
+            --tracking-tight: -0.02em;
+            --tracking-normal: 0;
+            --tracking-wide: 0.05em;
+            --tracking-wider: 0.1em;
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+            --space-32: 8rem;
+            --space-40: 10rem;
+            --radius-sm: 0.375rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
+            --radius-full: 9999px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-glow: 0 0 40px rgba(58, 176, 232, 0.25);
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+            --duration-fast: 150ms;
+            --duration-normal: 300ms;
+            --duration-slow: 500ms;
+            --duration-slower: 800ms;
+            --max-width: 1280px;
+            --nav-height: 80px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            line-height: var(--leading-normal);
+            color: var(--color-neutral-900);
+            background: var(--color-white);
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        button { font-family: var(--font-body); cursor: pointer; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--color-primary-300); border-radius: var(--radius-full); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-primary-400); }
+
+        /* ============================================
+           NAVBAR
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background: rgba(26, 58, 107, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(58, 176, 232, 0.15);
+        }
+        .navbar-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-8);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-white);
+            letter-spacing: var(--tracking-tight);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .navbar-links {
+            display: flex;
+            gap: var(--space-8);
+            align-items: center;
+        }
+        .navbar-links a {
+            color: var(--color-primary-100);
+            font-size: var(--text-body-sm);
+            font-weight: 500;
+            transition: color var(--duration-fast);
+            letter-spacing: var(--tracking-wide);
+        }
+        .navbar-links a:hover {
+            color: var(--color-accent-400);
+        }
+        .navbar-cta {
+            background: var(--color-accent-500) !important;
+            color: #FFFFFF !important;
+            padding: var(--space-2) var(--space-5);
+            border-radius: var(--radius-full);
+            font-weight: 600 !important;
+            transition: background var(--duration-fast), transform var(--duration-fast) !important;
+        }
+        .navbar-cta:hover {
+            background: var(--color-accent-400) !important;
+            transform: translateY(-1px);
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            background: linear-gradient(170deg, var(--color-primary-900) 0%, var(--color-primary-800) 40%, var(--color-primary-700) 100%);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: calc(var(--nav-height) + var(--space-16)) var(--space-8) var(--space-16);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 160%;
+            background: radial-gradient(ellipse, rgba(58, 176, 232, 0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            width: 100%;
+        }
+        .hero-overline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            color: var(--color-accent-400);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            margin-bottom: var(--space-6);
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: var(--text-display-1);
+            color: var(--color-white);
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+            max-width: 800px;
+            margin-bottom: var(--space-6);
+        }
+        .hero h1 em {
+            color: var(--color-accent-400);
+            font-style: italic;
+        }
+        .hero-sub {
+            font-size: var(--text-body-lg);
+            color: var(--color-primary-200);
+            max-width: 600px;
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-10);
+        }
+        .hero-ctas {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-16);
+        }
+        .btn-primary {
+            background: var(--color-accent-500);
+            color: #FFFFFF;
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: var(--text-body);
+            border: none;
+            transition: all var(--duration-normal) var(--ease-out);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        .btn-primary:hover {
+            background: var(--color-accent-400);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-white);
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            font-size: var(--text-body);
+            border: 1px solid rgba(58, 176, 232, 0.4);
+            transition: all var(--duration-normal) var(--ease-out);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        .btn-secondary:hover {
+            border-color: var(--color-accent-400);
+            color: var(--color-accent-400);
+            transform: translateY(-2px);
+        }
+        .hero-stats {
+            display: flex;
+            gap: var(--space-12);
+            flex-wrap: wrap;
+        }
+        .hero-stat { text-align: left; }
+        .hero-stat-value {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            color: var(--color-white);
+            line-height: var(--leading-tight);
+        }
+        .hero-stat-label {
+            font-size: var(--text-body-sm);
+            color: var(--color-primary-300);
+            margin-top: var(--space-1);
+        }
+
+        /* ============================================
+           SECTION COMMON
+           ============================================ */
+        .section {
+            padding: var(--space-24) var(--space-8);
+        }
+        .section-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .section-overline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-accent-600);
+            margin-bottom: var(--space-4);
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: var(--text-display-2);
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+            margin-bottom: var(--space-4);
+        }
+        .section-subtitle {
+            font-size: var(--text-body-lg);
+            color: var(--color-neutral-600);
+            max-width: 600px;
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-12);
+        }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services {
+            background: var(--color-neutral-50);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-8);
+        }
+        .service-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-10);
+            border: 1px solid var(--color-neutral-200);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary-200);
+        }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-lg);
+            background: var(--color-primary-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-6);
+        }
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            margin-bottom: var(--space-3);
+            color: var(--color-primary-900);
+        }
+        .service-card p {
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+            font-size: var(--text-body-sm);
+        }
+        .service-features {
+            margin-top: var(--space-6);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        .service-features li {
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-700);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        .service-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-accent-400);
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           HOW IT WORKS SECTION
+           ============================================ */
+        .how-it-works {
+            background: var(--color-white);
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-8);
+            position: relative;
+        }
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: calc(16.67% + 20px);
+            right: calc(16.67% + 20px);
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-accent-500), var(--color-primary-300), var(--color-accent-500));
+            opacity: 0.3;
+        }
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary-800), var(--color-primary-700));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-6);
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            color: var(--color-accent-400);
+            position: relative;
+            z-index: 1;
+            border: 3px solid var(--color-accent-500);
+        }
+        .step-card h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            margin-bottom: var(--space-3);
+            color: var(--color-primary-900);
+        }
+        .step-card p {
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+            font-size: var(--text-body-sm);
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           WHY DAYOFF SECTION
+           ============================================ */
+        .why-section {
+            background: linear-gradient(170deg, var(--color-primary-900) 0%, var(--color-primary-800) 100%);
+            color: var(--color-white);
+        }
+        .why-section .section-overline {
+            color: var(--color-accent-400);
+        }
+        .why-section .section-title {
+            color: var(--color-white);
+        }
+        .why-section .section-subtitle {
+            color: var(--color-primary-200);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-8);
+        }
+        .why-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(58, 176, 232, 0.2);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+        .why-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--color-accent-400);
+            transform: translateY(-2px);
+        }
+        .why-card .why-icon {
+            font-size: 2rem;
+            margin-bottom: var(--space-4);
+        }
+        .why-card h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-h4);
+            margin-bottom: var(--space-3);
+            color: var(--color-white);
+        }
+        .why-card p {
+            color: var(--color-primary-200);
+            line-height: var(--leading-relaxed);
+            font-size: var(--text-body-sm);
+        }
+
+        /* ============================================
+           PRICING SECTION
+           ============================================ */
+        .pricing {
+            background: var(--color-neutral-50);
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-8);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .pricing-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-10);
+            border: 1px solid var(--color-neutral-200);
+            position: relative;
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .pricing-card.featured {
+            border-color: var(--color-accent-500);
+            box-shadow: var(--shadow-glow);
+        }
+        .pricing-badge {
+            position: absolute;
+            top: calc(-1 * var(--space-3));
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-accent-500);
+            color: #FFFFFF;
+            font-size: var(--text-caption);
+            font-weight: 700;
+            padding: var(--space-1) var(--space-4);
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+            white-space: nowrap;
+        }
+        .pricing-card h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-2);
+        }
+        .pricing-card .price {
+            font-family: var(--font-display);
+            font-size: var(--text-display-2);
+            color: var(--color-primary-800);
+            line-height: var(--leading-tight);
+        }
+        .pricing-card .price span {
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-500);
+            font-weight: 400;
+        }
+        .pricing-card .price-annual {
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-500);
+            margin-top: var(--space-1);
+            margin-bottom: var(--space-6);
+        }
+        .pricing-features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            margin-bottom: var(--space-8);
+        }
+        .pricing-features li {
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-700);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        .pricing-features li .check {
+            color: var(--color-accent-500);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .pricing-card .btn-primary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact {
+            background: var(--color-white);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+            align-items: start;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-5);
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        .form-group label {
+            font-size: var(--text-body-sm);
+            font-weight: 500;
+            color: var(--color-neutral-700);
+        }
+        .form-group input,
+        .form-group textarea {
+            padding: var(--space-3) var(--space-4);
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            color: var(--color-neutral-900);
+            background: var(--color-neutral-50);
+            transition: border-color var(--duration-fast);
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--color-accent-400);
+            background: var(--color-white);
+            box-shadow: 0 0 0 3px rgba(58, 176, 232, 0.12);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact-info {
+            padding-top: var(--space-4);
+        }
+        .contact-info h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            margin-bottom: var(--space-6);
+            color: var(--color-primary-900);
+        }
+        .contact-info p {
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-8);
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-700);
+        }
+        .contact-detail .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            background: var(--color-primary-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--color-primary-900);
+            padding: var(--space-12) var(--space-8);
+            border-top: 1px solid rgba(58, 176, 232, 0.15);
+        }
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-6);
+        }
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-white);
+        }
+        .footer-brand span {
+            color: var(--color-accent-400);
+        }
+        .footer-tagline {
+            font-size: var(--text-body-sm);
+            color: var(--color-primary-300);
+            margin-top: var(--space-1);
+        }
+        .footer-links {
+            display: flex;
+            gap: var(--space-8);
+        }
+        .footer-links a {
+            color: var(--color-primary-200);
+            font-size: var(--text-body-sm);
+            transition: color var(--duration-fast);
+        }
+        .footer-links a:hover {
+            color: var(--color-accent-400);
+        }
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            font-size: var(--text-caption);
+            color: var(--color-primary-400);
+            margin-top: var(--space-8);
+            padding-top: var(--space-6);
+            border-top: 1px solid rgba(58, 176, 232, 0.1);
+        }
+
+        /* ============================================
+           MOBILE RESPONSIVE
+           ============================================ */
+        @media (max-width: 968px) {
+            .services-grid,
+            .steps-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .steps-grid::before { display: none; }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-10);
+            }
+            .hero-stats { gap: var(--space-8); }
+        }
+        @media (max-width: 768px) {
+            .navbar-links { display: none; }
+            .mobile-toggle { display: block; }
+            .navbar-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                right: 0;
+                background: rgba(26, 58, 107, 0.98);
+                padding: var(--space-6) var(--space-8);
+                gap: var(--space-4);
+                border-bottom: 1px solid rgba(58, 176, 232, 0.15);
+            }
+            .section { padding: var(--space-16) var(--space-6); }
+            .hero {
+                padding: calc(var(--nav-height) + var(--space-10)) var(--space-6) var(--space-10);
+                min-height: auto;
+            }
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Success Modal */
+        .success-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .success-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .success-card {
+            background: var(--color-primary-800);
+            border: 1px solid var(--color-primary-600);
+            border-radius: 16px;
+            padding: 48px 40px 36px;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.85) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+        }
+        .success-overlay.active .success-card {
+            transform: scale(1) translateY(0);
+        }
+        .success-checkmark {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 24px;
+        }
+        .success-checkmark circle {
+            fill: none;
+            stroke: var(--color-accent-400);
+            stroke-width: 3;
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+        }
+        .success-overlay.active .success-checkmark circle {
+            animation: checkCircle 0.5s 0.2s ease forwards;
+        }
+        .success-checkmark path {
+            fill: none;
+            stroke: var(--color-accent-400);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 40;
+            stroke-dashoffset: 40;
+        }
+        .success-overlay.active .success-checkmark path {
+            animation: checkMark 0.35s 0.55s ease forwards;
+        }
+        @keyframes checkCircle { to { stroke-dashoffset: 0; } }
+        @keyframes checkMark { to { stroke-dashoffset: 0; } }
+        .success-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-primary-50);
+            margin-bottom: 8px;
+        }
+        .success-card p {
+            color: var(--color-primary-300);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+        .success-close-btn {
+            background: var(--color-accent-500);
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .success-close-btn:hover {
+            background: var(--color-accent-400);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="navbar-logo">
+                <img src="dayoff-logo.png" alt="DayOff Air Conditioning &amp; Heating Solutions" style="height:60px;object-fit:contain;">
+            </a>
+            <div class="navbar-links" id="navLinks">
+                <a href="#services">Services</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="navbar-cta">Get a Quote</a>
+            </div>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Toggle navigation">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-overline">AC &amp; Heating Solutions — Central Florida</div>
+            <h1>Stay Cool. Stay Warm. <em>Take a DayOff.</em></h1>
+            <p class="hero-sub">Professional air conditioning and heating solutions for vacation rental properties in Orlando, Kissimmee, and Davenport. Set it once &mdash; we handle the rest every 6 months.</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn-primary">Get a Free Quote &rarr;</a>
+                <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">50+</div>
+                    <div class="hero-stat-label">Units Served</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">6-Month</div>
+                    <div class="hero-stat-label">Service Cycle</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">100%</div>
+                    <div class="hero-stat-label">Documented</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+        <div class="section-inner">
+            <div class="section-overline">What We Do</div>
+            <h2 class="section-title">Complete AC &amp; Heating care. Nothing left to chance.</h2>
+            <p class="section-subtitle">Every service is scheduled automatically, executed thoroughly, and documented with photos so you never have to wonder.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">❄️</div>
+                    <h3>Bi-Annual AC &amp; Heating Service</h3>
+                    <p>Complete HVAC maintenance on a 6-month cycle. We handle scheduling, show up on time, and keep your systems running at peak efficiency year-round — cool in summer, warm in winter.</p>
+                    <ul class="service-features">
+                        <li>Coil cleaning (evaporator &amp; condenser)</li>
+                        <li>Filter replacement</li>
+                        <li>Coolant level check</li>
+                        <li>Heating system inspection</li>
+                        <li>Automatic 6-month scheduling</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌡️</div>
+                    <h3>Heating Solutions</h3>
+                    <p>Keep your guests warm when Florida nights get cold. We service heat pumps, electric heating strips, and all-in-one HVAC systems. No cold nights, no guest complaints.</p>
+                    <ul class="service-features">
+                        <li>Heat pump service &amp; tune-up</li>
+                        <li>Heating element inspection</li>
+                        <li>Thermostat calibration</li>
+                        <li>Airflow &amp; duct check</li>
+                        <li>Efficiency optimization</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Maintenance Reports</h3>
+                    <p>Photo documentation after every single visit, sent directly to you. Know exactly what was done, what condition each unit is in, and what to watch.</p>
+                    <ul class="service-features">
+                        <li>Photo documentation per visit</li>
+                        <li>Before and after comparisons</li>
+                        <li>Condition assessment</li>
+                        <li>Sent directly to property manager</li>
+                        <li>Full service history on file</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="section-inner">
+            <div class="section-overline">How It Works</div>
+            <h2 class="section-title">Three steps. Then it runs itself.</h2>
+            <p class="section-subtitle">No chasing contractors, no forgetting maintenance, no surprise repair bills. Set it up once and we take it from there.</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>We Schedule Your First Visit</h3>
+                    <p>Quick call to assess your units and set up the 6-month calendar. We work around your guest bookings so there's zero disruption.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>We Show Up and Do the Work</h3>
+                    <p>Full AC &amp; heating service on every unit &mdash; coil cleaning, filter swap, coolant check, heating inspection. Photo documentation sent to you the same day.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Repeat Every 6 Months</h3>
+                    <p>Automatic reminder and scheduling. Nothing falls through the cracks. Your systems stay maintained, your guests stay comfortable, your budget stays predictable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY DAYOFF -->
+    <section class="section why-section" id="why">
+        <div class="section-inner">
+            <div class="section-overline">Why DayOff</div>
+            <h2 class="section-title">The #1 guest complaint in Florida? A broken AC.</h2>
+            <p class="section-subtitle">Most property managers skip bi-annual maintenance &mdash; until a $5,000 repair bill hits. DayOff makes sure that never happens.</p>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">⚠️</div>
+                    <h3>HVAC Failures Are Expensive</h3>
+                    <p>AC and heating failures are the top guest complaint in Florida vacation rentals. A single breakdown can cost $3,000&ndash;$5,000 in repairs, plus lost bookings and refund requests. Prevention costs a fraction of that.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">📅</div>
+                    <h3>Most Managers Skip It</h3>
+                    <p>Most property managers know they should do bi-annual HVAC maintenance &mdash; but it keeps getting pushed. There's always a guest checking in, a turnover to handle, something more urgent. Until the AC dies in July.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">✅</div>
+                    <h3>We Make It Automatic</h3>
+                    <p>One setup call. Recurring every 6 months. Full documentation after every visit. You don't chase us, you don't schedule us, you don't even think about it. It just gets done.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section pricing" id="pricing">
+        <div class="section-inner">
+            <div class="section-overline">Simple Pricing</div>
+            <h2 class="section-title">Transparent pricing. No hidden fees.</h2>
+            <p class="section-subtitle">Two straightforward options. Both include full AC &amp; heating service, photo documentation, and automatic 6-month scheduling.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Single Unit</h3>
+                    <div class="price">$149 <span>/visit</span></div>
+                    <div class="price-annual">Bi-annual = $298/year per unit</div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> 1 HVAC unit, full service</li>
+                        <li><span class="check">&#10003;</span> Coil cleaning &amp; filter replacement</li>
+                        <li><span class="check">&#10003;</span> Coolant check &amp; heating inspection</li>
+                        <li><span class="check">&#10003;</span> Photo report included</li>
+                        <li><span class="check">&#10003;</span> 6-month automatic scheduling</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Get Started &rarr;</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Best Value</div>
+                    <h3>Property Package</h3>
+                    <div class="price">$99 <span>/unit/visit</span></div>
+                    <div class="price-annual">5+ units &mdash; bulk pricing saves you more</div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> 5+ HVAC units, full service each</li>
+                        <li><span class="check">&#10003;</span> Coil cleaning &amp; filter replacement</li>
+                        <li><span class="check">&#10003;</span> Coolant check &amp; heating inspection</li>
+                        <li><span class="check">&#10003;</span> Photo report per unit</li>
+                        <li><span class="check">&#10003;</span> Priority scheduling</li>
+                        <li><span class="check">&#10003;</span> Dedicated contact person</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Get Started &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+        <div class="section-inner">
+            <div class="section-overline">Get In Touch</div>
+            <h2 class="section-title">Ready to take a DayOff from HVAC worries?</h2>
+            <p class="section-subtitle">Tell us about your properties and we'll put together a free maintenance plan. No obligations, no pressure.</p>
+            <div class="contact-grid">
+                <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
+                    <!-- Honeypot anti-spam field — hidden from real users -->
+                    <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="units">Number of HVAC Units</label>
+                        <input type="number" id="units" name="units" placeholder="e.g. 12" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your properties..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" id="submitBtn">Request Free Assessment &rarr;</button>
+                    <div id="formMsg" style="font-size:14px;margin-top:8px;display:none;"></div>
+                </form>
+                <div class="contact-info">
+                    <h3>Let's talk AC &amp; heating.</h3>
+                    <p>Whether you manage 5 units or 50, we'll build a maintenance schedule that fits your portfolio. One call is all it takes to get started.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="icon">✉️</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--color-neutral-900);">Email</div>
+                                <div>jorgelameiras208@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="icon">📍</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--color-neutral-900);">Service Area</div>
+                                <div>Orlando / Kissimmee / Davenport, FL</div>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="icon">🕐</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--color-neutral-900);">Response Time</div>
+                                <div>Within 24 hours, usually same day</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">Day<span>Off</span></div>
+                <div class="footer-tagline">AC &amp; Heating Solutions | Central Florida</div>
+            </div>
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 DayOff Air Conditioning &amp; Heating Solutions. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="success-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="success-card">
+            <svg class="success-checkmark" viewBox="0 0 72 72">
+                <circle cx="36" cy="36" r="32"/>
+                <path d="M22 36l10 10 18-20"/>
+            </svg>
+            <h3>Request Submitted!</h3>
+            <p>Thanks for reaching out. Jorge will be in touch within 24 hours.</p>
+            <button class="success-close-btn" onclick="this.closest('.success-overlay').classList.remove('active')">Close</button>
+        </div>
+    </div>
+
+<script>
+async function submitContactForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('formMsg');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const form = document.getElementById('contactForm');
+
+    try {
+        const payload = {
+            name: form.querySelector('[name=name]').value,
+            email: form.querySelector('[name=email]').value,
+            phone: form.querySelector('[name=phone]').value,
+            units: form.querySelector('[name=units]').value,
+            message: form.querySelector('[name=message]').value,
+            website: form.querySelector('[name=website]').value,
+        };
+        const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        if (result.success) {
+            form.reset();
+            document.querySelector('.success-overlay').classList.add('active');
+        } else {
+            msg.textContent = 'Something went wrong. Email us at jorgelameiras208@gmail.com';
+            msg.style.color = '#F87171';
+            msg.style.display = 'block';
+        }
+    } catch(err) {
+        msg.textContent = 'Network error. Please email jorgelameiras208@gmail.com directly.';
+        msg.style.color = '#F87171';
+        msg.style.display = 'block';
+    }
+    btn.textContent = 'Request Free Assessment →';
+    btn.disabled = false;
+}
+</script>
+</body>
+</html>

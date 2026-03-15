@@ -14,6 +14,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        /* ============================================
+           DAYOFF — Air Conditioning & Heating Solutions
+           Central Florida
+           ============================================ */
+
         :root {
             --color-primary-900: #1A3A6B;
             --color-primary-800: #163260;
@@ -62,8 +67,8 @@
             --font-display: 'DM Serif Display', Georgia, serif;
             --font-body: 'Inter', -apple-system, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
-            --text-display-1: clamp(3rem, 7vw, 5.5rem);
-            --text-display-2: clamp(2.5rem, 5vw, 4rem);
+            --text-display-1: clamp(3.5rem, 8vw, 7rem);
+            --text-display-2: clamp(2.5rem, 5vw, 4.5rem);
             --text-h1: clamp(2rem, 4vw, 3.5rem);
             --text-h2: clamp(1.75rem, 3vw, 2.5rem);
             --text-h3: clamp(1.25rem, 2vw, 1.75rem);
@@ -129,7 +134,7 @@
         img { max-width: 100%; display: block; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
-        button { font-family: var(--font-body); cursor: pointer; }
+        button { font-family: var(--font-body); }
 
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -137,199 +142,488 @@
         ::-webkit-scrollbar-thumb:hover { background: var(--color-primary-400); }
 
         /* ============================================
-           NAVBAR
+           LOADING SCREEN
            ============================================ */
-        .navbar {
+        .loader {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: var(--nav-height);
-            background: rgba(26, 58, 107, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(58, 176, 232, 0.15);
+            inset: 0;
+            background: var(--color-primary-900);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: var(--space-6);
+            transition: opacity 0.7s var(--ease-out), visibility 0.7s ease;
         }
-        .navbar-inner {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 var(--space-8);
+        .loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-logo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        .loader-icon {
+            font-size: 3rem;
+            animation: loaderBounce 1.5s ease-in-out infinite;
+        }
+        @keyframes loaderBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.05); }
+        }
+        .loader-logo {
+            font-family: var(--font-display);
+            font-size: var(--text-h1);
+            color: var(--color-white);
+            letter-spacing: -0.01em;
+        }
+        .loader-logo span { color: var(--color-accent-400); }
+        .loader-tagline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            color: var(--color-primary-300);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+        }
+        .loader-bar {
+            width: 220px;
+            height: 3px;
+            background: var(--color-primary-700);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        .loader-bar-fill {
             height: 100%;
+            background: linear-gradient(90deg, var(--color-accent-600), var(--color-accent-500), var(--color-accent-400));
+            border-radius: var(--radius-full);
+            animation: loadBar 1.6s var(--ease-out) forwards;
+        }
+        @keyframes loadBar { from { width: 0; } to { width: 100%; } }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--nav-height);
+            z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0 clamp(var(--space-4), 4vw, var(--space-8));
+            transition: all var(--duration-normal) var(--ease-out);
         }
-        .navbar-logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--color-white);
-            letter-spacing: var(--tracking-tight);
+        .nav.scrolled {
+            background: rgba(26, 58, 107, 0.96);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.3);
+        }
+        .nav-logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            text-decoration: none;
+            z-index: 10;
+            flex-shrink: 0;
         }
-        .navbar-links {
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+        .nav-links {
             display: flex;
             gap: var(--space-8);
             align-items: center;
         }
-        .navbar-links a {
-            color: var(--color-primary-100);
+        .nav-links a {
             font-size: var(--text-body-sm);
             font-weight: 500;
+            color: var(--color-primary-300);
             transition: color var(--duration-fast);
-            letter-spacing: var(--tracking-wide);
+            position: relative;
         }
-        .navbar-links a:hover {
-            color: var(--color-accent-400);
-        }
-        .navbar-cta {
-            background: var(--color-accent-500) !important;
-            color: #FFFFFF !important;
-            padding: var(--space-2) var(--space-5);
+        .nav-links a:hover { color: var(--color-white); }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: var(--color-accent-400);
             border-radius: var(--radius-full);
-            font-weight: 600 !important;
-            transition: background var(--duration-fast), transform var(--duration-fast) !important;
+            transition: width var(--duration-normal) var(--ease-out);
         }
-        .navbar-cta:hover {
-            background: var(--color-accent-400) !important;
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--color-white); }
+        .nav-links a.active::after { width: 100%; background: var(--color-accent-400); }
+        .nav-cta { flex-shrink: 0; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: var(--text-body-sm);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-full);
+            border: none;
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-out);
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: var(--color-accent-500);
+            color: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(58,176,232,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .btn-primary:hover {
+            background: var(--color-accent-400);
+            box-shadow: 0 6px 20px rgba(58,176,232,0.45);
+            transform: translateY(-2px);
+        }
+        .btn-primary:active { transform: translateY(0); }
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary-800);
+            border: 1.5px solid var(--color-primary-200);
+        }
+        .btn-secondary:hover {
+            background: var(--color-primary-50);
+            border-color: var(--color-primary-500);
             transform: translateY(-1px);
         }
-        .mobile-toggle {
+        .btn-dark {
+            background: var(--color-primary-900);
+            color: var(--color-white);
+        }
+        .btn-dark:hover {
+            background: var(--color-primary-800);
+            transform: translateY(-1px);
+        }
+        .btn-white-outline {
+            background: transparent;
+            color: var(--color-white);
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+        .btn-white-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-1px);
+        }
+        .btn-lg { font-size: var(--text-body); padding: var(--space-4) var(--space-8); }
+        .btn-sm { font-size: var(--text-caption); padding: var(--space-2) var(--space-4); }
+        .btn-featured {
+            background: var(--color-accent-500);
+            color: #FFFFFF;
+            box-shadow: 0 4px 16px rgba(58,176,232,0.4);
+        }
+        .btn-featured:hover {
+            background: var(--color-accent-400);
+            box-shadow: 0 8px 24px rgba(58,176,232,0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .nav-toggle {
             display: none;
+            flex-direction: column;
+            gap: 5px;
             background: none;
             border: none;
-            color: var(--color-white);
-            font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1010;
+            padding: var(--space-2);
+            min-width: 44px;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
         }
+        .nav-toggle span {
+            display: block;
+            width: 24px; height: 2px;
+            background: var(--color-white);
+            border-radius: 2px;
+            transition: all var(--duration-normal) var(--ease-out);
+            transform-origin: center;
+        }
+        .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         /* ============================================
            HERO SECTION
            ============================================ */
         .hero {
-            background: linear-gradient(170deg, var(--color-primary-900) 0%, var(--color-primary-800) 40%, var(--color-primary-700) 100%);
-            min-height: 100vh;
+            min-height: 85vh;
+            background: var(--color-primary-900);
+            position: relative;
             display: flex;
             align-items: center;
-            padding: calc(var(--nav-height) + var(--space-16)) var(--space-8) var(--space-16);
-            position: relative;
             overflow: hidden;
         }
-        .hero::before {
-            content: '';
+        .hero-bg-gradient {
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 80%;
-            height: 160%;
-            background: radial-gradient(ellipse, rgba(58, 176, 232, 0.07) 0%, transparent 70%);
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 40%, rgba(58,176,232,0.08) 0%, transparent 55%),
+                radial-gradient(ellipse at 75% 75%, rgba(26,111,191,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 10%, rgba(58,176,232,0.05) 0%, transparent 40%);
             pointer-events: none;
         }
-        .hero-inner {
+        .hero-grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 64px 64px;
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
             max-width: var(--max-width);
             margin: 0 auto;
-            width: 100%;
+            padding: calc(var(--nav-height) + var(--space-16)) clamp(var(--space-4), 4vw, var(--space-8)) var(--space-16);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            align-items: center;
         }
+        .hero-text { max-width: 580px; }
         .hero-overline {
             font-family: var(--font-mono);
             font-size: var(--text-overline);
-            color: var(--color-accent-400);
             text-transform: uppercase;
             letter-spacing: var(--tracking-wider);
-            margin-bottom: var(--space-6);
+            color: var(--color-accent-400);
+            font-weight: 500;
+            margin-bottom: var(--space-5);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
         }
-        .hero h1 {
+        .hero-overline::before {
+            content: '';
+            width: 28px; height: 1.5px;
+            background: var(--color-accent-400);
+            flex-shrink: 0;
+        }
+        .hero-title {
             font-family: var(--font-display);
             font-size: var(--text-display-1);
-            color: var(--color-white);
             line-height: var(--leading-tight);
             letter-spacing: var(--tracking-tight);
-            max-width: 800px;
+            color: var(--color-white);
             margin-bottom: var(--space-6);
         }
-        .hero h1 em {
-            color: var(--color-accent-400);
-            font-style: italic;
-        }
-        .hero-sub {
+        .hero-title .accent { color: var(--color-accent-400); }
+        .hero-title .accent-italic { color: var(--color-accent-300); font-style: italic; }
+        .hero-subtitle {
             font-size: var(--text-body-lg);
-            color: var(--color-primary-200);
-            max-width: 600px;
+            color: var(--color-primary-300);
             line-height: var(--leading-relaxed);
-            margin-bottom: var(--space-10);
+            margin-bottom: var(--space-8);
+            max-width: 460px;
         }
-        .hero-ctas {
+        .hero-buttons {
             display: flex;
             gap: var(--space-4);
             flex-wrap: wrap;
-            margin-bottom: var(--space-16);
-        }
-        .btn-primary {
-            background: var(--color-accent-500);
-            color: #FFFFFF;
-            padding: var(--space-4) var(--space-8);
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            font-size: var(--text-body);
-            border: none;
-            transition: all var(--duration-normal) var(--ease-out);
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-2);
-        }
-        .btn-primary:hover {
-            background: var(--color-accent-400);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--color-white);
-            padding: var(--space-4) var(--space-8);
-            border-radius: var(--radius-full);
-            font-weight: 500;
-            font-size: var(--text-body);
-            border: 1px solid rgba(58, 176, 232, 0.4);
-            transition: all var(--duration-normal) var(--ease-out);
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-2);
-        }
-        .btn-secondary:hover {
-            border-color: var(--color-accent-400);
-            color: var(--color-accent-400);
-            transform: translateY(-2px);
         }
         .hero-stats {
             display: flex;
-            gap: var(--space-12);
-            flex-wrap: wrap;
+            gap: var(--space-10);
+            margin-top: var(--space-12);
+            padding-top: var(--space-8);
+            border-top: 1px solid rgba(255,255,255,0.07);
         }
-        .hero-stat { text-align: left; }
-        .hero-stat-value {
+        .hero-stat { cursor: default; }
+        .hero-stat-number {
             font-family: var(--font-display);
             font-size: var(--text-h2);
-            color: var(--color-white);
-            line-height: var(--leading-tight);
+            color: var(--color-accent-400);
+            line-height: 1;
+            transition: color var(--duration-fast);
         }
+        .hero-stat:hover .hero-stat-number { color: var(--color-accent-300); }
         .hero-stat-label {
-            font-size: var(--text-body-sm);
-            color: var(--color-primary-300);
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-primary-400);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
             margin-top: var(--space-1);
+        }
+
+        /* 3D House Scene */
+        .hero-scene {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+        }
+        .hero-3d-container {
+            width: 480px;
+            height: 480px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: floatHouse 6s ease-in-out infinite;
+            will-change: transform;
+        }
+        @keyframes floatHouse {
+            0%, 100% { transform: rotateY(-12deg) rotateX(4deg) translateY(0); }
+            50% { transform: rotateY(-12deg) rotateX(4deg) translateY(-18px); }
+        }
+        .house-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.4));
+        }
+
+        /* Floating Items */
+        .float-item {
+            position: absolute;
+            animation: floatItem 4s ease-in-out infinite;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
+            user-select: none;
+            pointer-events: none;
+        }
+        .float-item:nth-child(2) { animation-delay: -1.2s; }
+        .float-item:nth-child(3) { animation-delay: -2.1s; }
+        .float-item:nth-child(4) { animation-delay: -0.6s; }
+        .float-item:nth-child(5) { animation-delay: -1.8s; }
+        .float-item:nth-child(6) { animation-delay: -2.7s; }
+        .float-item:nth-child(7) { animation-delay: -3.3s; }
+        @keyframes floatItem {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-14px) rotate(6deg); }
+        }
+        .glow-ring {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 340px; height: 36px;
+            background: radial-gradient(ellipse, rgba(58,176,232,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulseGlow 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.12); }
+        }
+
+        /* Particle effect */
+        .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .particle {
+            position: absolute;
+            background: var(--color-accent-400);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat linear infinite;
+        }
+        @keyframes particleFloat {
+            0% { opacity: 0; transform: translateY(100vh) scale(0); }
+            8% { opacity: 0.5; }
+            88% { opacity: 0.4; }
+            100% { opacity: 0; transform: translateY(-120px) scale(1.2); }
+        }
+
+        /* ============================================
+           MARQUEE
+           ============================================ */
+        .marquee-section {
+            padding: var(--space-5) 0;
+            background: var(--color-primary-800);
+            overflow: hidden;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-item {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.5vw, 2rem);
+            color: var(--color-primary-500);
+            white-space: nowrap;
+            padding: 0 var(--space-8);
+        }
+        .marquee-item .hl { color: var(--color-accent-400); }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ============================================
+           TRUST BADGE BAR
+           ============================================ */
+        .trust-bar {
+            background: #EBF6FD;
+            border-top: 1px solid #D8F1FD;
+            border-bottom: 1px solid #D8F1FD;
+            padding: var(--space-4) clamp(var(--space-4), 4vw, var(--space-8));
+        }
+        .trust-bar-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+        }
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            font-size: var(--text-body-sm);
+            font-weight: 500;
+            color: var(--color-primary-700);
+            white-space: nowrap;
+        }
+        .trust-badge span { font-size: var(--text-body-sm); }
+        .trust-divider {
+            width: 1px; height: 20px;
+            background: var(--color-primary-200);
+            flex-shrink: 0;
+        }
+        @media (max-width: 640px) {
+            .trust-divider { display: none; }
+            .trust-badge { font-size: var(--text-caption); padding: var(--space-1) var(--space-2); }
+            .trust-bar-inner { gap: var(--space-1); }
         }
 
         /* ============================================
            SECTION COMMON
            ============================================ */
         .section {
-            padding: var(--space-24) var(--space-8);
+            padding: var(--space-32) clamp(var(--space-4), 4vw, var(--space-8));
+            position: relative;
         }
-        .section-inner {
-            max-width: var(--max-width);
-            margin: 0 auto;
+        .section-inner { max-width: var(--max-width); margin: 0 auto; }
+        .section-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto var(--space-16);
         }
         .section-overline {
             font-family: var(--font-mono);
@@ -337,6 +631,7 @@
             text-transform: uppercase;
             letter-spacing: var(--tracking-wider);
             color: var(--color-accent-600);
+            font-weight: 500;
             margin-bottom: var(--space-4);
         }
         .section-title {
@@ -349,875 +644,2220 @@
         .section-subtitle {
             font-size: var(--text-body-lg);
             color: var(--color-neutral-600);
-            max-width: 600px;
             line-height: var(--leading-relaxed);
-            margin-bottom: var(--space-12);
         }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-36px);
+            transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(36px);
+            transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
         /* ============================================
            SERVICES SECTION
            ============================================ */
-        .services {
-            background: var(--color-neutral-50);
-        }
+        .services { background: var(--color-neutral-50); }
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-8);
+            gap: var(--space-6);
         }
         .service-card {
             background: var(--color-white);
             border-radius: var(--radius-xl);
-            padding: var(--space-10);
-            border: 1px solid var(--color-neutral-200);
+            padding: var(--space-8);
+            border: 1px solid var(--color-neutral-100);
             transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            overflow: hidden;
+            cursor: default;
         }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            opacity: 0;
+            transition: opacity var(--duration-normal) var(--ease-out);
+        }
+        .service-card-ac::before { background: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-400)); }
+        .service-card-heat::before { background: linear-gradient(90deg, #E05A2B, #F0813A); }
+        .service-card-premium::before { background: linear-gradient(90deg, var(--color-primary-900), var(--color-accent-500)); }
         .service-card:hover {
-            transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--color-primary-200);
+            transform: translateY(-6px);
+            border-color: var(--color-neutral-200);
         }
+        .service-card:hover::before { opacity: 1; }
         .service-icon {
-            width: 56px;
-            height: 56px;
+            width: 64px; height: 64px;
             border-radius: var(--radius-lg);
-            background: var(--color-primary-50);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             margin-bottom: var(--space-6);
+            transition: transform var(--duration-normal) var(--ease-out);
         }
-        .service-card h3 {
+        .service-card:hover .service-icon { transform: scale(1.08) rotate(-3deg); }
+        .service-icon-ac { background: var(--color-cool-50); }
+        .service-icon-heat { background: #FEF3ED; }
+        .service-icon-premium { background: var(--color-primary-50); }
+        .service-card-overline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-accent-600);
+            font-weight: 500;
+            margin-bottom: var(--space-2);
+        }
+        .service-card-heat .service-card-overline { color: #C0481E; }
+        .service-card-premium .service-card-overline { color: var(--color-primary-600); }
+        .service-card-title {
             font-family: var(--font-display);
             font-size: var(--text-h3);
-            margin-bottom: var(--space-3);
             color: var(--color-primary-900);
+            margin-bottom: var(--space-3);
+            line-height: var(--leading-snug);
         }
-        .service-card p {
+        .service-card-text {
+            font-size: var(--text-body-sm);
             color: var(--color-neutral-600);
             line-height: var(--leading-relaxed);
-            font-size: var(--text-body-sm);
+            margin-bottom: var(--space-6);
         }
         .service-features {
-            margin-top: var(--space-6);
             display: flex;
             flex-direction: column;
             gap: var(--space-2);
+            border-top: 1px solid var(--color-neutral-100);
+            padding-top: var(--space-5);
         }
-        .service-features li {
+        .service-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-2);
             font-size: var(--text-body-sm);
             color: var(--color-neutral-700);
+        }
+        .service-feature-check {
+            width: 16px; height: 16px;
+            background: var(--color-accent-50);
+            color: var(--color-accent-600);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: var(--space-2);
-        }
-        .service-features li::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--color-accent-400);
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 700;
             flex-shrink: 0;
+            margin-top: 1px;
         }
+        .service-card-heat .service-feature-check { background: #FEF3ED; color: #C0481E; }
+        .service-card-premium .service-feature-check { background: var(--color-primary-50); color: var(--color-primary-700); }
 
         /* ============================================
-           HOW IT WORKS SECTION
+           HOW IT WORKS
            ============================================ */
-        .how-it-works {
-            background: var(--color-white);
-        }
+        .how-it-works { background: var(--color-white); }
+        .steps-connector { position: relative; }
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: var(--space-8);
             position: relative;
         }
-        .steps-grid::before {
-            content: '';
+        .steps-line {
             position: absolute;
             top: 40px;
-            left: calc(16.67% + 20px);
-            right: calc(16.67% + 20px);
+            left: calc(12.5% + 40px);
+            right: calc(12.5% + 40px);
             height: 2px;
-            background: linear-gradient(90deg, var(--color-accent-500), var(--color-primary-300), var(--color-accent-500));
-            opacity: 0.3;
+            background: linear-gradient(90deg, var(--color-accent-200), var(--color-cool-200), var(--color-accent-200));
+            z-index: 0;
         }
-        .step-card {
+        .steps-line::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--color-accent-400), var(--color-cool-400), var(--color-accent-400));
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .steps-line.animated::after { opacity: 1; }
+        .step {
             text-align: center;
             position: relative;
+            z-index: 1;
         }
         .step-number {
-            width: 80px;
-            height: 80px;
+            width: 80px; height: 80px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--color-primary-800), var(--color-primary-700));
+            background: var(--color-primary-900);
+            color: var(--color-accent-400);
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto var(--space-6);
-            font-family: var(--font-display);
-            font-size: var(--text-h2);
-            color: var(--color-accent-400);
             position: relative;
             z-index: 1;
-            border: 3px solid var(--color-accent-500);
-        }
-        .step-card h3 {
-            font-family: var(--font-display);
-            font-size: var(--text-h3);
-            margin-bottom: var(--space-3);
-            color: var(--color-primary-900);
-        }
-        .step-card p {
-            color: var(--color-neutral-600);
-            line-height: var(--leading-relaxed);
-            font-size: var(--text-body-sm);
-            max-width: 320px;
-            margin: 0 auto;
-        }
-
-        /* ============================================
-           WHY DAYOFF SECTION
-           ============================================ */
-        .why-section {
-            background: linear-gradient(170deg, var(--color-primary-900) 0%, var(--color-primary-800) 100%);
-            color: var(--color-white);
-        }
-        .why-section .section-overline {
-            color: var(--color-accent-400);
-        }
-        .why-section .section-title {
-            color: var(--color-white);
-        }
-        .why-section .section-subtitle {
-            color: var(--color-primary-200);
-        }
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-8);
-        }
-        .why-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(58, 176, 232, 0.2);
-            border-radius: var(--radius-xl);
-            padding: var(--space-8);
+            box-shadow: 0 8px 24px rgba(26, 58, 107, 0.25);
             transition: all var(--duration-normal) var(--ease-out);
+            border: 2px solid var(--color-primary-700);
         }
-        .why-card:hover {
-            background: rgba(255, 255, 255, 0.08);
+        .step:hover .step-number {
+            transform: scale(1.08);
+            box-shadow: 0 12px 32px rgba(58,176,232,0.25);
             border-color: var(--color-accent-400);
-            transform: translateY(-2px);
         }
-        .why-card .why-icon {
-            font-size: 2rem;
-            margin-bottom: var(--space-4);
-        }
-        .why-card h3 {
+        .step-icon { font-size: 1.5rem; margin-bottom: var(--space-2); display: block; }
+        .step-title {
             font-family: var(--font-display);
             font-size: var(--text-h4);
-            margin-bottom: var(--space-3);
-            color: var(--color-white);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-2);
         }
-        .why-card p {
-            color: var(--color-primary-200);
-            line-height: var(--leading-relaxed);
+        .step-text {
             font-size: var(--text-body-sm);
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+            max-width: 180px;
+            margin: 0 auto;
         }
 
         /* ============================================
-           PRICING SECTION
+           WHY DAYOFF
            ============================================ */
-        .pricing {
-            background: var(--color-neutral-50);
+        .about {
+            background: var(--color-primary-900);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
         }
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -30%; right: -10%;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(58,176,232,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .about::after {
+            content: '';
+            position: absolute;
+            bottom: -20%; left: -5%;
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(26,111,191,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .about .section-overline { color: var(--color-accent-400); }
+        .about .section-subtitle { color: var(--color-primary-300); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-5);
+            margin-top: var(--space-10);
+        }
+        .about-feature {
+            padding: var(--space-6);
+            background: rgba(255,255,255,0.03);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all var(--duration-normal) var(--ease-out);
+            cursor: default;
+        }
+        .about-feature:hover {
+            background: rgba(255,255,255,0.07);
+            transform: translateY(-4px);
+            border-color: rgba(58,176,232,0.2);
+        }
+        .about-feature-icon { font-size: 1.75rem; margin-bottom: var(--space-3); display: block; }
+        .about-feature-title {
+            font-weight: 600;
+            font-size: var(--text-body);
+            margin-bottom: var(--space-2);
+            color: var(--color-white);
+        }
+        .about-feature-text {
+            font-size: var(--text-body-sm);
+            color: var(--color-primary-300);
+            line-height: var(--leading-relaxed);
+        }
+        .about-visual { position: relative; }
+        .about-card-stack {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 5/4;
+        }
+        .about-main-card {
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--color-primary-800) 0%, var(--color-primary-700) 100%);
+            border-radius: var(--radius-2xl);
+            border: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-main-card::before {
+            content: '';
+            position: absolute;
+            top: -40%; right: -20%;
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(58,176,232,0.1) 0%, transparent 70%);
+        }
+        .about-house-scene { font-size: 5rem; text-align: center; line-height: 1; }
+        .about-house-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            color: var(--color-primary-400);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            text-align: center;
+            margin-top: var(--space-3);
+        }
+        .about-badge {
+            position: absolute;
+            bottom: -16px; right: -16px;
+            background: var(--color-accent-500);
+            color: #FFFFFF;
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-xl);
+            font-weight: 700;
+            box-shadow: 0 8px 24px rgba(58,176,232,0.35);
+            text-align: center;
+        }
+        .about-badge-number {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            line-height: 1;
+        }
+        .about-badge-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+            margin-top: 2px;
+        }
+        .about-stat-strip {
+            display: flex;
+            gap: var(--space-4);
+            margin-top: var(--space-8);
+        }
+        .about-stat-item {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            text-align: center;
+        }
+        .about-stat-num {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-accent-400);
+            line-height: 1;
+        }
+        .about-stat-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--color-primary-400);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+            margin-top: var(--space-1);
+        }
+
+        /* ============================================
+           TESTIMONIALS
+           ============================================ */
+        .testimonials { background: var(--color-neutral-50); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+        }
+        .testimonial-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            border: 1px solid var(--color-neutral-100);
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-card::before {
+            content: '"';
+            font-family: var(--font-display);
+            font-size: 6rem;
+            color: var(--color-accent-100);
+            position: absolute;
+            top: -8px; left: 20px;
+            line-height: 1;
+            pointer-events: none;
+        }
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+            border-color: var(--color-primary-100);
+        }
+        .testimonial-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: var(--space-4);
+        }
+        .star { color: var(--color-warm-500); font-size: 0.875rem; }
+        .testimonial-quote {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--color-primary-800);
+            line-height: var(--leading-snug);
+            margin-bottom: var(--space-6);
+            position: relative;
+            z-index: 1;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        .testimonial-avatar {
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary-200), var(--color-primary-100));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--color-primary-700);
+            font-size: var(--text-body-sm);
+            flex-shrink: 0;
+            font-family: var(--font-mono);
+        }
+        .testimonial-name {
+            font-weight: 600;
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-900);
+        }
+        .testimonial-role { font-size: var(--text-caption); color: var(--color-neutral-500); margin-top: 2px; }
+        .testimonial-location {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            color: var(--color-accent-600);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+            margin-top: 2px;
+        }
+
+        /* ============================================
+           PRICING
+           ============================================ */
+        .pricing { background: var(--color-white); }
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-8);
-            max-width: 900px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+            align-items: start;
         }
         .pricing-card {
             background: var(--color-white);
             border-radius: var(--radius-xl);
-            padding: var(--space-10);
-            border: 1px solid var(--color-neutral-200);
-            position: relative;
+            padding: var(--space-8);
+            border: 1.5px solid var(--color-neutral-200);
             transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
         }
-        .pricing-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
+        .pricing-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
         .pricing-card.featured {
-            border-color: var(--color-accent-500);
-            box-shadow: var(--shadow-glow);
+            background: var(--color-primary-900);
+            color: var(--color-white);
+            border-color: var(--color-primary-700);
+            transform: scale(1.04);
+            box-shadow: var(--shadow-xl);
         }
+        .pricing-card.featured:hover { transform: scale(1.04) translateY(-4px); box-shadow: 0 24px 64px rgba(0,0,0,0.2); }
         .pricing-badge {
-            position: absolute;
-            top: calc(-1 * var(--space-3));
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--color-accent-500);
-            color: #FFFFFF;
-            font-size: var(--text-caption);
-            font-weight: 700;
-            padding: var(--space-1) var(--space-4);
-            border-radius: var(--radius-full);
+            display: inline-block;
+            background: rgba(58,176,232,0.15);
+            color: var(--color-accent-400);
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            letter-spacing: var(--tracking-wider);
             text-transform: uppercase;
-            letter-spacing: var(--tracking-wide);
-            white-space: nowrap;
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--space-4);
+            border: 1px solid rgba(58,176,232,0.25);
         }
-        .pricing-card h3 {
+        .pricing-plan {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-neutral-500);
+            font-weight: 500;
+            margin-bottom: var(--space-1);
+        }
+        .pricing-card.featured .pricing-plan { color: var(--color-primary-300); }
+        .pricing-name {
             font-family: var(--font-display);
             font-size: var(--text-h3);
             color: var(--color-primary-900);
-            margin-bottom: var(--space-2);
+            margin-bottom: var(--space-4);
         }
-        .pricing-card .price {
+        .pricing-card.featured .pricing-name { color: var(--color-white); }
+        .pricing-amount {
             font-family: var(--font-display);
             font-size: var(--text-display-2);
-            color: var(--color-primary-800);
-            line-height: var(--leading-tight);
+            line-height: 1;
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-1);
         }
-        .pricing-card .price span {
-            font-family: var(--font-body);
-            font-size: var(--text-body-sm);
+        .pricing-card.featured .pricing-amount { color: var(--color-accent-400); }
+        .pricing-period {
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
             color: var(--color-neutral-500);
-            font-weight: 400;
-        }
-        .pricing-card .price-annual {
-            font-size: var(--text-body-sm);
-            color: var(--color-neutral-500);
-            margin-top: var(--space-1);
             margin-bottom: var(--space-6);
         }
+        .pricing-card.featured .pricing-period { color: var(--color-primary-400); }
+        .pricing-divider {
+            height: 1px;
+            background: var(--color-neutral-100);
+            margin-bottom: var(--space-6);
+        }
+        .pricing-card.featured .pricing-divider { background: rgba(255,255,255,0.08); }
         .pricing-features {
             display: flex;
             flex-direction: column;
             gap: var(--space-3);
             margin-bottom: var(--space-8);
         }
-        .pricing-features li {
+        .pricing-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-2);
             font-size: var(--text-body-sm);
-            color: var(--color-neutral-700);
+            color: var(--color-neutral-600);
+            line-height: var(--leading-snug);
+        }
+        .pricing-card.featured .pricing-feature { color: var(--color-primary-200); }
+        .pricing-check {
+            width: 18px; height: 18px;
+            background: var(--color-accent-50);
+            color: var(--color-accent-600);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: var(--space-3);
-        }
-        .pricing-features li .check {
-            color: var(--color-accent-500);
+            justify-content: center;
+            font-size: 9px;
             font-weight: 700;
             flex-shrink: 0;
+            margin-top: 1px;
         }
-        .pricing-card .btn-primary {
+        .pricing-card.featured .pricing-check { background: rgba(58,176,232,0.2); color: var(--color-accent-400); }
+        .btn-pricing-default {
+            display: block;
             width: 100%;
-            justify-content: center;
+            text-align: center;
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-full);
+            border: 1.5px solid var(--color-neutral-200);
+            color: var(--color-neutral-700);
+            font-weight: 600;
+            font-size: var(--text-body-sm);
+            transition: all var(--duration-normal) var(--ease-out);
+            cursor: pointer;
+            background: transparent;
+            font-family: var(--font-body);
+        }
+        .btn-pricing-default:hover {
+            border-color: var(--color-primary-400);
+            color: var(--color-primary-700);
+            background: var(--color-primary-50);
+            transform: translateY(-1px);
         }
 
         /* ============================================
-           CONTACT SECTION
+           FAQ SECTION
            ============================================ */
-        .contact {
+        .faq { background: var(--color-neutral-50); }
+        .faq-list {
+            max-width: 760px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        .faq-item {
             background: var(--color-white);
+            border-radius: var(--radius-xl);
+            border: 1.5px solid var(--color-neutral-100);
+            overflow: hidden;
+            transition: border-color var(--duration-normal) var(--ease-out),
+                        box-shadow var(--duration-normal) var(--ease-out);
         }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-16);
-            align-items: start;
+        .faq-item.open {
+            border-color: var(--color-primary-100);
+            box-shadow: var(--shadow-md);
         }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-5);
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-2);
-        }
-        .form-group label {
-            font-size: var(--text-body-sm);
-            font-weight: 500;
-            color: var(--color-neutral-700);
-        }
-        .form-group input,
-        .form-group textarea {
-            padding: var(--space-3) var(--space-4);
-            border: 1px solid var(--color-neutral-200);
-            border-radius: var(--radius-md);
-            font-family: var(--font-body);
-            font-size: var(--text-body);
-            color: var(--color-neutral-900);
-            background: var(--color-neutral-50);
-            transition: border-color var(--duration-fast);
-            outline: none;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--color-accent-400);
-            background: var(--color-white);
-            box-shadow: 0 0 0 3px rgba(58, 176, 232, 0.12);
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        .contact-info {
-            padding-top: var(--space-4);
-        }
-        .contact-info h3 {
-            font-family: var(--font-display);
-            font-size: var(--text-h3);
-            margin-bottom: var(--space-6);
-            color: var(--color-primary-900);
-        }
-        .contact-info p {
-            color: var(--color-neutral-600);
-            line-height: var(--leading-relaxed);
-            margin-bottom: var(--space-8);
-        }
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-4);
-        }
-        .contact-detail {
+        .faq-question {
+            width: 100%;
             display: flex;
             align-items: center;
-            gap: var(--space-3);
-            font-size: var(--text-body-sm);
-            color: var(--color-neutral-700);
+            justify-content: space-between;
+            gap: var(--space-4);
+            padding: var(--space-5) var(--space-6);
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            font-weight: 600;
+            color: var(--color-primary-900);
+            line-height: var(--leading-snug);
+            transition: color var(--duration-fast);
         }
-        .contact-detail .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-md);
+        .faq-question:hover { color: var(--color-primary-700); }
+        .faq-icon {
+            width: 28px; height: 28px;
+            border-radius: 50%;
             background: var(--color-primary-50);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            font-size: 1rem;
+            color: var(--color-accent-600);
+            transition: all var(--duration-normal) var(--ease-out);
+            font-weight: 700;
+            line-height: 1;
         }
+        .faq-item.open .faq-icon {
+            background: var(--color-accent-500);
+            color: #FFFFFF;
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--ease-out), padding 0.4s var(--ease-out);
+        }
+        .faq-answer-inner {
+            padding: 0 var(--space-6) var(--space-5);
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+            border-top: 1px solid var(--color-neutral-100);
+            padding-top: var(--space-4);
+        }
+        .faq-item.open .faq-answer { max-height: 200px; }
+
+        /* ============================================
+           SERVICE AREA MAP
+           ============================================ */
+        .map-section {
+            background: var(--color-primary-900);
+            padding: var(--space-32) clamp(var(--space-4), 4vw, var(--space-8));
+        }
+        .map-section .section-overline { color: var(--color-accent-400); }
+        .map-section .section-title { color: var(--color-white); }
+        .map-section .section-subtitle { color: var(--color-primary-300); }
+        .map-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .map-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .florida-map-svg {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.4));
+        }
+        .map-city-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        .map-city-list-title {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-primary-400);
+            margin-bottom: var(--space-4);
+        }
+        .map-city-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4) var(--space-5);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius-lg);
+            transition: all var(--duration-normal) var(--ease-out);
+            cursor: default;
+        }
+        .map-city-item:hover {
+            background: rgba(58,176,232,0.07);
+            border-color: rgba(58,176,232,0.2);
+            transform: translateX(4px);
+        }
+        .map-city-pin {
+            width: 32px; height: 32px;
+            background: rgba(58,176,232,0.15);
+            border: 1.5px solid var(--color-accent-400);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+            transition: all var(--duration-fast);
+        }
+        .map-city-item:hover .map-city-pin { background: var(--color-accent-400); }
+        .map-city-name { font-weight: 600; color: var(--color-white); font-size: var(--text-body-sm); }
+        .map-city-note { font-size: var(--text-caption); color: var(--color-primary-400); font-family: var(--font-mono); margin-top: 1px; }
+        .map-coverage-note {
+            margin-top: var(--space-6);
+            padding: var(--space-4) var(--space-5);
+            background: rgba(58,176,232,0.07);
+            border: 1px solid rgba(58,176,232,0.2);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-body-sm);
+            color: var(--color-primary-300);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+        }
+        .map-coverage-note-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+        @media (max-width: 1024px) {
+            .map-layout { grid-template-columns: 1fr; }
+            .map-container { max-width: 340px; margin: 0 auto; }
+            .florida-map-svg { max-width: 300px; }
+        }
+        @media (max-width: 768px) { .map-city-list { gap: var(--space-3); } }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta {
+            background: var(--color-primary-900);
+            padding: var(--space-32) clamp(var(--space-4), 4vw, var(--space-8));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-glow {
+            position: absolute;
+            bottom: -40%; left: 50%;
+            transform: translateX(-50%);
+            width: 1000px; height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(58,176,232,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-content { position: relative; z-index: 1; }
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: var(--text-display-2);
+            color: var(--color-white);
+            margin-bottom: var(--space-4);
+            line-height: var(--leading-tight);
+        }
+        .cta-title .accent { color: var(--color-accent-400); }
+        .cta-subtitle {
+            font-size: var(--text-body-lg);
+            color: var(--color-primary-300);
+            max-width: 520px;
+            margin: 0 auto var(--space-10);
+            line-height: var(--leading-relaxed);
+        }
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-note {
+            margin-top: var(--space-6);
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-primary-500);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact { background: var(--color-neutral-50); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--space-16);
+            align-items: start;
+        }
+        .contact-info-overline {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-accent-600);
+            font-weight: 500;
+            margin-bottom: var(--space-4);
+        }
+        .contact-info-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h1);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-4);
+            line-height: var(--leading-snug);
+        }
+        .contact-info-text {
+            font-size: var(--text-body-lg);
+            color: var(--color-neutral-600);
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-10);
+        }
+        .contact-details { margin-bottom: var(--space-8); }
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-4);
+            padding: var(--space-4) 0;
+            border-bottom: 1px solid var(--color-neutral-200);
+            transition: all var(--duration-fast);
+        }
+        .contact-detail:last-child { border-bottom: none; }
+        .contact-detail:hover { padding-left: var(--space-2); }
+        .contact-detail-icon {
+            width: 48px; height: 48px;
+            border-radius: var(--radius-lg);
+            background: var(--color-primary-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+        .contact-detail:hover .contact-detail-icon {
+            background: var(--color-primary-100);
+            transform: scale(1.05);
+        }
+        .contact-detail-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-neutral-500);
+            margin-bottom: var(--space-1);
+        }
+        .contact-detail-value {
+            font-weight: 500;
+            color: var(--color-primary-900);
+            font-size: var(--text-body-sm);
+        }
+        .contact-detail-value a {
+            color: var(--color-primary-900);
+            transition: color var(--duration-fast);
+        }
+        .contact-detail-value a:hover { color: var(--color-accent-600); }
+        .service-area-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            margin-top: var(--space-6);
+        }
+        .area-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-1) var(--space-3);
+            background: var(--color-accent-50);
+            color: var(--color-accent-700);
+            border: 1px solid var(--color-accent-100);
+            border-radius: var(--radius-full);
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            font-weight: 500;
+            transition: all var(--duration-fast);
+        }
+        .area-pill:hover { background: var(--color-accent-100); transform: translateY(-1px); }
+
+        /* Contact Form */
+        .contact-form-wrap {
+            background: var(--color-white);
+            padding: var(--space-10);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-neutral-100);
+        }
+        .form-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-2);
+        }
+        .form-subtitle {
+            font-size: var(--text-body-sm);
+            color: var(--color-neutral-500);
+            margin-bottom: var(--space-8);
+        }
+        .form-group { margin-bottom: var(--space-5); }
+        .form-group:last-of-type { margin-bottom: 0; }
+        .form-label {
+            display: block;
+            font-size: var(--text-body-sm);
+            font-weight: 600;
+            color: var(--color-neutral-800);
+            margin-bottom: var(--space-2);
+        }
+        .form-label .req { color: var(--color-accent-600); margin-left: 2px; }
+        .form-input {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            border: 1.5px solid var(--color-neutral-200);
+            border-radius: var(--radius-md);
+            background: var(--color-neutral-50);
+            color: var(--color-neutral-900);
+            transition: all var(--duration-fast);
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .form-input:hover:not(:focus) { border-color: var(--color-neutral-300); }
+        .form-input:focus {
+            border-color: var(--color-accent-400);
+            box-shadow: 0 0 0 3px rgba(58,176,232,0.12);
+            background: var(--color-white);
+        }
+        .form-input.error { border-color: #e55; box-shadow: 0 0 0 3px rgba(220,50,50,0.1); }
+        .form-input::placeholder { color: var(--color-neutral-400); }
+        select.form-input {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23787878' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right var(--space-4) center;
+            padding-right: var(--space-10);
+            cursor: pointer;
+        }
+        select.form-input:focus {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232A7CC7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        }
+        .form-textarea { resize: vertical; min-height: 120px; line-height: var(--leading-relaxed); }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+        }
+        .form-error-msg { font-size: var(--text-caption); color: #c44; margin-top: var(--space-1); display: none; }
+        .form-error-msg.visible { display: block; }
+        .form-submit-wrap { margin-top: var(--space-6); }
+        .btn-submit {
+            width: 100%;
+            padding: var(--space-4) var(--space-8);
+            font-size: var(--text-body);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-submit .btn-text { transition: opacity var(--duration-fast); }
+        .btn-submit .btn-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; }
+        .btn-submit.loading .btn-text { opacity: 0; }
+        .btn-submit.loading .btn-loading { opacity: 1; }
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: var(--space-12) var(--space-8);
+        }
+        .form-success.visible { display: block; }
+        .form-success-icon {
+            width: 72px; height: 72px;
+            background: var(--color-accent-50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto var(--space-6);
+            animation: successPop 0.5s var(--ease-out);
+        }
+        @keyframes successPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .form-success-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h3);
+            color: var(--color-primary-900);
+            margin-bottom: var(--space-3);
+        }
+        .form-success-text { color: var(--color-neutral-600); font-size: var(--text-body-sm); line-height: var(--leading-relaxed); }
+        .spinner {
+            width: 20px; height: 20px;
+            border: 2px solid rgba(26, 58, 107, 0.2);
+            border-top-color: #FFFFFF;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         /* ============================================
            FOOTER
            ============================================ */
         .footer {
             background: var(--color-primary-900);
-            padding: var(--space-12) var(--space-8);
-            border-top: 1px solid rgba(58, 176, 232, 0.15);
-        }
-        .footer-inner {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: var(--space-6);
-        }
-        .footer-brand {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            color: var(--color-white);
-        }
-        .footer-brand span {
-            color: var(--color-accent-400);
-        }
-        .footer-tagline {
-            font-size: var(--text-body-sm);
             color: var(--color-primary-300);
-            margin-top: var(--space-1);
+            padding: var(--space-16) clamp(var(--space-4), 4vw, var(--space-8)) var(--space-8);
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        .footer-inner { max-width: var(--max-width); margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-12);
+            padding-bottom: var(--space-12);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: var(--space-8);
+        }
+        .footer-brand-name {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            color: var(--color-white);
+            margin-bottom: var(--space-4);
+        }
+        .footer-brand-name span { color: var(--color-accent-400); }
+        .footer-brand-desc {
+            font-size: var(--text-body-sm);
+            color: var(--color-primary-400);
+            line-height: var(--leading-relaxed);
+            max-width: 300px;
+            margin-bottom: var(--space-6);
+        }
+        .footer-contact-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-body-sm);
+            color: var(--color-primary-400);
+            transition: color var(--duration-fast);
+            margin-bottom: var(--space-2);
+        }
+        .footer-contact-link:hover { color: var(--color-accent-400); }
+        .footer-col-title {
+            font-family: var(--font-mono);
+            font-size: var(--text-overline);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-primary-400);
+            margin-bottom: var(--space-5);
         }
         .footer-links {
             display: flex;
-            gap: var(--space-8);
+            flex-direction: column;
+            gap: var(--space-3);
         }
         .footer-links a {
-            color: var(--color-primary-200);
             font-size: var(--text-body-sm);
-            transition: color var(--duration-fast);
+            color: var(--color-primary-300);
+            transition: all var(--duration-fast);
         }
         .footer-links a:hover {
             color: var(--color-accent-400);
+            padding-left: var(--space-2);
         }
-        .footer-copy {
-            width: 100%;
-            text-align: center;
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: var(--text-caption);
-            color: var(--color-primary-400);
-            margin-top: var(--space-8);
-            padding-top: var(--space-6);
-            border-top: 1px solid rgba(58, 176, 232, 0.1);
+            color: var(--color-primary-500);
         }
-
-        /* ============================================
-           MOBILE RESPONSIVE
-           ============================================ */
-        @media (max-width: 968px) {
-            .services-grid,
-            .steps-grid,
-            .why-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-            .steps-grid::before { display: none; }
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                max-width: 480px;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-10);
-            }
-            .hero-stats { gap: var(--space-8); }
-        }
-        @media (max-width: 768px) {
-            .navbar-links { display: none; }
-            .mobile-toggle { display: block; }
-            .navbar-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: var(--nav-height);
-                left: 0;
-                right: 0;
-                background: rgba(26, 58, 107, 0.98);
-                padding: var(--space-6) var(--space-8);
-                gap: var(--space-4);
-                border-bottom: 1px solid rgba(58, 176, 232, 0.15);
-            }
-            .section { padding: var(--space-16) var(--space-6); }
-            .hero {
-                padding: calc(var(--nav-height) + var(--space-10)) var(--space-6) var(--space-10);
-                min-height: auto;
-            }
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        /* Success Modal */
-        .success-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            z-index: 9999;
+        .footer-socials { display: flex; gap: var(--space-3); }
+        .footer-socials a {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            color: var(--color-primary-400);
+            font-size: 12px;
+            font-family: var(--font-mono);
+            transition: all var(--duration-fast);
         }
-        .success-overlay.active {
-            opacity: 1;
-            visibility: visible;
+        .footer-socials a:hover {
+            background: rgba(58,176,232,0.12);
+            color: var(--color-accent-400);
+            border-color: rgba(58,176,232,0.2);
+            transform: translateY(-2px);
         }
-        .success-card {
-            background: var(--color-primary-800);
-            border: 1px solid var(--color-primary-600);
-            border-radius: 16px;
-            padding: 48px 40px 36px;
-            max-width: 420px;
-            width: 90%;
-            text-align: center;
-            transform: scale(0.85) translateY(20px);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+        .footer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(58,176,232,0.08);
+            border: 1px solid rgba(58,176,232,0.15);
+            border-radius: var(--radius-full);
+            padding: var(--space-2) var(--space-4);
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            color: var(--color-accent-400);
+            margin-bottom: var(--space-6);
         }
-        .success-overlay.active .success-card {
-            transform: scale(1) translateY(0);
-        }
-        .success-checkmark {
-            width: 72px;
-            height: 72px;
-            margin: 0 auto 24px;
-        }
-        .success-checkmark circle {
-            fill: none;
-            stroke: var(--color-accent-400);
-            stroke-width: 3;
-            stroke-dasharray: 200;
-            stroke-dashoffset: 200;
-        }
-        .success-overlay.active .success-checkmark circle {
-            animation: checkCircle 0.5s 0.2s ease forwards;
-        }
-        .success-checkmark path {
-            fill: none;
-            stroke: var(--color-accent-400);
-            stroke-width: 3;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-dasharray: 40;
-            stroke-dashoffset: 40;
-        }
-        .success-overlay.active .success-checkmark path {
-            animation: checkMark 0.35s 0.55s ease forwards;
-        }
-        @keyframes checkCircle { to { stroke-dashoffset: 0; } }
-        @keyframes checkMark { to { stroke-dashoffset: 0; } }
-        .success-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--color-primary-50);
-            margin-bottom: 8px;
-        }
-        .success-card p {
-            color: var(--color-primary-300);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 28px;
-        }
-        .success-close-btn {
-            background: var(--color-accent-500);
-            color: #FFFFFF;
-            border: none;
-            padding: 12px 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-        .success-close-btn:hover {
+        .footer-badge-dot {
+            width: 6px; height: 6px;
             background: var(--color-accent-400);
+            border-radius: 50%;
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* ============================================
+           MOBILE STICKY CTA
+           ============================================ */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            z-index: 100;
+            background: var(--color-primary-900);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: var(--space-3) var(--space-4);
+            align-items: center;
+            gap: var(--space-3);
+            box-shadow: 0 -8px 30px rgba(0,0,0,0.25);
+            transform: translateY(0);
+            transition: transform var(--duration-slow) var(--ease-out);
+        }
+        .mobile-cta-bar.dismissed { transform: translateY(120%); }
+        .mobile-cta-bar .btn {
+            flex: 1;
+            justify-content: center;
+            font-size: var(--text-body-sm);
+            padding: var(--space-3) var(--space-6);
+        }
+        .mobile-cta-dismiss {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--color-primary-300);
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all var(--duration-fast);
+            font-family: var(--font-body);
+        }
+        .mobile-cta-dismiss:hover { background: rgba(255,255,255,0.12); color: var(--color-white); }
+        @media (max-width: 768px) {
+            .mobile-cta-bar { display: flex; }
+            body { padding-bottom: 70px; }
+            body.cta-dismissed { padding-bottom: 0; }
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: calc(var(--nav-height) + var(--space-12));
+            }
+            .hero-text { max-width: 100%; margin: 0 auto; }
+            .hero-overline { justify-content: center; }
+            .hero-subtitle { margin: 0 auto var(--space-8); }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-scene { display: none; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+            .steps-grid { grid-template-columns: 1fr 1fr; }
+            .steps-line { display: none; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-features { margin-top: var(--space-8); }
+            .about-card-stack { max-width: 500px; margin: 0 auto; }
+            .about-stat-strip { max-width: 500px; margin: var(--space-8) auto 0; }
+            .testimonials-grid { grid-template-columns: 1fr 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+            .pricing-card.featured { transform: scale(1); }
+            .pricing-card.featured:hover { transform: translateY(-4px); }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+        }
+        @media (max-width: 768px) {
+            :root { --nav-height: 68px; }
+            .nav-links, .nav-cta { display: none; }
+            .nav-toggle { display: flex; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                inset: 0;
+                background: var(--color-primary-900);
+                align-items: center;
+                justify-content: center;
+                gap: var(--space-8);
+                z-index: 999;
+            }
+            .nav-links.open a { font-size: var(--text-h3); color: var(--color-white); }
+            .nav-links.open a::after { display: none; }
+            .section { padding: var(--space-20) clamp(var(--space-4), 4vw, var(--space-6)); }
+            .section-header { margin-bottom: var(--space-10); }
+            .services-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+            .steps-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+            .about-features { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+            .footer-brand-desc { max-width: 100%; }
+            .footer-bottom { flex-direction: column; gap: var(--space-4); text-align: center; }
+            .contact-form-wrap { padding: var(--space-6); }
+            .pricing-grid { max-width: 380px; }
+            .hero-stats { gap: var(--space-6); }
+            .faq-question { font-size: var(--text-body-sm); padding: var(--space-4) var(--space-5); }
+            .faq-answer-inner { padding: var(--space-3) var(--space-5) var(--space-4); }
+        }
+        @media (max-width: 480px) {
+            .hero-buttons { flex-direction: column; align-items: stretch; }
+            .hero-buttons .btn { text-align: center; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .hero-stats { flex-wrap: wrap; justify-content: space-around; gap: var(--space-4); }
         }
     </style>
 </head>
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <a href="#" class="navbar-logo">
-                <img src="dayoff-logo.png" alt="DayOff Air Conditioning &amp; Heating Solutions" style="height:60px;object-fit:contain;background:transparent;mix-blend-mode:multiply;">
-            </a>
-            <div class="navbar-links" id="navLinks">
-                <a href="#services">Services</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#contact">Contact</a>
-                <a href="#contact" class="navbar-cta">Get a Quote</a>
-            </div>
-            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Toggle navigation">&#9776;</button>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-logo-wrap">
+            <div class="loader-icon">❄️</div>
+            <div class="loader-logo">Day<span>Off</span></div>
+            <div class="loader-tagline">Stay Cool. Stay Warm.</div>
         </div>
+        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#hero" class="nav-logo">
+            <img src="dayoff-logo.png" alt="DayOff Air Conditioning &amp; Heating Solutions" style="height:60px;object-fit:contain;background:transparent;mix-blend-mode:multiply;">
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#about">Why Us</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#contact" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-inner">
-            <div class="hero-overline">AC &amp; Heating Solutions — Central Florida</div>
-            <h1>Stay Cool. Stay Warm. <em>Take a DayOff.</em></h1>
-            <p class="hero-sub">Professional air conditioning and heating solutions for vacation rental properties in Orlando, Kissimmee, and Davenport. Set it once &mdash; we handle the rest every 6 months.</p>
-            <div class="hero-ctas">
-                <a href="#contact" class="btn-primary">Get a Free Quote &rarr;</a>
-                <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-grid-overlay"></div>
+        <div class="particles" id="particles"></div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-overline">AC &amp; Heating Solutions · Central Florida</div>
+                <h1 class="hero-title">
+                    Stay Cool.<br>
+                    Stay Warm.<br>
+                    <span class="accent-italic">Take a DayOff.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Professional air conditioning and heating solutions for vacation rentals across Central Florida. Keep your property perfectly comfortable — every single season.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary btn-lg">Get a Free Quote</a>
+                    <a href="#services" class="btn btn-white-outline btn-lg">Our Services ↓</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">50+</div>
+                        <div class="hero-stat-label">Units Served</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">6-Mo</div>
+                        <div class="hero-stat-label">Service Cycle</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">24h</div>
+                        <div class="hero-stat-label">Response Time</div>
+                    </div>
+                </div>
             </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-value">50+</div>
-                    <div class="hero-stat-label">Units Served</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-value">6-Month</div>
-                    <div class="hero-stat-label">Service Cycle</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-value">100%</div>
-                    <div class="hero-stat-label">Documented</div>
+
+            <div class="hero-scene">
+                <div class="glow-ring"></div>
+                <div class="hero-3d-container" id="hero3d">
+                    <!-- House SVG with navy/blue color scheme -->
+                    <svg class="house-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="250" cy="458" rx="190" ry="20" fill="rgba(0,0,0,0.18)"/>
+                        <rect x="110" y="218" width="280" height="200" rx="8" fill="#163260"/>
+                        <rect x="114" y="222" width="272" height="196" rx="6" fill="#1E4A80"/>
+                        <polygon points="390,218 420,195 420,390 390,418" fill="#1A3A6B" opacity="0.8"/>
+                        <polygon points="95,222 250,108 405,222" fill="#1A3A6B"/>
+                        <polygon points="100,222 250,113 400,222" fill="#163260"/>
+                        <polygon points="400,222 420,195 280,95 250,113" fill="#1A3A6B" opacity="0.6"/>
+                        <line x1="250" y1="113" x2="280" y2="95" stroke="#2358A0" stroke-width="2"/>
+                        <rect x="318" y="130" width="28" height="66" rx="3" fill="#1A3A6B"/>
+                        <rect x="314" y="127" width="36" height="8" rx="2" fill="#163260"/>
+                        <path d="M328,124 C326,118 332,112 330,106" stroke="#3AB0E8" fill="none" stroke-width="2" stroke-linecap="round" opacity="0.4">
+                            <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
+                        </path>
+                        <rect x="212" y="308" width="76" height="110" rx="7" fill="#1A3A6B"/>
+                        <rect x="216" y="312" width="68" height="102" rx="5" fill="#163260"/>
+                        <path d="M216,338 Q250,310 284,338" fill="#1A3A6B" opacity="0.4"/>
+                        <circle cx="272" cy="368" r="4.5" fill="#3AB0E8" opacity="0.9"/>
+                        <rect x="220" y="340" width="28" height="40" rx="2" fill="#1A3A6B" opacity="0.3"/>
+                        <rect x="252" y="340" width="28" height="40" rx="2" fill="#1A3A6B" opacity="0.3"/>
+                        <rect x="138" y="256" width="54" height="58" rx="5" fill="#1A3A6B"/>
+                        <rect x="141" y="259" width="48" height="52" rx="4" fill="#2358A0" opacity="0.7"/>
+                        <polygon points="143,261 153,261 143,271" fill="rgba(255,255,255,0.1)"/>
+                        <line x1="165" y1="259" x2="165" y2="311" stroke="#163260" stroke-width="1.5"/>
+                        <line x1="141" y1="288" x2="189" y2="288" stroke="#163260" stroke-width="1.5"/>
+                        <rect x="138" y="256" width="54" height="58" rx="5" fill="none" stroke="#2358A0" stroke-width="1.5"/>
+                        <rect x="308" y="256" width="54" height="58" rx="5" fill="#1A3A6B"/>
+                        <rect x="311" y="259" width="48" height="52" rx="4" fill="#2358A0" opacity="0.7"/>
+                        <polygon points="313,261 323,261 313,271" fill="rgba(255,255,255,0.1)"/>
+                        <line x1="335" y1="259" x2="335" y2="311" stroke="#163260" stroke-width="1.5"/>
+                        <line x1="311" y1="288" x2="359" y2="288" stroke="#163260" stroke-width="1.5"/>
+                        <rect x="308" y="256" width="54" height="58" rx="5" fill="none" stroke="#2358A0" stroke-width="1.5"/>
+                        <!-- AC Unit — highlighted blue -->
+                        <rect x="303" y="235" width="68" height="18" rx="5" fill="#1A6FBF"/>
+                        <rect x="305" y="237" width="64" height="14" rx="4" fill="#3AB0E8"/>
+                        <line x1="312" y1="240" x2="312" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
+                        <line x1="318" y1="240" x2="318" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
+                        <line x1="324" y1="240" x2="324" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
+                        <line x1="330" y1="240" x2="330" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
+                        <line x1="336" y1="240" x2="336" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
+                        <line x1="342" y1="240" x2="342" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
+                        <line x1="348" y1="240" x2="348" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
+                        <line x1="354" y1="240" x2="354" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
+                        <line x1="360" y1="240" x2="360" y2="248" stroke="#1A3A6B" stroke-width="1" opacity="0.7"/>
+                        <path d="M316,233 Q320,229 324,233" stroke="#7FD4F5" fill="none" stroke-width="1.5" stroke-linecap="round">
+                            <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M330,231 Q334,227 338,231" stroke="#7FD4F5" fill="none" stroke-width="1.5" stroke-linecap="round">
+                            <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M344,233 Q348,229 352,233" stroke="#7FD4F5" fill="none" stroke-width="1.5" stroke-linecap="round">
+                            <animate attributeName="opacity" values="0.6;0.15;0.6" dur="2s" begin="1.4s" repeatCount="indefinite"/>
+                        </path>
+                        <rect x="200" y="416" width="100" height="10" rx="2" fill="#1A3A6B"/>
+                        <rect x="195" y="422" width="110" height="8" rx="2" fill="#163260"/>
+                        <rect x="90" y="418" width="320" height="8" rx="4" fill="#2358A0" opacity="0.4"/>
+                        <!-- Palm Trees -->
+                        <line x1="128" y1="418" x2="132" y2="340" stroke="#1E4A80" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M132,340 Q115,320 100,328" stroke="#2A6BB5" fill="none" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M132,340 Q118,328 115,312" stroke="#2A6BB5" fill="none" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M132,340 Q130,325 140,315" stroke="#3AB0E8" fill="none" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+                        <path d="M132,340 Q145,330 150,320" stroke="#2A6BB5" fill="none" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="370" y1="418" x2="368" y2="358" stroke="#1E4A80" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M368,362 Q352,345 345,352" stroke="#2A6BB5" fill="none" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M368,362 Q355,352 352,340" stroke="#2A6BB5" fill="none" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M368,362 Q378,348 385,355" stroke="#3AB0E8" fill="none" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+                        <!-- Bushes -->
+                        <circle cx="165" cy="418" r="16" fill="#1E4A80" opacity="0.8"/>
+                        <circle cx="178" cy="414" r="12" fill="#2A6BB5" opacity="0.7"/>
+                        <circle cx="156" cy="414" r="10" fill="#3AB0E8" opacity="0.2"/>
+                        <circle cx="340" cy="418" r="14" fill="#1E4A80" opacity="0.8"/>
+                        <circle cx="328" cy="414" r="11" fill="#2A6BB5" opacity="0.7"/>
+                        <circle cx="350" cy="415" r="9" fill="#3AB0E8" opacity="0.2"/>
+                        <circle cx="250" cy="310" r="3" fill="#3AB0E8" opacity="0.6">
+                            <animate attributeName="opacity" values="0.6;0.3;0.6" dur="4s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
+
+                    <!-- Floating Items -->
+                    <div class="float-item" style="top: 4%; right: -12%; font-size: 2.4rem;">❄️</div>
+                    <div class="float-item" style="top: 28%; left: -14%; font-size: 2rem;">🌡️</div>
+                    <div class="float-item" style="bottom: 22%; right: -18%; font-size: 1.9rem;">💨</div>
+                    <div class="float-item" style="top: 12%; left: 6%; font-size: 1.7rem;">✨</div>
+                    <div class="float-item" style="bottom: 32%; left: -10%; font-size: 2.1rem;">🔧</div>
+                    <div class="float-item" style="top: 52%; right: -6%; font-size: 1.5rem;">🏠</div>
+                    <div class="float-item" style="bottom: 14%; left: 12%; font-size: 1.7rem;">📋</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section services" id="services">
-        <div class="section-inner">
-            <div class="section-overline">What We Do</div>
-            <h2 class="section-title">Complete AC &amp; Heating care. Nothing left to chance.</h2>
-            <p class="section-subtitle">Every service is scheduled automatically, executed thoroughly, and documented with photos so you never have to wonder.</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">❄️</div>
-                    <h3>Bi-Annual AC &amp; Heating Service</h3>
-                    <p>Complete HVAC maintenance on a 6-month cycle. We handle scheduling, show up on time, and keep your systems running at peak efficiency year-round — cool in summer, warm in winter.</p>
-                    <ul class="service-features">
-                        <li>Coil cleaning (evaporator &amp; condenser)</li>
-                        <li>Filter replacement</li>
-                        <li>Coolant level check</li>
-                        <li>Heating system inspection</li>
-                        <li>Automatic 6-month scheduling</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🌡️</div>
-                    <h3>Heating Solutions</h3>
-                    <p>Keep your guests warm when Florida nights get cold. We service heat pumps, electric heating strips, and all-in-one HVAC systems. No cold nights, no guest complaints.</p>
-                    <ul class="service-features">
-                        <li>Heat pump service &amp; tune-up</li>
-                        <li>Heating element inspection</li>
-                        <li>Thermostat calibration</li>
-                        <li>Airflow &amp; duct check</li>
-                        <li>Efficiency optimization</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📋</div>
-                    <h3>Maintenance Reports</h3>
-                    <p>Photo documentation after every single visit, sent directly to you. Know exactly what was done, what condition each unit is in, and what to watch.</p>
-                    <ul class="service-features">
-                        <li>Photo documentation per visit</li>
-                        <li>Before and after comparisons</li>
-                        <li>Condition assessment</li>
-                        <li>Sent directly to property manager</li>
-                        <li>Full service history on file</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section how-it-works" id="how-it-works">
-        <div class="section-inner">
-            <div class="section-overline">How It Works</div>
-            <h2 class="section-title">Three steps. Then it runs itself.</h2>
-            <p class="section-subtitle">No chasing contractors, no forgetting maintenance, no surprise repair bills. Set it up once and we take it from there.</p>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>We Schedule Your First Visit</h3>
-                    <p>Quick call to assess your units and set up the 6-month calendar. We work around your guest bookings so there's zero disruption.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>We Show Up and Do the Work</h3>
-                    <p>Full AC &amp; heating service on every unit &mdash; coil cleaning, filter swap, coolant check, heating inspection. Photo documentation sent to you the same day.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Repeat Every 6 Months</h3>
-                    <p>Automatic reminder and scheduling. Nothing falls through the cracks. Your systems stay maintained, your guests stay comfortable, your budget stays predictable.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY DAYOFF -->
-    <section class="section why-section" id="why">
-        <div class="section-inner">
-            <div class="section-overline">Why DayOff</div>
-            <h2 class="section-title">The #1 guest complaint in Florida? A broken AC.</h2>
-            <p class="section-subtitle">Most property managers skip bi-annual maintenance &mdash; until a $5,000 repair bill hits. DayOff makes sure that never happens.</p>
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-icon">⚠️</div>
-                    <h3>HVAC Failures Are Expensive</h3>
-                    <p>AC and heating failures are the top guest complaint in Florida vacation rentals. A single breakdown can cost $3,000&ndash;$5,000 in repairs, plus lost bookings and refund requests. Prevention costs a fraction of that.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">📅</div>
-                    <h3>Most Managers Skip It</h3>
-                    <p>Most property managers know they should do bi-annual HVAC maintenance &mdash; but it keeps getting pushed. There's always a guest checking in, a turnover to handle, something more urgent. Until the AC dies in July.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">✅</div>
-                    <h3>We Make It Automatic</h3>
-                    <p>One setup call. Recurring every 6 months. Full documentation after every visit. You don't chase us, you don't schedule us, you don't even think about it. It just gets done.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING -->
-    <section class="section pricing" id="pricing">
-        <div class="section-inner">
-            <div class="section-overline">Simple Pricing</div>
-            <h2 class="section-title">Transparent pricing. No hidden fees.</h2>
-            <p class="section-subtitle">Two straightforward options. Both include full AC &amp; heating service, photo documentation, and automatic 6-month scheduling.</p>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Single Unit</h3>
-                    <div class="price">$149 <span>/visit</span></div>
-                    <div class="price-annual">Bi-annual = $298/year per unit</div>
-                    <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> 1 HVAC unit, full service</li>
-                        <li><span class="check">&#10003;</span> Coil cleaning &amp; filter replacement</li>
-                        <li><span class="check">&#10003;</span> Coolant check &amp; heating inspection</li>
-                        <li><span class="check">&#10003;</span> Photo report included</li>
-                        <li><span class="check">&#10003;</span> 6-month automatic scheduling</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary">Get Started &rarr;</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">Best Value</div>
-                    <h3>Property Package</h3>
-                    <div class="price">$99 <span>/unit/visit</span></div>
-                    <div class="price-annual">5+ units &mdash; bulk pricing saves you more</div>
-                    <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> 5+ HVAC units, full service each</li>
-                        <li><span class="check">&#10003;</span> Coil cleaning &amp; filter replacement</li>
-                        <li><span class="check">&#10003;</span> Coolant check &amp; heating inspection</li>
-                        <li><span class="check">&#10003;</span> Photo report per unit</li>
-                        <li><span class="check">&#10003;</span> Priority scheduling</li>
-                        <li><span class="check">&#10003;</span> Dedicated contact person</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary">Get Started &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section contact" id="contact">
-        <div class="section-inner">
-            <div class="section-overline">Get In Touch</div>
-            <h2 class="section-title">Ready to take a DayOff from HVAC worries?</h2>
-            <p class="section-subtitle">Tell us about your properties and we'll put together a free maintenance plan. No obligations, no pressure.</p>
-            <div class="contact-grid">
-                <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
-                    <!-- Honeypot anti-spam field — hidden from real users -->
-                    <div style="position:absolute;left:-9999px;" aria-hidden="true">
-                        <label for="website">Website</label>
-                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="you@company.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
-                    </div>
-                    <div class="form-group">
-                        <label for="units">Number of HVAC Units</label>
-                        <input type="number" id="units" name="units" placeholder="e.g. 12" min="1">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your properties..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary" id="submitBtn">Request Free Assessment &rarr;</button>
-                    <div id="formMsg" style="font-size:14px;margin-top:8px;display:none;"></div>
-                </form>
-                <div class="contact-info">
-                    <h3>Let's talk AC &amp; heating.</h3>
-                    <p>Whether you manage 5 units or 50, we'll build a maintenance schedule that fits your portfolio. One call is all it takes to get started.</p>
-                    <div class="contact-details">
-                        <div class="contact-detail">
-                            <div class="icon">✉️</div>
-                            <div>
-                                <div style="font-weight: 600; color: var(--color-neutral-900);">Email</div>
-                                <div>jorgelameiras208@gmail.com</div>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <div class="icon">📍</div>
-                            <div>
-                                <div style="font-weight: 600; color: var(--color-neutral-900);">Service Area</div>
-                                <div>Orlando / Kissimmee / Davenport, FL</div>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <div class="icon">🕐</div>
-                            <div>
-                                <div style="font-weight: 600; color: var(--color-neutral-900);">Response Time</div>
-                                <div>Within 24 hours, usually same day</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div>
-                <div class="footer-brand">Day<span>Off</span></div>
-                <div class="footer-tagline">AC &amp; Heating Solutions | Central Florida</div>
-            </div>
-            <div class="footer-links">
-                <a href="#services">Services</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="footer-copy">&copy; 2026 DayOff Air Conditioning &amp; Heating Solutions. All rights reserved.</div>
-        </div>
-    </footer>
-
-    <!-- Success Modal -->
-    <div class="success-overlay" onclick="if(event.target===this)this.classList.remove('active')">
-        <div class="success-card">
-            <svg class="success-checkmark" viewBox="0 0 72 72">
-                <circle cx="36" cy="36" r="32"/>
-                <path d="M22 36l10 10 18-20"/>
-            </svg>
-            <h3>Request Submitted!</h3>
-            <p>Thanks for reaching out. Jorge will be in touch within 24 hours.</p>
-            <button class="success-close-btn" onclick="this.closest('.success-overlay').classList.remove('active')">Close</button>
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee-section" aria-hidden="true">
+        <div class="marquee-track">
+            <span class="marquee-item">Stay Cool <span class="hl">✦</span> Stay Warm</span>
+            <span class="marquee-item">AC &amp; Heating <span class="hl">✦</span> Central Florida</span>
+            <span class="marquee-item">Take a DayOff <span class="hl">✦</span> We've got it covered</span>
+            <span class="marquee-item">Trusted by 50+ property owners <span class="hl">✦</span></span>
+            <span class="marquee-item">Orlando · Kissimmee · Davenport <span class="hl">✦</span> Licensed &amp; Insured</span>
+            <span class="marquee-item">Stay Cool <span class="hl">✦</span> Stay Warm</span>
+            <span class="marquee-item">AC &amp; Heating <span class="hl">✦</span> Central Florida</span>
+            <span class="marquee-item">Take a DayOff <span class="hl">✦</span> We've got it covered</span>
+            <span class="marquee-item">Trusted by 50+ property owners <span class="hl">✦</span></span>
+            <span class="marquee-item">Orlando · Kissimmee · Davenport <span class="hl">✦</span> Licensed &amp; Insured</span>
         </div>
     </div>
 
+    <!-- ===================== TRUST BADGE BAR ===================== -->
+    <div class="trust-bar" aria-label="Trust certifications">
+        <div class="trust-bar-inner">
+            <div class="trust-badge">🔒 <span>Licensed &amp; Insured</span></div>
+            <div class="trust-divider"></div>
+            <div class="trust-badge">❄️ <span>AC &amp; Heating Experts</span></div>
+            <div class="trust-divider"></div>
+            <div class="trust-badge">⭐ <span>5-Star Service</span></div>
+            <div class="trust-divider"></div>
+            <div class="trust-badge">⚡ <span>24-Hour Response</span></div>
+            <div class="trust-divider"></div>
+            <div class="trust-badge">📸 <span>Photo Reports Included</span></div>
+        </div>
+    </div>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section class="section services" id="services">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <div class="section-overline">What We Do</div>
+                <h2 class="section-title">Complete HVAC care for vacation properties</h2>
+                <p class="section-subtitle">From AC cooling to heating solutions, we handle everything so your guests stay comfortable year-round — every season, every stay.</p>
+            </div>
+            <div class="services-grid">
+                <!-- AC Card -->
+                <div class="service-card service-card-ac reveal">
+                    <div class="service-icon service-icon-ac">❄️</div>
+                    <div class="service-card-overline">AC Service</div>
+                    <h3 class="service-card-title">Air Conditioning</h3>
+                    <p class="service-card-text">Keep your AC running perfectly through Florida's brutal summers. No mid-stay breakdowns, no angry guests, no emergency bills.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Filter cleaning &amp; replacement
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            System performance diagnostic
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Refrigerant level inspection
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Coil cleaning &amp; drainage check
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Automatic 6-month scheduling
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Heating Card -->
+                <div class="service-card service-card-heat reveal">
+                    <div class="service-icon service-icon-heat">🌡️</div>
+                    <div class="service-card-overline">Heating</div>
+                    <h3 class="service-card-title">Heating Solutions</h3>
+                    <p class="service-card-text">Keep guests warm on cool Florida nights. We service heat pumps, electric heating systems, and all-in-one HVAC units.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Heat pump service &amp; tune-up
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Heating element inspection
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Thermostat calibration
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Airflow &amp; duct check
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Efficiency optimization
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Package Card -->
+                <div class="service-card service-card-premium reveal">
+                    <div class="service-icon service-icon-premium">✨</div>
+                    <div class="service-card-overline">Premium</div>
+                    <h3 class="service-card-title">Full HVAC Package</h3>
+                    <p class="service-card-text">The complete property HVAC solution. AC, heating, documentation, and inspection — one call handles it all. Set it and forget it.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Everything in AC + Heating
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Full system inspection report
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Photo documentation per visit
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Dedicated account manager
+                        </div>
+                        <div class="service-feature">
+                            <div class="service-feature-check">✓</div>
+                            Priority same-day scheduling
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <div class="section-overline">Simple Process</div>
+                <h2 class="section-title">Up and running in 4 steps</h2>
+                <p class="section-subtitle">Getting started is effortless. Four simple steps to a perfectly maintained vacation property.</p>
+            </div>
+            <div class="steps-connector reveal">
+                <div class="steps-line" id="stepsLine"></div>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <span class="step-icon">📋</span>
+                        <h3 class="step-title">Request a Quote</h3>
+                        <p class="step-text">Tell us about your property — units, location, how often guests stay.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <span class="step-icon">📅</span>
+                        <h3 class="step-title">We Schedule</h3>
+                        <p class="step-text">We build your 6-month maintenance calendar around your bookings.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <span class="step-icon">🔧</span>
+                        <h3 class="step-title">We Service</h3>
+                        <p class="step-text">Our team arrives and performs full AC &amp; heating maintenance.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <span class="step-icon">⭐</span>
+                        <h3 class="step-title">You Relax</h3>
+                        <p class="step-text">You get a photo report. Guests stay comfortable. Repeat in 6 months.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== WHY DAYOFF ===================== -->
+    <section class="section about" id="about">
+        <div class="section-inner">
+            <div class="about-grid">
+                <div class="reveal-left">
+                    <div class="section-overline" style="color: var(--color-accent-400);">Why DayOff</div>
+                    <h2 class="section-title" style="color: var(--color-white);">Built for vacation property owners</h2>
+                    <p class="section-subtitle" style="margin-bottom: 0;">We're not a generic HVAC company. Every process, inspection, and maintenance checklist is designed specifically for vacation rental properties — where guest comfort is everything.</p>
+
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <span class="about-feature-icon">🛡️</span>
+                            <h4 class="about-feature-title">Licensed &amp; Insured</h4>
+                            <p class="about-feature-text">Fully licensed, bonded, and insured. Your property and your guests are always protected.</p>
+                        </div>
+                        <div class="about-feature">
+                            <span class="about-feature-icon">❄️</span>
+                            <h4 class="about-feature-title">AC &amp; Heating Experts</h4>
+                            <p class="about-feature-text">Both cooling and heating covered. One team, one schedule, complete year-round comfort.</p>
+                        </div>
+                        <div class="about-feature">
+                            <span class="about-feature-icon">⚡</span>
+                            <h4 class="about-feature-title">24h Response</h4>
+                            <p class="about-feature-text">Something needs attention? We respond within 24 hours. Usually same day.</p>
+                        </div>
+                        <div class="about-feature">
+                            <span class="about-feature-icon">📸</span>
+                            <h4 class="about-feature-title">Full Documentation</h4>
+                            <p class="about-feature-text">Photo reports after every visit. You always know exactly what was done.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-visual reveal-right">
+                    <div class="about-card-stack">
+                        <div class="about-main-card">
+                            <div>
+                                <div class="about-house-scene">❄️🏠🌡️</div>
+                                <div class="about-house-label">AC &amp; Heating · Central Florida</div>
+                            </div>
+                        </div>
+                        <div class="about-badge">
+                            <div class="about-badge-number">6-Mo</div>
+                            <div class="about-badge-label">Auto-Schedule</div>
+                        </div>
+                    </div>
+                    <div class="about-stat-strip">
+                        <div class="about-stat-item">
+                            <div class="about-stat-num">50+</div>
+                            <div class="about-stat-label">Units Served</div>
+                        </div>
+                        <div class="about-stat-item">
+                            <div class="about-stat-num">24h</div>
+                            <div class="about-stat-label">Response</div>
+                        </div>
+                        <div class="about-stat-item">
+                            <div class="about-stat-num">100%</div>
+                            <div class="about-stat-label">Documented</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <div class="section-overline">What Owners Say</div>
+                <h2 class="section-title">Property owners love DayOff</h2>
+                <p class="section-subtitle">Real results from vacation rental owners across Central Florida.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="testimonial-quote">"Our AC used to break down every summer. Since DayOff took over maintenance, zero issues. My guests stay happy and I don't get emergency calls anymore."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MR</div>
+                        <div>
+                            <div class="testimonial-name">Maria Rodriguez</div>
+                            <div class="testimonial-role">7-property portfolio owner</div>
+                            <div class="testimonial-location">📍 Kissimmee, FL</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="testimonial-quote">"The photo reports after every visit are a game changer. I know exactly what condition each unit is in without ever having to be there. Total peace of mind."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">DK</div>
+                        <div>
+                            <div class="testimonial-name">David Kim</div>
+                            <div class="testimonial-role">Airbnb Superhost · 12 units</div>
+                            <div class="testimonial-location">📍 Orlando, FL</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="testimonial-quote">"Set it and forget it — that's exactly what DayOff delivers. I haven't had to think about AC or heating in over a year. Worth every penny."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SL</div>
+                        <div>
+                            <div class="testimonial-name">Sarah Lowe</div>
+                            <div class="testimonial-role">Vacation rental manager · 4 homes</div>
+                            <div class="testimonial-location">📍 Davenport, FL</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PRICING ===================== -->
+    <section class="section pricing" id="pricing">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <div class="section-overline">Simple Pricing</div>
+                <h2 class="section-title">Transparent pricing. No surprises.</h2>
+                <p class="section-subtitle">Three straightforward tiers. Full AC &amp; heating service, photo documentation, and automatic 6-month scheduling included in all plans.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Starter -->
+                <div class="pricing-card reveal">
+                    <div class="pricing-plan">Starter</div>
+                    <div class="pricing-name">Single Unit</div>
+                    <div class="pricing-amount">$149</div>
+                    <div class="pricing-period">per visit · bi-annual = $298/yr</div>
+                    <div class="pricing-divider"></div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            1 HVAC unit, full service
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Coil cleaning &amp; filter replacement
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            AC &amp; heating inspection
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Photo report included
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            6-month auto-scheduling
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn-pricing-default">Get Started</a>
+                </div>
+
+                <!-- Featured -->
+                <div class="pricing-card featured reveal">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-plan">Portfolio</div>
+                    <div class="pricing-name">Property Package</div>
+                    <div class="pricing-amount">$99</div>
+                    <div class="pricing-period">per unit/visit · 5+ units</div>
+                    <div class="pricing-divider"></div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            5+ HVAC units, full service
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Coil cleaning &amp; filter replacement
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            AC &amp; heating inspection each
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Photo report per unit
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Priority scheduling
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Dedicated contact person
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-featured">Get Started →</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card reveal">
+                    <div class="pricing-plan">Enterprise</div>
+                    <div class="pricing-name">Custom Portfolio</div>
+                    <div class="pricing-amount">Custom</div>
+                    <div class="pricing-period">tailored to your portfolio size</div>
+                    <div class="pricing-divider"></div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Unlimited units, custom pricing
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Full AC &amp; heating service
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Emergency response priority
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Monthly reporting dashboard
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓</div>
+                            Dedicated account manager
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-check">✓
+                        </div>
+                        Same-day emergency visits
+                    </div>
+                    </div>
+                    <a href="#contact" class="btn-pricing-default">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section faq" id="faq">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <div class="section-overline">Common Questions</div>
+                <h2 class="section-title">Everything you need to know</h2>
+                <p class="section-subtitle">Quick answers about DayOff's AC &amp; heating services for vacation property owners.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        How often do you service the units?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">We service every 6 months — once in spring before peak AC season, and once in fall before the heating months. Automatic scheduling means you never have to remember to book us.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        What's included in a standard service visit?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Every visit includes: filter cleaning and replacement, evaporator and condenser coil cleaning, coolant level check, heating element inspection, thermostat calibration, drainage check, and a full photo report sent the same day.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Do you service both AC and heating systems?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Yes! DayOff covers both AC cooling and heating — including heat pumps, electric heating strips, and all-in-one HVAC units. One subscription covers your complete comfort system.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        What areas do you serve?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">We serve the Central Florida vacation rental corridor: Orlando, Kissimmee, Davenport, and surrounding areas. Not sure if we cover your location? Reach out — we're expanding.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Do I need to be present during service visits?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">No. We coordinate directly with your property access system or lock box. We'll notify you before and after every visit, and send full photo documentation so you always know what happened.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICE AREA MAP ===================== -->
+    <section class="map-section" id="service-area">
+        <div class="section-inner">
+            <div class="section-header reveal" style="margin-bottom: var(--space-16);">
+                <div class="section-overline">Service Area</div>
+                <h2 class="section-title">Serving Central Florida</h2>
+                <p class="section-subtitle">We cover the vacation rental hub of Florida — from Orlando's theme park corridor to Kissimmee and Davenport.</p>
+            </div>
+            <div class="map-layout">
+                <div class="map-container reveal-left">
+                    <svg class="florida-map-svg" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M80,10 L220,10 L240,40 L250,80 L255,120 L260,160 L270,200 L275,240 L270,270 L265,290 L250,310 L240,330 L230,350 L220,370 L210,385 L200,395 L190,390 L185,380 L180,370 L175,360 L170,350 L165,355 L158,360 L150,365 L142,360 L136,350 L130,340 L120,330 L110,310 L100,290 L90,260 L85,230 L80,200 L75,160 L75,120 L70,80 L68,40 Z" fill="#1E4A80" stroke="#2A6BB5" stroke-width="2"/>
+                        <!-- Orlando area highlight -->
+                        <circle cx="165" cy="160" r="22" fill="#3AB0E8" opacity="0.35"/>
+                        <circle cx="165" cy="160" r="8" fill="#3AB0E8"/>
+                        <text x="180" y="155" fill="#FFFFFF" font-size="9" font-family="sans-serif" font-weight="600">Orlando</text>
+                        <!-- Kissimmee -->
+                        <circle cx="170" cy="195" r="6" fill="#7FD4F5"/>
+                        <text x="182" y="199" fill="#B8E8FA" font-size="8" font-family="sans-serif">Kissimmee</text>
+                        <!-- Davenport -->
+                        <circle cx="150" cy="210" r="5" fill="#7FD4F5"/>
+                        <text x="110" y="214" fill="#B8E8FA" font-size="8" font-family="sans-serif">Davenport</text>
+                        <!-- Coverage zone -->
+                        <circle cx="163" cy="190" r="42" fill="none" stroke="#3AB0E8" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="map-city-list reveal-right">
+                    <div class="map-city-list-title">Areas We Serve</div>
+                    <div class="map-city-item">
+                        <div class="map-city-pin">📍</div>
+                        <div>
+                            <div class="map-city-name">Orlando</div>
+                            <div class="map-city-note">Primary coverage · All zip codes</div>
+                        </div>
+                    </div>
+                    <div class="map-city-item">
+                        <div class="map-city-pin">📍</div>
+                        <div>
+                            <div class="map-city-name">Kissimmee</div>
+                            <div class="map-city-note">High-density vacation rental zone</div>
+                        </div>
+                    </div>
+                    <div class="map-city-item">
+                        <div class="map-city-pin">📍</div>
+                        <div>
+                            <div class="map-city-name">Davenport</div>
+                            <div class="map-city-note">Polk County · Growing coverage</div>
+                        </div>
+                    </div>
+                    <div class="map-city-item">
+                        <div class="map-city-pin">📍</div>
+                        <div>
+                            <div class="map-city-name">Champions Gate</div>
+                            <div class="map-city-note">Resort corridor · Full coverage</div>
+                        </div>
+                    </div>
+                    <div class="map-coverage-note">
+                        <span class="map-coverage-note-icon">💡</span>
+                        <span>Not on the list? Contact us — we're expanding our coverage area and may already serve your location.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CTA ===================== -->
+    <section class="cta" id="cta">
+        <div class="cta-glow"></div>
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to <span class="accent">Take a DayOff?</span></h2>
+            <p class="cta-subtitle">Stop worrying about AC breakdowns and heating failures. One call sets up your entire year of automatic HVAC maintenance.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary btn-lg">Get a Free Quote →</a>
+                <a href="tel:+14075551234" class="btn btn-white-outline btn-lg">Call Us</a>
+            </div>
+            <p class="cta-note">Free assessment · No obligations · Same-day response</p>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section contact" id="contact">
+        <div class="section-inner">
+            <div class="contact-grid">
+                <div class="reveal-left">
+                    <div class="contact-info-overline">Get In Touch</div>
+                    <h2 class="contact-info-title">Ready to take a DayOff from HVAC worries?</h2>
+                    <p class="contact-info-text">Tell us about your properties and we'll put together a free maintenance plan. No obligations, no pressure.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">✉️</div>
+                            <div>
+                                <div class="contact-detail-label">Email</div>
+                                <div class="contact-detail-value"><a href="mailto:jorgelameiras208@gmail.com">jorgelameiras208@gmail.com</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">📍</div>
+                            <div>
+                                <div class="contact-detail-label">Service Area</div>
+                                <div class="contact-detail-value">Central Florida</div>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">🕐</div>
+                            <div>
+                                <div class="contact-detail-label">Response Time</div>
+                                <div class="contact-detail-value">Within 24 hours · Usually same day</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-area-pills">
+                        <span class="area-pill">📍 Orlando</span>
+                        <span class="area-pill">📍 Kissimmee</span>
+                        <span class="area-pill">📍 Davenport</span>
+                        <span class="area-pill">📍 Champions Gate</span>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrap reveal-right" id="contactFormWrap">
+                    <div class="form-success" id="formSuccess">
+                        <div class="form-success-icon">✅</div>
+                        <h3 class="form-success-title">Request Sent!</h3>
+                        <p class="form-success-text">Thanks for reaching out. Jorge will be in touch within 24 hours with your free maintenance plan.</p>
+                    </div>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <h3 class="form-title">Get a Free Quote</h3>
+                        <p class="form-subtitle">Tell us about your property and we'll respond within 24 hours.</p>
+
+                        <!-- Honeypot -->
+                        <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Name <span class="req">*</span></label>
+                                <input class="form-input" type="text" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input class="form-input" type="tel" name="phone" placeholder="(555) 123-4567">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email <span class="req">*</span></label>
+                            <input class="form-input" type="email" name="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">HVAC Units</label>
+                                <input class="form-input" type="number" name="units" placeholder="e.g. 12" min="1">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">City</label>
+                                <select class="form-input" name="city">
+                                    <option value="">Select city...</option>
+                                    <option>Orlando</option>
+                                    <option>Kissimmee</option>
+                                    <option>Davenport</option>
+                                    <option>Champions Gate</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tell us about your property</label>
+                            <textarea class="form-input form-textarea" name="message" placeholder="Number of properties, unit types, any existing issues..."></textarea>
+                        </div>
+                        <div class="form-submit-wrap">
+                            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                                <span class="btn-text">Get Free Assessment →</span>
+                                <span class="btn-loading"><div class="spinner"></div></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-badge">
+                        <div class="footer-badge-dot"></div>
+                        Now Accepting New Clients
+                    </div>
+                    <div class="footer-brand-name">Day<span>Off</span></div>
+                    <p class="footer-brand-desc">Professional air conditioning and heating solutions for vacation rental properties in Central Florida. Set it once — we handle the rest.</p>
+                    <a href="mailto:jorgelameiras208@gmail.com" class="footer-contact-link">✉️ jorgelameiras208@gmail.com</a>
+                    <a href="#" class="footer-contact-link">📍 Orlando · Kissimmee · Davenport, FL</a>
+                </div>
+                <div>
+                    <div class="footer-col-title">Services</div>
+                    <div class="footer-links">
+                        <a href="#services">Air Conditioning</a>
+                        <a href="#services">Heating Solutions</a>
+                        <a href="#services">Full HVAC Package</a>
+                        <a href="#pricing">Pricing</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Company</div>
+                    <div class="footer-links">
+                        <a href="#about">Why DayOff</a>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#service-area">Service Area</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Contact</div>
+                    <div class="footer-links">
+                        <a href="#contact">Get a Quote</a>
+                        <a href="mailto:jorgelameiras208@gmail.com">Email Us</a>
+                        <a href="#testimonials">Reviews</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 DayOff Air Conditioning &amp; Heating Solutions. All rights reserved.</span>
+                <div class="footer-socials">
+                    <a href="#">FB</a>
+                    <a href="#">IG</a>
+                    <a href="#">LI</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta-bar" id="mobileCta">
+        <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+        <button class="mobile-cta-dismiss" onclick="document.getElementById('mobileCta').classList.add('dismissed'); document.body.classList.add('cta-dismissed');">✕</button>
+    </div>
+
 <script>
-async function submitContactForm(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    const msg = document.getElementById('formMsg');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
+    // Loader
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('loader').classList.add('hidden');
+        }, 1800);
+    });
 
-    const form = document.getElementById('contactForm');
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-    try {
-        const payload = {
-            name: form.querySelector('[name=name]').value,
-            email: form.querySelector('[name=email]').value,
-            phone: form.querySelector('[name=phone]').value,
-            units: form.querySelector('[name=units]').value,
-            message: form.querySelector('[name=message]').value,
-            website: form.querySelector('[name=website]').value,
-        };
-        const res = await fetch('/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.classList.toggle('active', open);
+        navToggle.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
         });
-        const result = await res.json();
-        if (result.success) {
-            form.reset();
-            document.querySelector('.success-overlay').classList.add('active');
-        } else {
-            msg.textContent = 'Something went wrong. Email us at jorgelameiras208@gmail.com';
-            msg.style.color = '#F87171';
-            msg.style.display = 'block';
-        }
-    } catch(err) {
-        msg.textContent = 'Network error. Please email jorgelameiras208@gmail.com directly.';
-        msg.style.color = '#F87171';
-        msg.style.display = 'block';
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Particles
+    const particleContainer = document.getElementById('particles');
+    for (let i = 0; i < 18; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 3 + 1;
+        p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;animation-duration:${Math.random()*15+10}s;animation-delay:-${Math.random()*20}s;opacity:${Math.random()*0.3+0.1}`;
+        particleContainer.appendChild(p);
     }
-    btn.textContent = 'Request Free Assessment →';
-    btn.disabled = false;
-}
+
+    // Steps line animation
+    const stepsLine = document.getElementById('stepsLine');
+    if (stepsLine) {
+        const stepsObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) stepsLine.classList.add('animated');
+        }, { threshold: 0.5 });
+        stepsObserver.observe(stepsLine);
+    }
+
+    // Active nav links
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 120) current = s.id;
+        });
+        navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    });
+
+    // Contact form
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        btn.classList.add('loading');
+        btn.disabled = true;
+        const form = document.getElementById('contactForm');
+        try {
+            const payload = {
+                name: form.querySelector('[name=name]').value,
+                email: form.querySelector('[name=email]').value,
+                phone: form.querySelector('[name=phone]').value,
+                units: form.querySelector('[name=units]').value,
+                city: form.querySelector('[name=city]').value,
+                message: form.querySelector('[name=message]').value,
+            };
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const result = await res.json();
+            if (result.success) {
+                form.style.display = 'none';
+                document.getElementById('formSuccess').classList.add('visible');
+            } else {
+                alert('Something went wrong. Please email jorgelameiras208@gmail.com directly.');
+            }
+        } catch(err) {
+            alert('Network error. Please email jorgelameiras208@gmail.com directly.');
+        }
+        btn.classList.remove('loading');
+        btn.disabled = false;
+    }
 </script>
 </body>
 </html>
