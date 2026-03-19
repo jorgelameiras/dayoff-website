@@ -964,6 +964,65 @@
       .footer-grid { grid-template-columns: 1fr; gap: 36px; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
     }
+
+    /* Mobile hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: #0A1628;
+      padding: 24px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: #E8852A; }
+    .mobile-menu .btn-nav {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      padding: 14px 22px;
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none !important; }
+      .btn-nav-desktop { display: none !important; }
+      .nav-hamburger { display: flex; }
+      .hero-headline { font-size: 36px; line-height: 1.15; }
+      section { padding: 64px 20px; }
+      .section-title { font-size: 28px; }
+    }
   </style>
 </head>
 <body>
@@ -979,11 +1038,21 @@
         <li><a href="#process">Process</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#faq">Contact</a></li>
-        <li><a href="quote.html" class="btn-nav">Get a Quote</a></li>
+        <li><a href="quote.html" class="btn-nav btn-nav-desktop">Get a Quote</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button></li>
       </ul>
     </div>
   </nav>
 
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+    <a href="quote.html" class="btn-nav">Get a Quote</a>
+  </div>
   <!-- ═══ HERO ═══ -->
   <section id="hero">
     <div class="hero-inner">
@@ -1145,7 +1214,7 @@
       <div class="pricing-grid">
         <div class="pricing-card">
           <div class="pricing-plan">Starter</div>
-          <div class="pricing-price"><sup>$</sup>149</div>
+          <div class="pricing-price"><sup>$</sup>159</div>
           <div class="pricing-period">per visit · single property</div>
           <hr class="pricing-divider">
           <ul class="pricing-features">
@@ -1161,7 +1230,7 @@
         <div class="pricing-card featured">
           <div class="featured-badge">Most Popular</div>
           <div class="pricing-plan">Portfolio</div>
-          <div class="pricing-price" style="color:var(--white)"><sup style="color:var(--white)">$</sup>99</div>
+          <div class="pricing-price" style="color:var(--white)"><sup style="color:var(--white)">$</sup>129</div>
           <div class="pricing-period">per unit · per visit · 5+ units</div>
           <hr class="pricing-divider">
           <ul class="pricing-features">
@@ -1340,6 +1409,22 @@
         setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 3000);
       }
     }
+  </script>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    // Close menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
   </script>
 </body>
 </html>
