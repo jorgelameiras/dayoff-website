@@ -283,17 +283,7 @@
       backdrop-filter: blur(8px);
     }
 
-    .hero-card-icon-UNUSED {
     .hero-card-icon {
-      width: 60px;
-      height: 60px;
-      background: transparent;
-      border-radius: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
       width: 52px;
       height: 52px;
       background: var(--orange);
@@ -1038,32 +1028,7 @@
 </head>
 <body>
 
-  <!-- ═══ NAV ═══ -->
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="dayoff-logo-transparent.png" alt="DayOff icon" style="height:72px;width:72px;object-fit:contain;display:block;"><span style="font-size:20px;font-weight:700;letter-spacing:-0.5px;color:#0A1628;">Day<span style="color:#E8852A;">Off</span></span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#faq">Contact</a></li>
-        <li><a href="quote.html" class="btn-nav btn-nav-desktop">Get a Quote</a></li>
-      </ul>
-      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
-
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
-    <a href="quote.html" class="btn-nav">Get a Quote</a>
-  </div>
+  <div id="header-placeholder"></div>
   <!-- ═══ HERO ═══ -->
   <section id="hero">
     <div class="hero-inner">
@@ -1134,7 +1099,7 @@
           <a href="quote.html" class="service-link">Learn More →</a>
         </div>
         <div class="service-card featured">
-          <div class="service-icon"><div style="background:#1B2B4B;border-radius:14px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div></div>
+          <div class="service-icon"><div style="background:#E8852A;border-radius:14px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div></div>
           <h3>Full HVAC Package</h3>
           <p style="color:rgba(255,255,255,0.65)">Our flagship solution. Complete AC + Heating management with priority scheduling, monthly health checks, and full documentation for property managers.</p>
           <a href="quote.html" class="service-link">Explore Package →</a>
@@ -1423,17 +1388,19 @@
   </script>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    // Close menu when a link is clicked
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
+    fetch('header.html').then(r=>r.text()).then(html=>{
+      document.getElementById('header-placeholder').innerHTML=html;
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        });
       });
     });
   </script>

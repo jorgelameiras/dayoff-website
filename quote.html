@@ -697,30 +697,7 @@
 </head>
 <body>
 
-  <!-- ═══ NAV ═══ -->
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="dayoff-logo.png" alt="DayOff icon" style="height:40px;width:40px;object-fit:contain;"><span style="font-size:20px;font-weight:700;letter-spacing:-0.5px;color:#0A1628">Day<span style="color:#E8852A;">Off</span></span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#process">Process</a></li>
-        <li><a href="index.html#pricing">Pricing</a></li>
-        <li><a href="index.html#faq">Contact</a></li>
-        <li><a href="quote.html" class="btn-nav btn-nav-desktop">Get a Quote</a></li>
-      </ul>
-      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#services">Services</a>
-    <a href="index.html#process">Process</a>
-    <a href="index.html#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
-    <a href="quote.html" class="btn-nav">Get a Quote</a>
-  </div>
+  <div id="header-placeholder"></div>
 
   <!-- ═══ HERO ═══ -->
   <div class="quote-hero">
@@ -946,16 +923,19 @@
   </script>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
+    fetch('header.html').then(r=>r.text()).then(html=>{
+      document.getElementById('header-placeholder').innerHTML=html;
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        });
       });
     });
   </script>
