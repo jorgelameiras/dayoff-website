@@ -1,10 +1,10 @@
 // Allowed origins for CORS
-const ALLOWED_ORIGINS = ['https://casafresh.com', 'https://www.casafresh.com', 'https://casafresh.vercel.app', 'https://dayoffac.com', 'https://www.dayoffac.com'];
+const ALLOWED_ORIGINS = ['https://dayoffac.com', 'https://www.dayoffac.com'];
 
 function isAllowedOrigin(origin) {
   if (!origin) return true; // allow server-side / direct
   if (ALLOWED_ORIGINS.includes(origin)) return true;
-  // Allow all casafresh-website vercel preview deployments
+  // Allow all dayoffac vercel preview deployments
   if (/^https:\/\/casafresh-website[a-z0-9-]*\.vercel\.app$/.test(origin)) return true;
   return false;
 }
@@ -91,17 +91,17 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Name is required' });
   }
 
-  const body = `New CasaFresh assessment request:\n\nName: ${cleanName}\nEmail: ${cleanEmail}\nPhone: ${cleanPhone || 'Not provided'}\nAC Units: ${cleanUnits || 'Not specified'}\nMessage: ${cleanMessage || 'No message'}`;
+  const body = `New DayOff AC assessment request:\n\nName: ${cleanName}\nEmail: ${cleanEmail}\nPhone: ${cleanPhone || 'Not provided'}\nAC Units: ${cleanUnits || 'Not specified'}\nMessage: ${cleanMessage || 'No message'}`;
 
   try {
     const r = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: { 'api-key': process.env.BREVO_API_KEY, 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        sender: { name: 'CasaFresh Website', email: 'jorgelameiras207@gmail.com' },
-        to: [{ email: 'jorgelameiras208@gmail.com', name: 'Jorge' }],
+        sender: { name: 'DayOff AC Website', email: 'jorgelameiras207@gmail.com' },
+        to: [{ email: 'info@dayoffac.com', name: 'DayOff AC' }],
         replyTo: { email: cleanEmail, name: cleanName },
-        subject: `CasaFresh: New assessment request from ${cleanName}`,
+        subject: `DayOff AC: New assessment request from ${cleanName}`,
         textContent: body
       })
     });

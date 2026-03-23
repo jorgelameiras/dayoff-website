@@ -100,10 +100,10 @@
                 form.style.display = 'none';
                 document.getElementById('formSuccess').classList.add('visible');
             } else {
-                alert('Something went wrong. Please email jorgelameiras208@gmail.com directly.');
+                alert('Something went wrong. Please email info@dayoffac.com directly.');
             }
         } catch(err) {
-            alert('Network error. Please email jorgelameiras208@gmail.com directly.');
+            alert('Network error. Please email info@dayoffac.com directly.');
         }
         btn.classList.remove('loading');
         btn.disabled = false;
