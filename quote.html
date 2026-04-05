@@ -630,6 +630,24 @@
               </select>
             </div>
           </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="preferredDate">Preferred Date</label>
+              <input type="date" id="preferredDate" name="preferredDate" min="" required>
+            </div>
+            <div class="form-group">
+              <label for="preferredTime">Preferred Time</label>
+              <select id="preferredTime" name="preferredTime" required>
+                <option value="" disabled selected>Select a time</option>
+                <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
+                <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                <option value="12:00 PM - 2:00 PM">12:00 PM - 2:00 PM</option>
+                <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
+                <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
+                <option value="flexible">I'm Flexible</option>
+              </select>
+            </div>
+          </div>
           <div class="form-group">
             <label for="message">Message <span style="color:var(--text-light);font-weight:400">(optional)</span></label>
             <textarea id="message" name="message" placeholder="Tell us more about your property, any existing issues, or questions you have..."></textarea>
@@ -765,6 +783,13 @@
   </footer>
 
   <script>
+    // Set min date to today
+    const dateInput = document.getElementById('preferredDate');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+    }
+
     // Nav shadow on scroll
     window.addEventListener('scroll', function() {
       const nav = document.querySelector('nav');

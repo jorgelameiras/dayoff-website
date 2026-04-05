@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work | DayOff AC & Heating Solutions</title>
+  <meta name="description" content="Browse our portfolio of HVAC service, indoor air quality, and rejuvenation maintenance projects for vacation rentals across Central Florida.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Our Work | DayOff AC & Heating Solutions">
+  <meta property="og:description" content="See our completed HVAC projects for vacation rental properties in Orlando, Kissimmee, Davenport & Champions Gate.">
+  <meta name="theme-color" content="#0A1628">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0A1628;
+      --navy-accent: #1E3A5F;
+      --white: #FFFFFF;
+      --gray-light: #F8F9FA;
+      --orange: #E8852A;
+      --text-dark: #1A1A2A;
+      --text-light: #6B7280;
+      --border: #E5E7EB;
+      --shadow: 0 2px 16px rgba(10,22,40,0.08);
+      --shadow-md: 0 4px 32px rgba(10,22,40,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ─── OVERLINE ─── */
+    .overline {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    /* ─── HERO ─── */
+    .gallery-hero {
+      margin-top: 72px;
+      background-color: var(--navy);
+      background-image: url('hero-2.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+    }
+
+    .gallery-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, rgba(10,22,40,0.92) 45%, rgba(10,22,40,0.6) 100%);
+    }
+
+    .gallery-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      width: 100%;
+    }
+
+    .gallery-hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .gallery-hero h1 em {
+      font-style: italic;
+    }
+
+    .gallery-hero p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-orange {
+      background: var(--orange);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-orange:hover { background: #d4751f; transform: translateY(-1px); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    /* ─── FILTER TABS ─── */
+    .filter-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px 0;
+    }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 0;
+    }
+
+    .filter-tab {
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-light);
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .filter-tab:hover {
+      color: var(--text-dark);
+    }
+
+    .filter-tab.active {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .filter-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 12px;
+      right: 12px;
+      height: 3px;
+      background: var(--navy);
+      border-radius: 3px 3px 0 0;
+    }
+
+    .filter-count {
+      font-size: 13px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-count span {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    /* ─── PROJECT GRID ─── */
+    .projects-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .project-card {
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .project-card-image {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background: var(--gray-light);
+    }
+
+    .project-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .project-card:hover .project-card-image img {
+      transform: scale(1.05);
+    }
+
+    .project-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .tag-service { background: var(--navy); }
+    .tag-indoor-air { background: var(--orange); }
+    .tag-rejuve { background: #2D8B5E; }
+
+    .project-card-body {
+      padding: 20px 4px 8px;
+    }
+
+    .project-card-body h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .project-location {
+      font-size: 13px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .project-location::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── PLACEHOLDER IMAGES (gradient + icon) ─── */
+    .placeholder-img {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .placeholder-img.style-1 { background: linear-gradient(135deg, #1E3A5F 0%, #0A1628 100%); }
+    .placeholder-img.style-2 { background: linear-gradient(135deg, #E8852A 0%, #d4751f 100%); }
+    .placeholder-img.style-3 { background: linear-gradient(135deg, #2D8B5E 0%, #1a5e3c 100%); }
+    .placeholder-img.style-4 { background: linear-gradient(135deg, #0A1628 0%, #1E3A5F 100%); }
+    .placeholder-img.style-5 { background: linear-gradient(135deg, #d4751f 0%, #E8852A 100%); }
+    .placeholder-img.style-6 { background: linear-gradient(135deg, #1a5e3c 0%, #2D8B5E 100%); }
+
+    /* ─── CTA ─── */
+    .gallery-cta {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-accent) 100%);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .gallery-cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .gallery-cta h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .gallery-cta h2 em {
+      font-style: italic;
+      color: var(--orange);
+    }
+
+    .gallery-cta p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .btn-cta {
+      background: var(--orange);
+      color: var(--white);
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cta:hover {
+      background: #D77624;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232,133,42,0.3);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      padding: 72px 24px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .footer-brand-name span { color: var(--orange); }
+
+    .footer-tagline {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.45);
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      transition: border-color 0.2s, background 0.2s;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      border-color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ─── LIGHTBOX ─── */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,22,40,0.92);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      cursor: pointer;
+    }
+
+    .lightbox-overlay.open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 800px;
+      width: 100%;
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: default;
+      animation: lightboxIn 0.3s ease;
+    }
+
+    @keyframes lightboxIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .lightbox-image {
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+    }
+
+    .lightbox-image img,
+    .lightbox-image .placeholder-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .lightbox-body {
+      padding: 32px;
+    }
+
+    .lightbox-body .project-tag {
+      position: static;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .lightbox-body h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    .lightbox-body .project-location {
+      margin-bottom: 16px;
+    }
+
+    .lightbox-body p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 2001;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-hero { min-height: 320px; }
+      .gallery-hero h1 { font-size: 36px; }
+      .filter-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .filter-tab { padding: 14px 16px; font-size: 13px; }
+      .filter-bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .filter-count { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .projects-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .hero-buttons { flex-direction: column; }
+      .hero-buttons a { text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <div id="header-placeholder"></div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="gallery-hero">
+    <div class="gallery-hero-inner">
+      <span class="overline">Portfolio Showcase</span>
+      <h1>Our Craft in Every <em>Climate</em></h1>
+      <p>Professional precision for vacation rentals and luxury properties. See how we keep Central Florida's vacation homes running at peak comfort.</p>
+      <div class="hero-buttons">
+        <a href="quote.html" class="btn-orange">Get a Quote</a>
+        <a href="services.html" class="btn-outline-white">View Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FILTER TABS ═══ -->
+  <div class="filter-section">
+    <div class="filter-bar">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Projects</button>
+        <button class="filter-tab" data-filter="service">Service</button>
+        <button class="filter-tab" data-filter="indoor-air">Indoor Air</button>
+        <button class="filter-tab" data-filter="rejuve">Rejuve Maintenance</button>
+      </div>
+      <div class="filter-count"><span id="projectCount">6</span> Projects</div>
+    </div>
+  </div>
+
+  <!-- ═══ PROJECTS GRID ═══ -->
+  <section class="projects-section">
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- Card 1 — Service -->
+      <div class="project-card" data-category="service" data-index="0">
+        <div class="project-card-image">
+          <div class="placeholder-img style-1">
+            <svg width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085"/></svg>
+          </div>
+          <span class="project-tag tag-service">Service</span>
+        </div>
+        <div class="project-card-body">
+          <h3>Full System Diagnostic & Repair</h3>
+          <div class="project-location">Orlando, FL</div>
+        </div>
+      </div>
+
+      <!-- Card 2 — Indoor Air -->
+      <div class="project-card" data-category="indoor-air" data-index="1">
+        <div class="project-card-image">
+          <div class="placeholder-img style-2">
+            <svg width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+          </div>
+          <span class="project-tag tag-indoor-air">Indoor Air</span>
+        </div>
+        <div class="project-card-body">
+          <h3>UV Light & Coil Treatment</h3>
+          <div class="project-location">Kissimmee, FL</div>
+        </div>
+      </div>
+
+      <!-- Card 3 — Rejuve -->
+      <div class="project-card" data-category="rejuve" data-index="2">
+        <div class="project-card-image">
+          <div class="placeholder-img style-3">
+            <svg width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+          </div>
+          <span class="project-tag tag-rejuve">Rejuve Maintenance</span>
+        </div>
+        <div class="project-card-body">
+          <h3>Vacation Home Deep Rejuvenation</h3>
+          <div class="project-location">Davenport, FL</div>
+        </div>
+      </div>
+
+      <!-- Card 4 — Service -->
+      <div class="project-card" data-category="service" data-index="3">
+        <div class="project-card-image">
+          <div class="placeholder-img style-4">
+            <svg width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <span class="project-tag tag-service">Service</span>
+        </div>
+        <div class="project-card-body">
+          <h3>Capacitor & Contactor Replacement</h3>
+          <div class="project-location">Champions Gate, FL</div>
+        </div>
+      </div>
+
+      <!-- Card 5 — Indoor Air -->
+      <div class="project-card" data-category="indoor-air" data-index="4">
+        <div class="project-card-image">
+          <div class="placeholder-img style-5">
+            <svg width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+          </div>
+          <span class="project-tag tag-indoor-air">Indoor Air</span>
+        </div>
+        <div class="project-card-body">
+          <h3>Blower Assembly Deep Clean</h3>
+          <div class="project-location">Orlando, FL</div>
+        </div>
+      </div>
+
+      <!-- Card 6 — Rejuve -->
+      <div class="project-card" data-category="rejuve" data-index="5">
+        <div class="project-card-image">
+          <div class="placeholder-img style-6">
+            <svg width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.745 3.745 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+          </div>
+          <span class="project-tag tag-rejuve">Rejuve Maintenance</span>
+        </div>
+        <div class="project-card-body">
+          <h3>Seasonal Full System Rejuvenation</h3>
+          <div class="project-location">Kissimmee, FL</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="gallery-cta">
+    <div class="gallery-cta-inner">
+      <h2>Ready for a <em>climate upgrade?</em></h2>
+      <p>Join vacation property managers across Central Florida who trust DayOff for their HVAC needs. Fast response, transparent pricing.</p>
+      <a href="quote.html" class="btn-cta">Start Your Consultation</a>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Day<span>Off</span></div>
+          <p class="footer-tagline">The Modern Custodian of Climate Control for the vacation hospitality industry.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="quote.html">Emergency Service</a></li>
+            <li><a href="services.html">All Services</a></li>
+            <li><a href="gallery.html">Our Work</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="quote.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:12px">
+            <a href="tel:+13213103209" style="color:var(--orange);text-decoration:none">(321) 310-3209</a><br>
+            <a href="mailto:info@dayoffac.com" style="color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none">info@dayoffac.com</a>
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-icon" aria-label="Facebook">f</a>
+            <a href="#" class="social-icon" aria-label="Instagram">&#128247;</a>
+            <a href="#" class="social-icon" aria-label="Google">G</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 DayOff AC & Heating Solutions. All rights reserved.</span>
+        <span>Serving Central Florida</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ LIGHTBOX ═══ -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <div class="lightbox-content" id="lightboxContent"></div>
+  </div>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script>
+    // Project data for lightbox
+    const projects = [
+      {
+        title: 'Full System Diagnostic & Repair',
+        location: 'Orlando, FL',
+        category: 'service',
+        tagLabel: 'Service',
+        tagClass: 'tag-service',
+        style: 'style-1',
+        description: 'Complete diagnostic and repair of a 5-ton split system serving a luxury vacation rental. Identified a failing capacitor and low refrigerant charge, restoring full cooling capacity before the next guest check-in.'
+      },
+      {
+        title: 'UV Light & Coil Treatment',
+        location: 'Kissimmee, FL',
+        category: 'indoor-air',
+        tagLabel: 'Indoor Air',
+        tagClass: 'tag-indoor-air',
+        style: 'style-2',
+        description: 'Installed germicidal UV light system and performed deep coil treatment on a resort-area property. Eliminated mold buildup and dramatically improved indoor air quality for guests.'
+      },
+      {
+        title: 'Vacation Home Deep Rejuvenation',
+        location: 'Davenport, FL',
+        category: 'rejuve',
+        tagLabel: 'Rejuve Maintenance',
+        tagClass: 'tag-rejuve',
+        style: 'style-3',
+        description: 'Full rejuvenation maintenance package for a 4-bedroom vacation home. Included blower assembly cleaning, evap coil treatment, drain line flush, and condenser coil wash — ready for peak season.'
+      },
+      {
+        title: 'Capacitor & Contactor Replacement',
+        location: 'Champions Gate, FL',
+        category: 'service',
+        tagLabel: 'Service',
+        tagClass: 'tag-service',
+        style: 'style-4',
+        description: 'Emergency replacement of failed capacitor and worn contactor on a property with guests arriving same day. Completed within 2 hours of the service call.'
+      },
+      {
+        title: 'Blower Assembly Deep Clean',
+        location: 'Orlando, FL',
+        category: 'indoor-air',
+        tagLabel: 'Indoor Air',
+        tagClass: 'tag-indoor-air',
+        style: 'style-5',
+        description: 'Pulled and deep-cleaned the blower assembly to eliminate dust and allergen buildup. Property manager reported a noticeable improvement in air freshness and guest satisfaction scores.'
+      },
+      {
+        title: 'Seasonal Full System Rejuvenation',
+        location: 'Kissimmee, FL',
+        category: 'rejuve',
+        tagLabel: 'Rejuve Maintenance',
+        tagClass: 'tag-rejuve',
+        style: 'style-6',
+        description: 'Pre-summer full system rejuvenation for a high-occupancy rental. All filters replaced, both coils cleaned, drain lines flushed, and refrigerant levels verified. System running at peak efficiency.'
+      }
+    ];
+
+    // Filter tabs
+    const tabs = document.querySelectorAll('.filter-tab');
+    const cards = document.querySelectorAll('.project-card');
+    const countEl = document.getElementById('projectCount');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        let visible = 0;
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = '';
+            visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        countEl.textContent = visible;
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxContent = document.getElementById('lightboxContent');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const idx = parseInt(card.dataset.index);
+        const p = projects[idx];
+        lightboxContent.innerHTML = `
+          <div class="lightbox-image">
+            <div class="placeholder-img ${p.style}">
+              <svg width="72" height="72" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>
+            </div>
+          </div>
+          <div class="lightbox-body">
+            <span class="project-tag ${p.tagClass}">${p.tagLabel}</span>
+            <h3>${p.title}</h3>
+            <div class="project-location">${p.location}</div>
+            <p>${p.description}</p>
+          </div>
+        `;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
+
+  <!-- Load header navigation -->
+  <script>
+    fetch('header.html').then(r=>r.text()).then(html=>{
+      document.getElementById('header-placeholder').innerHTML=html;
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('open');
+          mobileMenu.classList.toggle('open');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
