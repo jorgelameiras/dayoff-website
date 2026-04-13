@@ -5,7 +5,7 @@ function isAllowedOrigin(origin) {
   if (!origin) return true; // allow server-side / direct
   if (ALLOWED_ORIGINS.includes(origin)) return true;
   // Allow all dayoffac vercel preview deployments
-  if (/^https:\/\/casafresh-website[a-z0-9-]*\.vercel\.app$/.test(origin)) return true;
+  if (/^https:\/\/dayoff-website[a-z0-9-]*\.vercel\.app$/.test(origin)) return true;
   return false;
 }
 

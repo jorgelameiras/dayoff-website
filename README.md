@@ -1,10 +1,10 @@
-# CasaFresh Website
+# DayOff Website
 
-Marketing landing page for CasaFresh — vacation home cleaning and AC maintenance services in Florida.
+Marketing landing page for DayOff — vacation home cleaning and AC maintenance services in Florida.
 
 ## What It Does
 
-A clean, modern marketing website that introduces CasaFresh to potential clients (Airbnb/VRBO hosts and property managers).
+A clean, modern marketing website that introduces DayOff to potential clients (Airbnb/VRBO hosts and property managers).
 
 ## Features
 
@@ -44,4 +44,4 @@ npx serve .
 
 ## Business Context
 
-CasaFresh serves vacation home owners in the Florida market (Orlando, Kissimmee, Tampa, Miami). The unique differentiator is offering cleaning **and** AC maintenance as a bundled service.
+DayOff serves vacation home owners in the Florida market (Orlando, Kissimmee, Tampa, Miami). The unique differentiator is offering cleaning **and** AC maintenance as a bundled service.
