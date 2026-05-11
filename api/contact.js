@@ -43,8 +43,9 @@ function isValidEmail(email) {
 export default async function handler(req, res) {
   // CORS origin check
   const origin = req.headers['origin'];
-  if (isAllowedOrigin(origin)) {
+  if (origin && isAllowedOrigin(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
   }
   res.setHeader('Access-Control-Allow-Methods', 'POST');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -63,7 +64,7 @@ export default async function handler(req, res) {
     return res.status(429).json({ error: 'Too many requests. Please try again later.' });
   }
 
-  const { name, email, phone, units, message, website } = req.body || {};
+  const { name, fullName, email, phone, units, message, website } = req.body || {};
 
   // Honeypot field — bots fill this in, real users don't see it
   if (website) {
@@ -72,10 +73,11 @@ export default async function handler(req, res) {
   }
 
   // Validate required fields
-  if (!name || !email) return res.status(400).json({ error: 'Name and email required' });
+  const submittedName = name || fullName;
+  if (!submittedName || !email) return res.status(400).json({ error: 'Name and email required' });
 
   // Sanitize all inputs
-  const cleanName = sanitize(name).slice(0, 100);
+  const cleanName = sanitize(submittedName).slice(0, 100);
   const cleanEmail = sanitize(email).slice(0, 254);
   const cleanPhone = sanitize(phone || '').slice(0, 30);
   const cleanUnits = sanitize(units || '').slice(0, 20);
