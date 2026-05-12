@@ -836,7 +836,7 @@
   </script>
 
   <script>
-    fetch('header.html').then(r=>r.text()).then(html=>{
+    fetch('/header.html').then(r=>r.text()).then(html=>{
       document.getElementById('header-placeholder').innerHTML=html;
       const hamburger = document.getElementById('hamburger');
       const mobileMenu = document.getElementById('mobileMenu');

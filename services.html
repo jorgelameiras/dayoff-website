@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services & Pricing | DayOff AC & Heating Solutions</title>
-  <meta name="description" content="Professional HVAC services and transparent pricing for vacation rental owners in Central Florida. Filter replacement, drain cleaning, coil maintenance, and more.">
+  <title>Services | DayOff AC & Heating Solutions</title>
+  <meta name="description" content="HVAC, ice machine, and exhaust fan services for vacation rental and commercial properties in Central Florida.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Services & Pricing | DayOff AC & Heating Solutions">
-  <meta property="og:description" content="Professional HVAC services with transparent pricing for Central Florida vacation rentals.">
+  <meta property="og:title" content="Services | DayOff AC & Heating Solutions">
+  <meta property="og:description" content="HVAC, ice machine, and exhaust fan services for Central Florida.">
   <meta name="theme-color" content="#0A1628">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,7 @@
       --border: #E5E7EB;
       --shadow: 0 2px 16px rgba(10,22,40,0.08);
       --shadow-md: 0 4px 32px rgba(10,22,40,0.12);
+      --shadow-lg: 0 16px 48px rgba(10,22,40,0.18);
     }
 
     html { scroll-behavior: smooth; }
@@ -44,7 +45,7 @@
       margin-top: 72px;
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-accent) 100%);
       color: var(--white);
-      padding: 80px 24px 60px;
+      padding: 96px 24px 100px;
       text-align: center;
     }
 
@@ -53,86 +54,148 @@
       margin: 0 auto;
     }
 
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
       font-weight: 700;
       line-height: 1.1;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .hero-sub {
       font-size: 18px;
-      opacity: 0.9;
-      line-height: 1.6;
+      opacity: 0.85;
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto;
     }
 
-    /* ─── SERVICES SECTION ─── */
-    .services {
-      max-width: 1100px;
-      margin: 80px auto;
+    /* ─── 3-CARD GRID ─── */
+    .categories {
+      max-width: 1200px;
+      margin: -60px auto 80px;
       padding: 0 24px;
+      position: relative;
+      z-index: 2;
     }
 
-    .service-category {
-      margin-bottom: 60px;
-    }
-
-    .category-header {
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--orange);
-    }
-
-    .category-title {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-
-    .category-desc {
-      color: var(--text-light);
-      font-size: 16px;
-    }
-
-    .service-list {
+    .categories-grid {
       display: grid;
-      gap: 1px;
-      background: var(--border);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .category-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
       overflow: hidden;
     }
 
-    .service-item {
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--orange);
+    }
+
+    .category-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .category-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .category-card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background: rgba(232,133,42,0.10);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px 24px;
-      background: var(--white);
-      transition: background 0.2s;
+      justify-content: center;
+      margin-bottom: 24px;
     }
 
-    .service-item:hover {
-      background: var(--gray-light);
+    .category-card-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--orange);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .service-name {
-      font-weight: 500;
-      color: var(--text-dark);
-      font-size: 16px;
-    }
-
-    .service-price {
-      font-weight: 600;
+    .category-card h2 {
+      font-size: 26px;
+      font-weight: 700;
       color: var(--navy);
-      font-size: 18px;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .category-card p {
+      color: var(--text-light);
+      font-size: 15px;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .category-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+      transition: gap 0.2s ease, color 0.2s ease;
+    }
+
+    .category-card:hover .category-card-cta {
+      gap: 14px;
+      color: var(--orange);
+    }
+
+    .category-card-cta svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.5;
     }
 
     /* ─── CTA ─── */
     .cta {
       background: var(--gray-light);
-      padding: 60px 24px;
+      padding: 80px 24px;
       text-align: center;
     }
 
@@ -186,15 +249,18 @@
     }
 
     /* ─── RESPONSIVE ─── */
-    @media (max-width: 768px) {
-      .service-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+    @media (max-width: 960px) {
+      .categories-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
       }
-      .service-price {
-        align-self: flex-end;
-      }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 80px 20px 100px; }
+      .categories { margin-top: -60px; }
+      .category-card { min-height: auto; padding: 32px 24px; }
     }
   </style>
 </head>
@@ -206,110 +272,85 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <h1>Services & Pricing</h1>
-      <p class="hero-sub">Transparent pricing for all your HVAC needs. No hidden fees, no surprises — just honest service for your vacation rental property.</p>
+      <span class="hero-eyebrow">What we do</span>
+      <h1>Services Built Around Your Property</h1>
+      <p class="hero-sub">Three specialty service lines — pick the one that fits your need and we'll handle the rest.</p>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services">
+  <!-- 3 CATEGORY CARDS -->
+  <section class="categories">
+    <div class="categories-grid">
 
-    <!-- MAJOR SERVICES -->
-    <div class="service-category">
-      <div class="category-header">
-        <h2 class="category-title">Major Services</h2>
-        <p class="category-desc">Essential HVAC repairs and maintenance to keep your system running smoothly.</p>
-      </div>
-      <div class="service-list">
-        <div class="service-item">
-          <span class="service-name">Filter Replacement</span>
-          <span class="service-price">$50.00</span>
+      <!-- HVAC -->
+      <a href="/services/hvac.html" class="category-card">
+        <div class="category-card-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
         </div>
-        <div class="service-item">
-          <span class="service-name">Service Call</span>
-          <span class="service-price">$135.00</span>
+        <h2>HVAC</h2>
+        <p>Residential and commercial air conditioning and heating — from one-time service calls to bi-annual maintenance plans for vacation rental portfolios.</p>
+        <span class="category-card-cta">
+          Explore HVAC
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <!-- ICE MACHINE -->
+      <a href="/services/ice-machine.html" class="category-card">
+        <div class="category-card-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+          </svg>
         </div>
-        <div class="service-item">
-          <span class="service-name">Drain Line Full Cleaning</span>
-          <span class="service-price">$180.00</span>
+        <h2>Ice Machine</h2>
+        <p>Commercial and residential ice machine maintenance, descaling, and repair — keep your bar, kitchen, or rental property pumping clean ice year-round.</p>
+        <span class="category-card-cta">
+          Explore Ice Machines
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <!-- EXHAUST FA -->
+      <a href="/services/exhaust-fa.html" class="category-card">
+        <div class="category-card-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3c2 3 2 6 0 9-2-3-2-6 0-9zM12 21c-2-3-2-6 0-9 2 3 2 6 0 9zM3 12c3-2 6-2 9 0-3 2-6 2-9 0zM21 12c-3 2-6 2-9 0 3-2 6-2 9 0z"/>
+            <circle cx="12" cy="12" r="1.5"/>
+          </svg>
         </div>
-        <div class="service-item">
-          <span class="service-name">Drain Line PVC Repipe</span>
-          <span class="service-price">$210.00</span>
-        </div>
-        <div class="service-item">
-          <span class="service-name">Capacitor Replacement + Labor</span>
-          <span class="service-price">$250.00</span>
-        </div>
-        <div class="service-item">
-          <span class="service-name">Contactor Replacement + Labor</span>
-          <span class="service-price">$250.00</span>
-        </div>
-        <div class="service-item">
-          <span class="service-name">Pressure Switch Replacement + Labor</span>
-          <span class="service-price">$350.00</span>
-        </div>
-        <div class="service-item">
-          <span class="service-name">Schrader Core Replacement + Labor</span>
-          <span class="service-price">$175.00</span>
-        </div>
-        <div class="service-item">
-          <span class="service-name">410A Refrigerant (per pound)</span>
-          <span class="service-price">$120.00</span>
-        </div>
-      </div>
+        <h2>Exhaust FA</h2>
+        <p>Inspection, cleaning, and maintenance of exhaust fan systems — for kitchens, bathrooms, and commercial ventilation throughout your property.</p>
+        <span class="category-card-cta">
+          Explore Exhaust FA
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
     </div>
-
-    <!-- INDOOR AIR QUALITY -->
-    <div class="service-category">
-      <div class="category-header">
-        <h2 class="category-title">Indoor Air Quality</h2>
-        <p class="category-desc">Keep your vacation rental's air clean and fresh for your guests.</p>
-      </div>
-      <div class="service-list">
-        <div class="service-item">
-          <span class="service-name">Blower Assembly Pull and Cleaning</span>
-          <span class="service-price">$340.00</span>
-        </div>
-        <div class="service-item">
-          <span class="service-name">Evap Coil Clean</span>
-          <span class="service-price">$150.00</span>
-        </div>
-        <div class="service-item">
-          <span class="service-name">Evap Coil Plan - Treatment</span>
-          <span class="service-price">$80.00</span>
-        </div>
-        <div class="service-item">
-          <span class="service-name">UV Light Installation</span>
-          <span class="service-price">$385.00</span>
-        </div>
-        <div class="service-item">
-          <span class="service-name">Condenser Coil Cleaning</span>
-          <span class="service-price">$250.00</span>
-        </div>
-      </div>
-    </div>
-
   </section>
 
   <!-- CTA -->
   <section class="cta">
     <div class="cta-inner">
-      <h2>Ready to Schedule Service?</h2>
-      <p>Get a free quote for your vacation rental HVAC needs. Fast response, transparent pricing, and professional service guaranteed.</p>
-      <a href="quote.html" class="btn-large">Get a Free Quote</a>
+      <h2>Not Sure Which Service You Need?</h2>
+      <p>Tell us what's going on with your property and we'll point you in the right direction — no commitment, no pressure.</p>
+      <a href="/quote.html" class="btn-large">Get a Free Proposal</a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 DayOff AC & Heating Solutions. All rights reserved.</p>
-    <p style="margin-top:8px;">Serving Orlando, Kissimmee, Davenport & Champions Gate</p>
+    <p style="margin-top:8px;">Serving Orlando, Kissimmee, Davenport &amp; Champions Gate</p>
   </footer>
 
   <!-- Load header navigation -->
   <script>
-    fetch('header.html').then(r=>r.text()).then(html=>{
+    fetch('/header.html').then(r=>r.text()).then(html=>{
       document.getElementById('header-placeholder').innerHTML=html;
       const hamburger = document.getElementById('hamburger');
       const mobileMenu = document.getElementById('mobileMenu');
